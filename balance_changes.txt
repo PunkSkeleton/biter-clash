@@ -1,0 +1,33 @@
+All ammo magazine size 10 -> 20
+Red ammo damage: 8 -> 12
+Flamethrower overall damage reduced by 2/3
+Flamethrower fuel consumption increased 5x
+Flamethrower ammo type bonus for heavy oil: 10% -> 50%, for light oil: 20% -> 100%
+Grenade blast radius: 6.5 -> 5
+Laser turret range: 50 (!!!)
+Rocket silo researched (TBD), rocket requires only 10 parts
+Poison capsule duration 25s -> 10s
+Slowdown capsule duration 30s -> 10s
+
+Biter upgrades:
+Adrenaline - small biters move and attack twice as fast
+Alcohol - half of small spitters aim exactly at the target (not at the predicted location of the target)
+Resistance - medium biters resistances change to:
+	physical: 6/40%
+	explosion: 4/40%
+	poison: 95%
+	fire: 50%
+	laser: 5/30%
+	electric: 30%
+	impact: 4/30%
+Heavy spit - medium spitters double damage
+Sharp teeth - big biters double damage
+Artillery - Big spitters max. range 40, min. range 20, ~17 seconds cooldown (very slow attack)
+Regeneration - Behemoth biters regenerate 120 health per second
+AoE spit - Behemoth spitter attack radius: 5
+
+Upgrades:
+Generally twice as good.
+Shooting speed generally extra 10% compared to damage.
+Steelaxe additionally gives 10% handcrafting speed.
+Tollbelt extra slots 10 -> 40, gives 20% handcrafting speed bonus.

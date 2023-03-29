@@ -1,0 +1,47 @@
+Biter Clash is an indirect PvP mod/scenario. In this mod two teams compete in trying to achieve one of two objectives:
+1. Destroy enemy team's rocket silo.
+2. Launch a rocket.
+The teams that completes any of those objective first wins.
+
+How to attack:
+1. Unlock a given biter/spitter, that will let you a nest that will spawn that biter at constant interval (TBD - subject to game balancing).
+2. Once having the nest place it as a ghost on the designated permanently visible area around field of play of the enemy. Its border is marked with a black line. The ghost will be automatically replaced with an item and the item will be removed from your inventory.
+3. Biter attacks are gathered in 50x50 areas so you decide how big and frequent the attacks are. Each are has a 10% (also subject to balance) chance of generating an attack every 10 seconds.
+4. If you happen to upgrade a given biter/spitter (each one has exactly one upgrade at this time) all the nests will be upgraded but already spawned biters will not be modified.
+
+How to launch a rocket and why it is a viable strategy:
+1. You start with a rocket silo already built, functional and requiring much less energy than in base game.
+2. You start with automation, logistics and rocket silo researched.
+3. You start with free resources (more on that later) and launching a rocket requires only 10 rocket parts (ten times less than in the base game).
+
+Game start:
+1. A map is generated, then cloned to be identical for both teams. It takes time. The main playable area is 1000x1000 with additional area for nest placement around it. The map is charted at the start to remove the element of luck.
+2. Each team has a constant 100x100 starting area. It is identical for every game and for each team and its border is marked with a black line.. At the center there is a rocket silo. 
+On the north of the silo there is (from left to right):
+	- offshore pump
+	- coal chest and loader (0.25 belt)
+	- stone chest and loader (0.5 belt)
+On the south of the silo there is:
+	- iron plate chest and belt (1 belt)
+	- iron plate chest and belt (1 belt)
+	- copper plate chest and belt (1 belt)
+3. The chests are filled once the game starts. If you don't consume enough the chest will accumulate for later use. You can also take from the chest directly. The filling rate decreases linearly from the start to 30th minute of the game. After 30th minute there are no more free resources.
+4. Just south of the starting area there is a starter pack chest. Before the start of the game you can (or rather must if you want to be competitive) place a blueprint which will be converted using the elements from this chest at the start of the game. You can design this blueprint in training mode (tournament mode disabled in mod settings). 
+In tournament mode once the game starts all your blueprints (and ghosts that could not be replaced due to lack of material in the chest or due to being outside of the starting area) will be removed. The same goes for quickbar slots and inventory. Blueprint library will also be disabled.
+Items that are unused by the starting blueprint remain in the chest and can be picked up after the start of the game.
+
+The resources on the map are poor so that the games don't last too long and you can't camp near the starting area.
+
+What Biter Clash aims to achieve:
+1. Dynamic and fast-paced games.
+2. Game balance with many different strategies being viable.
+3. All (or almost all) researches being viable.
+4. All (or almost all) weapons being viable. TDB: bring back the shotgun from 0.14 if possible.
+5. Viability for both 1v1 and team gameplay.
+
+What Biter Clash is not and is not meant to be:
+1. Casual gameplay. This is a competitive game mode. You can play it casually but it will never compare to the base game.
+2. Complete game overhaul - all the recipes are still the same, there are no new buildings with the exception of nests, no new items (although there might be a medpack in the future as a replacement for fish).
+3. Compatibile with other mods. While there might be elements from other mods added in the future Biter Clash is meant to be a standalone game.
+
+

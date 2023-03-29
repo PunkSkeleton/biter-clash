@@ -1,0 +1,9 @@
+{
+  "name": "biter-clash",
+  "version": "0.1.0",
+  "title": "Biter Clash",
+  "author": "PunkSkeleton",
+  "factorio_version": "1.1",
+  "dependencies": ["base >= 1.1"],
+  "description": "Biter Clash is an indirect PvP scenario heavily inspired by Biter Battles. Designed with competitive play and enjoyable viewing experience in mind from the ground up."
+}
