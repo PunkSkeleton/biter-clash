@@ -253,6 +253,10 @@ function finishGeneration()
 	game.forces["south"].chart(global["surfaceName"],{{-550, 0}, {550, 1300}})
 	spawnNorthStart()
 	spawnSouthStart()
+	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
+	game.forces["north"].set_spawn_position(pos,global["surfaceName"])
+	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
+	game.forces["south"].set_spawn_position(pos,global["surfaceName"])
 end
 
 function finishMapGeneration()

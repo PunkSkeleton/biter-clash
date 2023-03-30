@@ -56,15 +56,21 @@ function every180thTick()
 		finishMapGeneration()
 	end
 	for i, player in pairs(game.connected_players) do
-		if player.force.name == "north" then
-			if player.position.y > -210 then
-				pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {player.position.x,-220}, 20, 0.1)
-				player.teleport(pos, global["surfaceName"])
-			end
-		elseif player.force.name == "south" then
-			if player.position.y < 210 then
-				pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {player.position.x,220}, 20, 0.1)
-				player.teleport(pos, global["surfaceName"])
+		if player.position ~= nil then
+			if player.force.name == "north" then
+				if player.position.y > -210 then
+					pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {player.position.x,-220}, 20, 0.1)
+					if pos ~= nil then
+						player.teleport(pos, global["surfaceName"])
+					end
+				end
+			elseif player.force.name == "south" then
+				if player.position.y < 210 then
+					pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {player.position.x,220}, 20, 0.1)
+					if pos ~= nil then
+						player.teleport(pos, global["surfaceName"])
+					end
+				end
 			end
 		end
 	end

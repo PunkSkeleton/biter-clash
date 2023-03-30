@@ -42,6 +42,10 @@ function startGame()
 	game.forces["south"].technologies["automation"].researched = true
 	game.forces["south"].technologies["logistics"].researched = true
 	game.forces["south"].technologies["rocket-silo"].researched = true
+	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
+	game.forces["north"].set_spawn_position(pos,global["surfaceName"])
+	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
+	game.forces["south"].set_spawn_position(pos,global["surfaceName"])
 	global["gameStarted"] = true
 	global["gameStartedTick"] = game.tick
 	convertBlueprints(-750, "north", global["northPackchest"])
