@@ -87,7 +87,7 @@ function every60thTick()
 		end
 	end
 	if global["gameStarted"] then
-		if (game.tick < 108000) then
+		if ((game.tick - global["gameStartedTick"]) < 108000) then
 			chestFillRatio = 1 - ((game.tick - global["gameStartedTick"]) / 108000)
 			fillFreeResourceChests(chestFillRatio)
 		end
