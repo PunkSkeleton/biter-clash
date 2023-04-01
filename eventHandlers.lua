@@ -88,13 +88,17 @@ function onBuiltEntity(event)
 					local force = player.force.name
 					if force == "north" then
 						if positionInsideSpawnerArea(750, entity.position) then
-							removeFromInventory(player, entity.ghost_name)
-							swapNests(entity, "north")
+							ghostName = entity.ghost_name
+							if swapNests(entity, "north") then
+								removeFromInventory(player, ghostName)
+							end			
 						end
 					elseif force == "south" then
 						if positionInsideSpawnerArea(-750, entity.position) then
-							removeFromInventory(player, entity.ghost_name)
-							swapNests(entity, "south")
+							ghostName = entity.ghost_name
+							if swapNests(entity, "south") then
+								removeFromInventory(player, ghostName)
+							end
 						end
 					end					
 				end		
@@ -118,7 +122,7 @@ function onPlayerRespawned(event)
 	elseif player.force == "south" then
 		pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
 	end
-	player.teleport(pos, global["surfaceName"])	
+	--player.teleport(pos, global["surfaceName"])	
 end
 
 function onRocketLaunched(event) 

@@ -133,23 +133,40 @@ function positionInsideArea(position, x1, y1, x2, y2)
 	end
 end
 
+function itemNotNil(item)
+	if item == nil then
+		return false
+	else
+		return true
+	end
+end
+
+function simpleRevive(entity)
+	a,b,c = entity.revive()
+	if b == nil then
+		return false
+	else
+		return true
+	end
+end
+
 function swapNests(entity, force)
 	if (entity.ghost_name == "small-biter-nest") then
 		if force == "north" then
 			if global["adrenalineResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "nest-adrenaline", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "nest-adrenaline", position = pos, force =  "north"}))					
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["adrenalineResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "nest-adrenaline", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "nest-adrenaline", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	elseif (entity.ghost_name == "small-spitter-nest") then
@@ -157,17 +174,17 @@ function swapNests(entity, force)
 			if global["alcoholResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "nest-drunken", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "nest-drunken", position = pos, force =  "north"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["alcoholResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "nest-drunken", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "nest-drunken", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	elseif (entity.ghost_name == "medium-biter-nest") then
@@ -175,17 +192,17 @@ function swapNests(entity, force)
 			if global["resistanceResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "nest-resistant", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "nest-resistant", position = pos, force =  "north"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["resistanceResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "nest-resistant", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "nest-resistant", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	elseif (entity.ghost_name == "medium-spitter-nest") then
@@ -193,17 +210,17 @@ function swapNests(entity, force)
 			if global["heavySpitResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "medium-spitter-nest-heavy", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "medium-spitter-nest-heavy", position = pos, force =  "north"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["heavySpitResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "medium-spitter-nest-heavy", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "medium-spitter-nest-heavy", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	elseif (entity.ghost_name == "big-biter-nest") then
@@ -211,17 +228,17 @@ function swapNests(entity, force)
 			if global["sharpTeethResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "big-biter-nest-sharp-teeth", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "big-biter-nest-sharp-teeth", position = pos, force =  "north"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["sharpTeethResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "big-biter-nest-sharp-teeth", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "big-biter-nest-sharp-teeth", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	elseif (entity.ghost_name == "big-spitter-nest") then
@@ -229,17 +246,17 @@ function swapNests(entity, force)
 			if global["artilleryResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "artillery-spitter-nest", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "artillery-spitter-nest", position = pos, force =  "north"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["artilleryResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "artillery-spitter-nest", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "artillery-spitter-nest", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	elseif (entity.ghost_name == "behemoth-biter-nest") then
@@ -247,17 +264,17 @@ function swapNests(entity, force)
 			if global["regenerationResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-biter-nest-regen", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-biter-nest-regen", position = pos, force =  "north"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["regenerationResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-biter-nest-regen", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-biter-nest-regen", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	elseif (entity.ghost_name == "behemoth-spitter-nest") then
@@ -265,21 +282,21 @@ function swapNests(entity, force)
 			if global["aoeResearchedNorth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-spitter-nest-aoe", position = pos, force =  "north"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-spitter-nest-aoe", position = pos, force =  "north"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		else
 			if global["aoeResearchedSouth"] then
 				pos = entity.position
 				entity.destroy()
-				game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-spitter-nest-aoe", position = pos, force =  "south"})
+				return itemNotNil(game.surfaces[global["surfaceName"]].create_entity({name = "behemoth-spitter-nest-aoe", position = pos, force =  "south"}))
 			else
-				entity.revive()
+				return simpleRevive(entity)
 			end
 		end
 	else
-		entity.revive()
+		return simpleRevive(entity)
 	end		
 end
 
@@ -308,6 +325,7 @@ function swapBuiltNest(sourceNestName, targetNestName, force)
 end
 
 function gameOver(winningForce)
+	game.write_file("biter-clash.log", "Game over!", true)
 	game.forces["north"].chart(global["surfaceName"],{{-5000, -5000}, {5000, 5000}})
 	game.forces["south"].chart(global["surfaceName"],{{-5000, -5000}, {5000, 5000}})
 	position = nil
@@ -332,6 +350,4 @@ function gameOver(winningForce)
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.open_blueprint_library_gui, true)
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, true)
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, false)
-	game.forces["north"].reset()
-	game.forces["south"].reset()
 end

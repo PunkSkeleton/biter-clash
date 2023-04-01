@@ -115,7 +115,10 @@ function generateMap()
 end
 
 function reGenerateMap()
+	game.forces["north"].reset()
+	game.forces["south"].reset()
 	for i, player in pairs(game.connected_players) do
+		spectate(player)
 		player.teleport({0, 0}, "nauvis")
 	end
 	game.delete_surface(global["surfaceName"])
@@ -255,8 +258,10 @@ function finishGeneration()
 	spawnSouthStart()
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
 	game.forces["north"].set_spawn_position(pos,global["surfaceName"])
+	game.write_file("biter-clash.log", "spawn position north: " .. pos.y, true)
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
 	game.forces["south"].set_spawn_position(pos,global["surfaceName"])
+	game.write_file("biter-clash.log", "spawn position south: " .. pos.y, true)
 end
 
 function finishMapGeneration()

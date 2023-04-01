@@ -82,9 +82,9 @@ function aiRootStep()
 	end
 	global["biterStagingAreaPointer"] = currentPointer
 	profiler.stop()
-	game.write_file("biter-clash.log", "aiStep took: ", true)
-	game.write_file("biter-clash.log", {"", profiler}, true)
-	game.write_file("biter-clash.log", "\n", true)
+	--game.write_file("biter-clash.log", "aiStep took: ", true)
+	--game.write_file("biter-clash.log", {"", profiler}, true)
+	--game.write_file("biter-clash.log", "\n", true)
 	profiler.reset()
 end
 

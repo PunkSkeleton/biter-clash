@@ -27,9 +27,9 @@ function onTick()
 			global["southAiBiterGroup"] = nil
 		end
 		profiler3.stop()
-		game.write_file("biter-clash.log", "onTick with ai step" .. global["aiStep"] .. " took: ", true)
-		game.write_file("biter-clash.log", {"", profiler3}, true)
-		game.write_file("biter-clash.log", "\n", true)
+		--game.write_file("biter-clash.log", "onTick with ai step" .. global["aiStep"] .. " took: ", true)
+		--game.write_file("biter-clash.log", {"", profiler3}, true)
+		--game.write_file("biter-clash.log", "\n", true)
 		profiler3.reset()
 	end
 	
