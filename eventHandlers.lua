@@ -125,6 +125,11 @@ function onPlayerRespawned(event)
 	--player.teleport(pos, global["surfaceName"])	
 end
 
+function onPlayerDied(event)
+	player = game.get_player(event.player_index)
+	player.ticks_to_respawn = math.ceil((event.tick - global["gameStartedTick"]) / 60)
+end
+
 function onRocketLaunched(event) 
 	if event.rocket_silo.force.name == "south" then
 		gameOver("south")
