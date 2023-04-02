@@ -186,8 +186,13 @@ function fillStarterChest(chest)
 	chest.insert({name="burner-inserter", count=5})
 	chest.insert({name="iron-chest", count=10})
 	chest.insert({name="long-handed-inserter", count=10})
+	chest.insert({name="iron-plate", count=400})
+	chest.insert({name="copper-plate", count=200})
+	chest.insert({name="iron-gear-wheel", count=200})
+	chest.insert({name="electronic-circuit", count=200})
+	chest.insert({name="wood", count=100})
+end
 
-	end
 function spawnNorthStart()
 	clearArea(-50,50,-800,-700, true)
 	global["northPackchest"] = game.surfaces[global["surfaceName"]].create_entity({name = "steel-chest", position = {x=0, y=-699}, force =  "north"})

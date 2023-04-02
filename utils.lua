@@ -66,6 +66,21 @@ function removeAllBluprints()
 	end 
 end
 
+function clearInventories()
+	for _, player in pairs(game.connected_players) do
+		for item_name, item_count  in pairs (player.get_inventory(defines.inventory.character_main).get_contents()) do
+			player.get_inventory(defines.inventory.character_main).remove({name=item_name, count=item_count})
+		end
+		local cursor_stack = player.cursor_stack 
+		if cursor_stack ~= nil then
+			if cursor_stack.valid_for_read == true then
+				local item_name = cursor_stack.name
+				cursor_stack.count = 0
+			end
+		end
+	end 
+end
+
 function clearQuickBars()
 	for _, player in pairs(game.connected_players) do
 		for i=1,100,1 do

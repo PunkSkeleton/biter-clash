@@ -55,8 +55,8 @@ function startGame()
 		game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, false)
 		game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, true)
 		clearAllGhosts()
-		removeAllBluprints()
-		clearQuickBars()
+		clearInventories()
+		clearQuickBars()	
 		for i, player in pairs(game.connected_players) do
 			if player.force ~= "spectators" then
 				player.gui.top["biter-clash"].visible = false
