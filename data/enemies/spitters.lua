@@ -29,7 +29,7 @@ data:extend({
 function add_spitter_die_animation(scale, tint1, tint2, corpse)
   corpse.animation = spitterdyinganimation(scale, tint1, tint2)
   corpse.dying_speed = 0.04
-  corpse.time_before_removed = 2 * 60 * 60
+  corpse.time_before_removed = 1 * 60 * 60
   corpse.direction_shuffle = { { 1, 2, 3, 16 }, { 4, 5, 6, 7 }, { 8, 9, 10, 11 }, { 12, 13, 14, 15 } }
   corpse.shuffle_directions_at_frame = 4
   corpse.final_render_layer = "lower-object-above-shadow"
