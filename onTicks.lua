@@ -121,7 +121,7 @@ function on300thtick(event)
 			if forceName == "north" then
 				enemyForce = "south"
 			end
-			game.forces[forceName].chart(global["surfaceName"],{{pos.x-25, pos.y-25}, {pos.x+25, pos.y+25}})
+			game.forces[forceName].chart(global["surfaceName"],{{pos.x-50, pos.y-50}, {pos.x+50, pos.y+50}})
 			
 			move = true
 			enemyEntities = game.surfaces[global["surfaceName"]].find_entities_filtered({position=pos, radius=15, force=enemyForce})

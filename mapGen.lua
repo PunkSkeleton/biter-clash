@@ -105,14 +105,17 @@ function generateMapSettings()
 	return settings
 end
 
-function generateMap()
-	if pcall(game.create_surface(global["surfaceName"], generateMapSettings())) then
-		global["mapGeneratedTick"] = game.tick
-		global["prepareMap"] = true
-		global["biterAreaToBeCleared"] = true
-		global["mapToBeCloned"] = true
-		global["mapToBeCloned2"] = true
+function generateMap()		
+	if global["surfaceName"] == nil then
+		global["surfaceIndex"] = 99
+		global["surfaceName"] = "biterWars" .. global["surfaceIndex"]
 	end
+	game.create_surface(global["surfaceName"], generateMapSettings())
+	global["mapGeneratedTick"] = game.tick
+	global["prepareMap"] = true
+	global["biterAreaToBeCleared"] = true
+	global["mapToBeCloned"] = true
+	global["mapToBeCloned2"] = true
 end
 
 function reGenerateMap()

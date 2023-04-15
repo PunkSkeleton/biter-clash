@@ -1,0 +1,43 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.8
+Fixed a rare crash after clicking regenerate map (again).
+Big and behemoth enemies are now spawning at correct intervals (30s).
+Quadrupled area revealed by your biters (to 100x100).
+AoE behemoth spitter attack area 5 -> 12 tiles. Those are supposed to end the game reasonably quickly.
+Fixed a bug that cause AoE behemoth spitter to increase in size while attacking.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.7
+Biter corpse lifetime further reduced from 2 to 1 minutes to make finding your corpse easier.
+Protected from rare crash after clicking regenerate map.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.6
+Biter corpse lifetime reduced from 15 to 2 minutes to make finding your corpse easier.
+Player respawn timer is now proportional to game length (game length / 60).
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.5
+Inventories are now cleared at the start of tournament-mode games.
+Added 400 iron plates, 200 copper plates, 200 iron gear wheels, 200 electronic circuit and 100 wood to starter chest to allow immediate crafting of items.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.4
+Fixed grenade nerf not working.
+
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.3
+Fixed respawn bug (again).
+Fixed nests sometimes not being placed correctly.
+Fixed map reveal not working on game's end.
+Removed a lot of obsolete performance debugs.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Fixed that resources were spawning on the basis on game tick instead of actual game length.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Fixed a critical respawn bug.
+Artillery Spitter attack cooldown 10s -> 5s. Artillery Spitters seemed to work way to slow to be a game ending threat.

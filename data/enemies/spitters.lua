@@ -18,7 +18,7 @@ data:extend({
 		scale = scale_spitter_behemoth,
 		tint = stream_tint_spitter_behemoth,
 		corpse_name = "acid-splash-spitter-behemoth",
-		spit_radius = 5,
+		spit_radius = 12,
 		particle_spawn_interval = 1,
 		particle_spawn_timeout = 6,
 		splash_fire_name = "acid-splash-fire-spitter-behemoth",
@@ -187,6 +187,7 @@ heavyHitterMediumSpitter.attack_parameters = spitter_mid_attack_parameters(
     
 bigSpitter = table.deepcopy(data.raw["unit"]["big-spitter"])
 bigSpitter.pollution_to_join_attack = 0
+bigSpitter.spawning_time_modifier = 1
 
 local artilleryBigSpitter = table.deepcopy(bigSpitter)
 artilleryBigSpitter.name = "artillery-big-spitter"
@@ -207,6 +208,7 @@ artilleryBigSpitter.attack_parameters = spitter_big_attack_parameters(
     
 behemothSpitter = table.deepcopy(data.raw["unit"]["behemoth-spitter"])
 behemothSpitter.pollution_to_join_attack = 0
+behemothSpitter.spawning_time_modifier = 1
 
 local aoeBehemothSpitter = table.deepcopy(behemothSpitter)
 aoeBehemothSpitter.name = "aoe-behemoth-spitter"
@@ -218,7 +220,7 @@ aoeBehemothSpitter.attack_parameters = spitter_behemoth_attack_parameters(
       cooldown = 100,
       cooldown_deviation = 0.15,
       damage_modifier = damage_modifier_spitter_behemoth,
-      scale = 5,
+      scale = 1.2,
       tint1 = tint_1_spitter_behemoth,
       tint2 = tint_2_spitter_behemoth,
       roarvolume = 0.8,

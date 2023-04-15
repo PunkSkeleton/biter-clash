@@ -29,7 +29,9 @@ end
 function spectate(player)
 	player.force="spectators"
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,0}, 5, 0.1)
-	player.teleport(pos, global["surfaceName"])
+	if pos ~= nil then
+		player.teleport(pos, global["surfaceName"])
+	end
 	player.gui.top["biter-clash"].visible = true
 	game.permissions.get_group("Players").remove_player(player)
 	game.permissions.get_group("Default").add_player(player)

@@ -132,6 +132,7 @@ resistantMediumBiter.resistances =
 
 bigBiter = table.deepcopy(data.raw["unit"]["big-biter"])
 bigBiter.pollution_to_join_attack = 0
+bigBiter.spawning_time_modifier = 1
 
 sharpTeethBigBiter = table.deepcopy(bigBiter)
 sharpTeethBigBiter.name = "sharp-teeth-big-biter"
@@ -149,6 +150,7 @@ sharpTeethBigBiter.attack_parameters =
     
 behemothBiter = table.deepcopy(data.raw["unit"]["behemoth-biter"])
 behemothBiter.pollution_to_join_attack = 0
+behemothBiter.spawning_time_modifier = 1
 
 regenerativeBehemothBiter = table.deepcopy(behemothBiter)
 regenerativeBehemothBiter.name = "regenerative-behemoth-biter"
