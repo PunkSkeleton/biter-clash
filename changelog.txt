@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Increased the free resource period from 30 minutes to 45 minutes. It should allow more aggresive play at the beginning of the game.
+
+---------------------------------------------------------------------------------------------------
 Version: 0.1.8
 Fixed a rare crash after clicking regenerate map (again).
 Big and behemoth enemies are now spawning at correct intervals (30s).
