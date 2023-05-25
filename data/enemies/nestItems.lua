@@ -7,7 +7,7 @@ smallBiterNestItem.place_result = "small-biter-nest"
 local smallBiterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
 smallBiterNestRecipe.enabled = false
 smallBiterNestRecipe.name = "small-biter-nest"
-smallBiterNestRecipe.ingredients = {{"copper-plate",50},{"iron-plate",100}}
+smallBiterNestRecipe.ingredients = {{"copper-plate",25},{"iron-plate",50}}
 smallBiterNestRecipe.result = "small-biter-nest"
 smallBiterNestRecipe.energy_required = 30
 
@@ -19,7 +19,7 @@ smallSpitterNestItem.place_result = "small-spitter-nest"
 local smallSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
 smallSpitterNestRecipe.enabled = false
 smallSpitterNestRecipe.name = "small-spitter-nest"
-smallSpitterNestRecipe.ingredients = {{"copper-plate",100},{"iron-plate",50}}
+smallSpitterNestRecipe.ingredients = {{"copper-plate",50},{"iron-plate",25}}
 smallSpitterNestRecipe.result = "small-spitter-nest"
 smallSpitterNestRecipe.energy_required = 30
 
@@ -45,7 +45,7 @@ mediumSpitterNestItem.place_result = "medium-spitter-nest"
 local mediumSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
 mediumSpitterNestRecipe.enabled = false
 mediumSpitterNestRecipe.name = "medium-spitter-nest"
-mediumSpitterNestRecipe.ingredients = {{"electronic-circuit",75},{"iron-gear-wheel",37}}
+mediumSpitterNestRecipe.ingredients = {{"electronic-circuit",40},{"iron-gear-wheel",40}}
 mediumSpitterNestRecipe.result = "medium-spitter-nest"
 mediumSpitterNestRecipe.energy_required = 30
 
@@ -71,7 +71,7 @@ bigSpitterNestItem.place_result = "big-spitter-nest"
 local bigSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
 bigSpitterNestRecipe.enabled = false
 bigSpitterNestRecipe.name = "big-spitter-nest"
-bigSpitterNestRecipe.ingredients = {{"advanced-circuit",50},{"engine-unit",25}}
+bigSpitterNestRecipe.ingredients = {{"advanced-circuit",25},{"engine-unit",25}}
 bigSpitterNestRecipe.result = "big-spitter-nest"
 bigSpitterNestRecipe.energy_required = 30
 
@@ -97,7 +97,7 @@ behemothSpitterNestItem.place_result = "behemoth-spitter-nest"
 local behemothSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
 behemothSpitterNestRecipe.enabled = false
 behemothSpitterNestRecipe.name = "behemoth-spitter-nest"
-behemothSpitterNestRecipe.ingredients = {{"processing-unit",25},{"flying-robot-frame",13}}
+behemothSpitterNestRecipe.ingredients = {{"processing-unit",13},{"flying-robot-frame",13}}
 behemothSpitterNestRecipe.result = "behemoth-spitter-nest"
 behemothSpitterNestRecipe.energy_required = 30
 

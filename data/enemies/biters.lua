@@ -154,7 +154,7 @@ behemothBiter.spawning_time_modifier = 1
 
 regenerativeBehemothBiter = table.deepcopy(behemothBiter)
 regenerativeBehemothBiter.name = "regenerative-behemoth-biter"
-regenerativeBehemothBiter.healing_per_tick = 2
+regenerativeBehemothBiter.healing_per_tick = 5
 
 data:extend{adrenalineSmallBiter, smallBiter, resistantMediumBiter, mediumBiter, sharpTeethBigBiter, bigBiter, behemothBiter, regenerativeBehemothBiter}
 data:extend{

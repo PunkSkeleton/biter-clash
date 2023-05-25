@@ -1,47 +1,71 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 25. 05. 2023
+  Balancing:
+    - Small nests cost halved. Small biters/spitters were just too expensive to make it viable past a few "scouting" nests. Medium nests are not hard to get and are just significantly better, especially with upgrades.
+    - Medium Spitter Nest cost reduced to 40/40. Biters (above small) are very expensive to kill without red ammo even without upgrade. Spitters, even upgraded, do not pose the same danger so their cost is reduced.
+    - Big Spitter Nest cost reduced to 25/25. 
+    - Behemoth Spitter Nest cost reduced to 13/13. 
+    - Regenerative Behemoth Biter health regeneration per second increased from 120 to 300.
+  Features:
+    - Changelog should now be visible in game.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.9
-Increased the free resource period from 30 minutes to 45 minutes. It should allow more aggresive play at the beginning of the game.
-
+Date: 24. 05. 2023
+  Balancing:
+    - Increased the free resource period from 30 minutes to 45 minutes. It should allow more aggresive play at the beginning of the game.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.8
-Fixed a rare crash after clicking regenerate map (again).
-Big and behemoth enemies are now spawning at correct intervals (30s).
-Quadrupled area revealed by your biters (to 100x100).
-AoE behemoth spitter attack area 5 -> 12 tiles. Those are supposed to end the game reasonably quickly.
-Fixed a bug that cause AoE behemoth spitter to increase in size while attacking.
-
+Date: 15. 04. 2023
+  Bugfixes:
+    - Fixed a rare crash after clicking regenerate map (again).
+    - Big and behemoth enemies are now spawning at correct intervals (30s).
+    - Fixed a bug that cause AoE behemoth spitter to increase in size while attacking.
+  Balancing:
+    - Quadrupled area revealed by your biters (to 100x100).
+    - AoE behemoth spitter attack area 5 -> 12 tiles. Those are supposed to end the game reasonably quickly.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.7
-Biter corpse lifetime further reduced from 2 to 1 minutes to make finding your corpse easier.
-Protected from rare crash after clicking regenerate map.
-
+Date: 05. 04. 2023
+  Features:
+    - Biter corpse lifetime further reduced from 2 to 1 minutes to make finding your corpse easier.
+  Bugfixes:
+    - Protected from rare crash after clicking regenerate map.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.6
-Biter corpse lifetime reduced from 15 to 2 minutes to make finding your corpse easier.
-Player respawn timer is now proportional to game length (game length / 60).
-
+Date: 02. 04. 2023
+  Features:
+    - Biter corpse lifetime reduced from 15 to 2 minutes to make finding your corpse easier.
+    - Player respawn timer is now proportional to game length (game length / 60).
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.5
-Inventories are now cleared at the start of tournament-mode games.
-Added 400 iron plates, 200 copper plates, 200 iron gear wheels, 200 electronic circuit and 100 wood to starter chest to allow immediate crafting of items.
-
+Date: 02. 04. 2023
+  Features:
+    - Inventories are now cleared at the start of tournament-mode games.
+    - Added 400 iron plates, 200 copper plates, 200 iron gear wheels, 200 electronic circuit and 100 wood to starter chest to allow immediate crafting of items.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.4
-Fixed grenade nerf not working.
-
-
+Date: 01. 04. 2023
+  Bugfixes:
+    - Fixed grenade nerf not working.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.3
-Fixed respawn bug (again).
-Fixed nests sometimes not being placed correctly.
-Fixed map reveal not working on game's end.
-Removed a lot of obsolete performance debugs.
-
+Date: 01. 04. 2023
+  Bugfixes:
+    - Fixed respawn bug (again).
+    - Fixed nests sometimes not being placed correctly.
+    - Fixed map reveal not working on game's end.
+  Features:
+    - Removed a lot of obsolete performance debugs.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.2
-Fixed that resources were spawning on the basis on game tick instead of actual game length.
-
+Date: 01. 04. 2023
+  Bugfixes:
+    - Fixed that resources were spawning on the basis on game tick instead of actual game length.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
-Fixed a critical respawn bug.
-Artillery Spitter attack cooldown 10s -> 5s. Artillery Spitters seemed to work way to slow to be a game ending threat.
+Date: 30. 03. 2023
+  Bugfixes:
+    - Fixed a critical respawn bug.
+  Balancing:
+    - Artillery Spitter attack cooldown 10s -> 5s. Artillery Spitters seemed to work way to slow to be a game ending threat.
