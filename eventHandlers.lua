@@ -103,6 +103,12 @@ function onBuiltEntity(event)
 					end					
 				end		
 			end
+		elseif entity.type == "unit-spawner" then
+			local player = game.players[event.player_index]
+			entityName = entity.name
+			entity.destroy()
+			addToInventory(player,entityName)
+			player.print("Please place nests as ghosts on the revealed area around enemy base, on the outside of the black line!")
 		end
 	end
 end

@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 29. 05. 2023
+  Bugfixes:
+    - Loophole allowing for defensive (inside your base) nest placement closed. In the future this tactics may be reintroduced but it would require quite a lot of work to make nests placed inside your base have different parameters (less health and health regen) than those placed offensively.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 25. 05. 2023
   Balancing:

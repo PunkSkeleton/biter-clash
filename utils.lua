@@ -124,6 +124,10 @@ function removeFromInventory(player, item)
 	end
 end
 
+function addToInventory(player, item)
+	player.get_inventory(defines.inventory.character_main).insert({name=item, count=1}) 	
+end
+
 function positionInsideSpawnerArea(offset, position)
 	if positionInsideArea(position, -550,-550+offset, -500,550+offset) then
 		return true
