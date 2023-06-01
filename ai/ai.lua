@@ -12,7 +12,7 @@ function selectBitersInner(area, force, offset)
 		--game.write_file("biter-clash.log", "b\n", true)
 	end
 	--game.write_file("biter-clash.log", "c\n", true)
-	game.write_file("biter-clash.log", "Selecting biters!" .. " middle: " .. middleX .. ":" .. middleY .. "force: " .. force .. "\n", true)
+	--game.write_file("biter-clash.log", "Selecting biters!" .. " middle: " .. middleX .. ":" .. middleY .. "force: " .. force .. "\n", true)
  	currentSurface = game.surfaces[global["surfaceName"]]
 	local individualBiters = currentSurface.find_enemy_units(position, 36, opposingForce)
 	if individualBiters == nil then
@@ -33,13 +33,13 @@ function advanceBiters(biterGroup, forceName, startPosX, startPosY)
 	else
 		siloPosY = -750
 	end
-	game.write_file("biter-clash.log", "Advancing biters from position: \n" .. startPosX .. ":" .. startPosY, true)
+	--game.write_file("biter-clash.log", "Advancing biters from position: \n" .. startPosX .. ":" .. startPosY, true)
 	local currentPosX = startPosX
 	local currentPosY = startPosY
 	local distanceX = math.abs(currentPosX)
 	local absY = math.abs(currentPosY)
 	local distanceY = math.abs(absY - math.abs(siloPosY))
-	game.write_file("biter-clash.log", "Distances: \n" .. distanceX .. ":" .. distanceY, true)
+	--game.write_file("biter-clash.log", "Distances: \n" .. distanceX .. ":" .. distanceY, true)
 	local closeByRatio = (math.random(10, 100))/100
 	local distanceToTravelX = distanceX * closeByRatio
 	local distanceToTravelY = distanceY * closeByRatio
@@ -58,7 +58,7 @@ function advanceBiters(biterGroup, forceName, startPosX, startPosY)
 	position = {x = targetPositionX + jitterX, y = targetPositionY + jitterY}
 	currentSurface = game.surfaces[global["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position("assembling-machine-1", position, 128, 1)
-	game.write_file("biter-clash.log", "Added command to move: " .. currentPosX .. ":" .. currentPosY .. " calculated distance: " .. distanceX .. ":" .. distanceY .. "\n", true)	
+	--game.write_file("biter-clash.log", "Added command to move: " .. currentPosX .. ":" .. currentPosY .. " calculated distance: " .. distanceX .. ":" .. distanceY .. "\n", true)	
     biterGroup.set_command({
 		type = defines.command.attack_area,
 		destination = pos,

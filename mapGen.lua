@@ -106,10 +106,13 @@ function generateMapSettings()
 end
 
 function generateMap()		
+	game.write_file("biter-clash.log", "Generate map called, surface name = '" .. global["surfaceName"] .. "'\n", true)
 	if global["surfaceName"] == nil then
+		game.write_file("biter-clash.log", "Surface name is nil\n", true)
 		global["surfaceIndex"] = 99
 		global["surfaceName"] = "biterWars" .. global["surfaceIndex"]
 	end
+	game.write_file("biter-clash.log", "Generate map 2, surface name = '" .. global["surfaceName"] .. "'\n", true)
 	game.create_surface(global["surfaceName"], generateMapSettings())
 	global["mapGeneratedTick"] = game.tick
 	global["prepareMap"] = true
@@ -119,6 +122,7 @@ function generateMap()
 end
 
 function reGenerateMap()
+	game.write_file("biter-clash.log", "Regenerate map called, surface name = '" .. global["surfaceName"] .. "'\n", true)
 	game.forces["north"].reset()
 	game.forces["south"].reset()
 	for i, player in pairs(game.connected_players) do
@@ -126,11 +130,13 @@ function reGenerateMap()
 		player.teleport({0, 0}, "nauvis")
 	end
 	game.delete_surface(global["surfaceName"])
-	global["surfaceIndex"] = global["surfaceIndex"] + 1
+	global["surfaceIndex"] = global["surfaceIndex"] + 2
 	global["surfaceName"] = "biterWars" .. global["surfaceIndex"]
+	game.write_file("biter-clash.log", "Regenerate map 2, surface name = '" .. global["surfaceName"] .. "'\n", true)
 	generateMap()
 	for i, player in pairs(game.connected_players) do
 		player.teleport({0, 0}, global["surfaceName"])
+		player.gui.top["gameClock"].visible = false
 	end
 	game.forces["spectators"].chart(global["surfaceName"],{{-5000, -5000}, {5000, 5000}})
 end

@@ -68,6 +68,9 @@ function startGame()
 			end
 		end
     end
+    for i, player in pairs(game.connected_players) do
+    	player.gui.top["gameClock"].visible = true
+    end
 end
 
 function startingSequence()

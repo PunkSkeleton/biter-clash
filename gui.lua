@@ -49,6 +49,13 @@ function createGui(player)
 	
 	player.gui.top["ready"].visible = false
 	
+	local gameClock = player.gui.top.add{type="frame", name="gameClock"}
+    frame.style.padding = {0, 6, 0, 6}
+    gameClock.style.width = 80
+    local label = gameClock.add{type="label", name="clockLabel"}
+		
+	player.gui.top["gameClock"].visible = false
+	
 end
 
 function onGuiClick(event)

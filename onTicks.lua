@@ -77,6 +77,7 @@ function every180thTick()
 end
 
 function every60thTick()
+	game.write_file("biter-clash.log", "Every second surface name = '" .. global["surfaceName"] .. "'\n", true)
 	if global["countdown"] <= 10 then
 		showCountdown(global["countdown"])
 		if global["countdown"] == 0 then
@@ -90,6 +91,20 @@ function every60thTick()
 		if ((game.tick - global["gameStartedTick"]) < 162000) then
 			chestFillRatio = 1 - ((game.tick - global["gameStartedTick"]) / 162000)
 			fillFreeResourceChests(chestFillRatio)
+		end
+		local base = math.floor((game.tick - global["gameStartedTick"])/60)
+		local seconds = math.floor(base) % 60
+		local minutes = math.floor(base/60) % 60
+		local hours = math.floor(base/3600)
+		
+		caption = string.format("%02d:%02d", minutes, seconds)
+		if hours > 0 then
+		  caption = string.format("%d:%s", hours, caption)
+		end
+		for i, player in pairs(game.connected_players) do
+			local label = player.gui.top["gameClock"]["clockLabel"]
+			--game.write_file("biter-clash.log", caption .. "\n", true)
+			label.caption = caption
 		end
 	end
 end
