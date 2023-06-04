@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.4
+Date: 01. 06. 2023
+  Bugfixes:
+    - Spectators joining mid-game should not be able to regenerate map and break the match anymore.
+  Balancing:
+    - Drunken small spitters also gain +3 range (still 2 lower than gun turrets) and are spawned with 4/1 ratio with small spitters. Upgrade to small spitters, while has potential in later stages of the game, just doesn't seem to do anything against turrets and this should help a lot against them.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.3
 Date: 01. 06. 2023
   Bugfixes:

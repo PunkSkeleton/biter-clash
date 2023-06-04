@@ -17,7 +17,13 @@ function initPlayer(player)
 		player.teleport(pos, global["surfaceName"])
 		player.force="spectators"
 		createGui(player)
-		player.gui.top["biter-clash"].visible = true
+		if global["gameStarted"] then
+			player.gui.top["biter-clash"].visible = false
+			player.gui.top["ready"].visible = false
+			player.gui.top["gameClock"].visible = true
+		else 
+			player.gui.top["biter-clash"].visible = true
+		end
 	end
 end
 

@@ -45,8 +45,8 @@ smallSpitterNestDrunken.name = "nest-drunken"
 smallBiterNestAdrenaline.tint = {r=0.9, g=0.9, b=0.9, a=1.0}
 smallSpitterNestDrunken.result_units = (function()
                      local res = {}
-                     res[1] = {"small-spitter", {{0.0, 0.5}, {1.0, 0.5}}}
-                     res[2] = {"drunken-small-spitter", {{0.0, 0.5}, {1.0, 0.5}}}
+                     res[1] = {"small-spitter", {{0.0, 0.2}, {1.0, 0.2}}}
+                     res[2] = {"drunken-small-spitter", {{0.0, 0.8}, {1.0, 0.8}}}
                      return res
                    end)()
 
