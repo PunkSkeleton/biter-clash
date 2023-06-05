@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.5
+Date: 05. 06. 2023
+  Bugfixes:
+    - Gun, armor and inventory slots are now properly cleared after game start and on respawn. No carrying over of items in those slots into next game, no free pistol and 10 ammo on game start and respawn.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.4
 Date: 04. 06. 2023
   Bugfixes:

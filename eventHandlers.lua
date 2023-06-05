@@ -123,12 +123,7 @@ end
 
 function onPlayerRespawned(event)
 	player = game.get_player(event.player_index)
-	if player.force == "north" then
-		pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
-	elseif player.force == "south" then
-		pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
-	end
-	--player.teleport(pos, global["surfaceName"])	
+	clearInventory(player)
 end
 
 function onPlayerDied(event)
