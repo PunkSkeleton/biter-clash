@@ -371,10 +371,17 @@ function gameOver(winningForce)
         speed = 0.1
     })
 	for i, player in pairs(game.connected_players) do
+		player.gui.top["ready"]["buttonflow2"]["biter-clash-ready"].state = false 
 		player.gui.top["biter-clash"].visible = true
 	end
 	global["gameStarted"] = false
+	global["northSideReady"] = false
+	global["southSideReady"] = false
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.open_blueprint_library_gui, true)
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, true)
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, false)
+end
+
+function chartScoutedArea(forceName, pos) 
+	game.forces[forceName].chart(global["surfaceName"],{{pos.x-50, pos.y-50}, {pos.x+50, pos.y+50}})
 end

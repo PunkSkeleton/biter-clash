@@ -136,8 +136,13 @@ function on300thtick(event)
 			if forceName == "north" then
 				enemyForce = "south"
 			end
-			game.forces[forceName].chart(global["surfaceName"],{{pos.x-50, pos.y-50}, {pos.x+50, pos.y+50}})
+			chartScoutedArea(forceName, pos)
 			
+			if forceName == "north" then
+				 table.insert(global["chartNorth1"], pos)
+			else 
+				 table.insert(global["chartSouth1"], pos)
+			end
 			move = true
 			enemyEntities = game.surfaces[global["surfaceName"]].find_entities_filtered({position=pos, radius=15, force=enemyForce})
 			if enemyEntities == nil then
@@ -159,4 +164,46 @@ function on300thtick(event)
 	game.write_file("biter-clash.log", {"", profiler2}, true)
 	game.write_file("biter-clash.log", "\n", true)
 	profiler2.reset()
+end
+
+function on303thtick(event)
+	if global["chartStep"] == 3 then
+		global["chartStep"] = 1
+		for key,value in pairs(global["chartNorth3"]) do 
+	    	chartScoutedArea("north", value)
+	    end
+	    global["chartNorth3"] = {}
+	     for key,value in pairs(global["chartSouth3"]) do 
+	    	chartScoutedArea("south", value)
+	    end
+	    global["chartSouth3"] = {}
+	end
+    
+	if global["chartStep"] == 2 then
+		global["chartStep"] = 3
+	    for key,value in pairs(global["chartNorth2"]) do 
+	    	chartScoutedArea("north", value)
+	    	table.insert(global["chartNorth3"], value)
+	    end
+	    global["chartNorth2"] = {}
+	    for key,value in pairs(global["chartSouth2"]) do 
+	    	chartScoutedArea("south", value)
+	    	table.insert(global["chartSouth3"], value)
+	    end
+	    global["chartSouth2"] = {}
+	end
+    
+    if global["chartStep"] == 1 then
+    	global["chartStep"] = 2
+	    for key,value in pairs(global["chartNorth1"]) do 
+	    	chartScoutedArea("north", value)
+	    	table.insert(global["chartNorth2"], value)
+	    end
+	    global["chartNorth1"] = {}  
+	    for key,value in pairs(global["chartSouth1"]) do 
+	    	chartScoutedArea("south", value)
+	    	table.insert(global["chartSouth2"], value)
+	    end
+	    global["chartSouth1"] = {}
+	end
 end

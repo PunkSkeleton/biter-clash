@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.7
+Date: 09. 06. 2023
+  Features:
+    - Significantly increased the time biters reveal map for.
+---------------------------------------------------------------------------------------------------
+Version: 0.2.6
+Date: 07. 06. 2023
+  Balancing:
+    - Mining productivity 1 now requires only automation-2.
+    - Steelaxe mining speed bonus 100% -> 200% and handcrafting speed bonus 10% -> 20%.
+    - Toolbelt handcrafting speed bonus 20% -> 40%.
+    - Iron chests in starter pack 10 -> 30.
+    - Long hand iserters in starter pack 10 -> 30.
+    - Pipes in starter pack 5 -> 20.
+    - Added 4 underground pipes to starter pack.
+  Bugfixes:
+    - Team Ready state should be properly reset after the game, this is true for both button state and real game state.
+
+---------------------------------------------------------------------------------------------------
 Version: 0.2.5
 Date: 05. 06. 2023
   Bugfixes:

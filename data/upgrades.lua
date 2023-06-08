@@ -1504,7 +1504,7 @@ data:extend(
         modifier = 0.3
       }
     },
-    prerequisites = {"advanced-electronics"},
+    prerequisites = {"automation-2"},
     unit =
     {
       count = 250,
@@ -1623,7 +1623,7 @@ data:extend(
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.2
+        modifier = 0.4
       }
     },
     unit =
@@ -1646,11 +1646,11 @@ data:extend(
     {
       {
         type = "character-mining-speed",
-        modifier = 1
+        modifier = 2
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.1
+        modifier = 0.2
       }
     },
     prerequisites = {"steel-processing"},
