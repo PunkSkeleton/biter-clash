@@ -293,4 +293,4 @@ grenade.action =
       }
     }
 
-data:extend{flamethrowerTurret, flamethrowerFireStream, fireSticker, fireFlame, yellowAmmo, redAmmo, greenAmmo, laserTurret, poisonCloud, slowdownSticker, grenade}
+data:extend{flamethrowerTurret, flamethrowerFireStream, fireSticker, fireFlame, yellowAmmo, redAmmo, greenAmmo, laserTurret, poisonCloud, slowdownSticker}

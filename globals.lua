@@ -44,4 +44,3 @@ global["chartNorth2"] = {}
 global["chartSouth2"] = {}
 global["chartNorth3"] = {}
 global["chartSouth3"] = {}
-global["chartStep"] = 1

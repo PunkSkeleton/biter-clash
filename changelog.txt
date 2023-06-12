@@ -1,4 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 12. 06. 2023
+  Balancing:
+    - Medium nests recipe changed from iron gear wheels + electronic circuit to steel splates + electronic circuit.
+    - Big nests recipe changed from engine unit + advanced circuit to engine unit + plastic bar 
+    - Behemoth nests recipe changed from flying robot frame + processing unit to flying robot frame + advanced circuit
+---------------------------------------------------------------------------------------------------
+Version: 0.2.8
+Date: 10. 06. 2023
+  Features:
+    - Removed pseudo-optimization of increased map reveal time.
+  Balancing:
+    - All biter research times 10s -> 30s, biter upgrade research times 20s -> 30s.
+    - Biter spawn interval 30s -> 40s.
+    - Resistance upgrade physical percentage damage reduction 40% -> 20%, explosive damage reduction 40% -> 20%, fire 50% -> 30%.
+    - Grenades restored to vanilla game.
+    - Biter attack interval increased by approximately 35%.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.7
 Date: 09. 06. 2023
   Features:

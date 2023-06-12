@@ -109,7 +109,7 @@ function every60thTick()
 	end
 end
 
-function every17thTick()
+function every23thTick()
 	if global["gameStarted"] and global["aiRootActive"] == false then	
 		aiRootStep()
 	end
@@ -167,43 +167,34 @@ function on300thtick(event)
 end
 
 function on303thtick(event)
-	if global["chartStep"] == 3 then
-		global["chartStep"] = 1
-		for key,value in pairs(global["chartNorth3"]) do 
-	    	chartScoutedArea("north", value)
-	    end
-	    global["chartNorth3"] = {}
-	     for key,value in pairs(global["chartSouth3"]) do 
-	    	chartScoutedArea("south", value)
-	    end
-	    global["chartSouth3"] = {}
-	end
+	for key,value in pairs(global["chartNorth3"]) do 
+    	chartScoutedArea("north", value)
+    end
+    global["chartNorth3"] = {}
+     for key,value in pairs(global["chartSouth3"]) do 
+    	chartScoutedArea("south", value)
+    end
+    global["chartSouth3"] = {}
     
-	if global["chartStep"] == 2 then
-		global["chartStep"] = 3
-	    for key,value in pairs(global["chartNorth2"]) do 
-	    	chartScoutedArea("north", value)
-	    	table.insert(global["chartNorth3"], value)
-	    end
-	    global["chartNorth2"] = {}
-	    for key,value in pairs(global["chartSouth2"]) do 
-	    	chartScoutedArea("south", value)
-	    	table.insert(global["chartSouth3"], value)
-	    end
-	    global["chartSouth2"] = {}
-	end
+    for key,value in pairs(global["chartNorth2"]) do 
+    	chartScoutedArea("north", value)
+    	table.insert(global["chartNorth3"], value)
+    end
+    global["chartNorth2"] = {}
+    for key,value in pairs(global["chartSouth2"]) do 
+    	chartScoutedArea("south", value)
+    	table.insert(global["chartSouth3"], value)
+    end
+    global["chartSouth2"] = {}
     
-    if global["chartStep"] == 1 then
-    	global["chartStep"] = 2
-	    for key,value in pairs(global["chartNorth1"]) do 
-	    	chartScoutedArea("north", value)
-	    	table.insert(global["chartNorth2"], value)
-	    end
-	    global["chartNorth1"] = {}  
-	    for key,value in pairs(global["chartSouth1"]) do 
-	    	chartScoutedArea("south", value)
-	    	table.insert(global["chartSouth2"], value)
-	    end
-	    global["chartSouth1"] = {}
-	end
+    for key,value in pairs(global["chartNorth1"]) do 
+    	chartScoutedArea("north", value)
+    	table.insert(global["chartNorth2"], value)
+    end
+    global["chartNorth1"] = {}  
+    for key,value in pairs(global["chartSouth1"]) do 
+    	chartScoutedArea("south", value)
+    	table.insert(global["chartSouth2"], value)
+    end
+    global["chartSouth1"] = {}
 end
