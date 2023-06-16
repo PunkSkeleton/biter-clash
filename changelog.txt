@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.1
+Date: 16. 06. 2023
+  Balancing:
+    - Drunken spitter attack range reduced by 1 (to small spitter + 2) as the huge range coupled with AI behavior makes them very likely to attack walls outside of turret range. The range was so high that even 2-wide walls directly around turrets were affected which was a bit too much.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 12. 06. 2023
   Balancing:

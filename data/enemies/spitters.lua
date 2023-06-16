@@ -81,7 +81,7 @@ function drunken_spitter_attack_parameters(data)
     ammo_category = "biological",
     cooldown = data.cooldown,
     cooldown_deviation = data.cooldown_deviation,
-    range = data.range + 3,
+    range = data.range + 2,
     range_mode = data.range_mode,
     min_attack_distance = data.min_attack_distance,
     --projectile_creation_distance = 1.9,
