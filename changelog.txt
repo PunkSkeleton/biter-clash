@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.2
+Date: 18. 06. 2023
+  Bugfixes:
+    - Biter upgrades are now properly reset between games. 
+    - The ammo damage bonuses seemd to not be reset once but this is no longer happening although I did not fix this. Checking if bonuses are set to none for both teams before starting is advised. 
+  Balancing:
+    - Nerfed flame thrower turret twice (on top on previous x3 nerf). 
+---------------------------------------------------------------------------------------------------
 Version: 0.3.1
 Date: 16. 06. 2023
   Balancing:

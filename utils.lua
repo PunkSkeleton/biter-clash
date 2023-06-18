@@ -382,6 +382,44 @@ function gameOver(winningForce)
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, false)
 end
 
+function resetForces()
+	game.forces["north"].reset()
+	game.forces["south"].reset()
+	global["biterStagingAreaPointer"] = 0
+	global["adrenalineResearchedNorth"] = false
+	global["adrenalineResearchedSouth"] = false
+	global["alcoholResearchedNorth"] = false
+	global["alcoholResearchedSouth"] = false
+	global["resistanceResearchedNorth"] = false
+	global["resistanceResearchedSouth"] = false
+	global["heavySpitResearchedNorth"] = false
+	global["heavySpitResearchedSouth"] = false
+	global["sharpTeethResearchedNorth"] = false
+	global["sharpTeethResearchedSouth"] = false
+	global["artilleryResearchedNorth"] = false
+	global["artilleryResearchedSouth"] = false
+	global["regenerationResearchedNorth"] = false
+	global["regenerationResearchedSouth"] = false
+	global["aoeResearchedNorth"] = false
+	global["aoeResearchedSouth"] = false
+	global["activeBiterGroups"] = {}
+	global["aiRootActive"] = false
+	global["aiStep"] = 1
+	global["northAiBiters"] = nil
+	global["southAiBiters"] = nil
+	global["northAiBiterGroup"] = nil
+	global["southAiBiterGroup"] = nil
+	global["northSideReady"] = false
+	global["southSideReady"] = false
+	global["countdown"] = 11
+	global["chartNorth1"] = {}
+	global["chartSouth1"] = {}
+	global["chartNorth2"] = {}
+	global["chartSouth2"] = {}
+	global["chartNorth3"] = {}
+	global["chartSouth3"] = {}
+end
+
 function chartScoutedArea(forceName, pos) 
 	game.forces[forceName].chart(global["surfaceName"],{{pos.x-50, pos.y-50}, {pos.x+50, pos.y+50}})
 end

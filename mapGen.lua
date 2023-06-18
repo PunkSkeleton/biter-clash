@@ -123,8 +123,7 @@ end
 
 function reGenerateMap()
 	game.write_file("biter-clash.log", "Regenerate map called, surface name = '" .. global["surfaceName"] .. "'\n", true)
-	game.forces["north"].reset()
-	game.forces["south"].reset()
+	resetForces()
 	for i, player in pairs(game.connected_players) do
 		spectate(player)
 		player.teleport({0, 0}, "nauvis")
