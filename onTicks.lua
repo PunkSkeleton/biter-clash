@@ -77,7 +77,7 @@ function every180thTick()
 end
 
 function every60thTick()
-	game.write_file("biter-clash.log", "Every second surface name = '" .. global["surfaceName"] .. "'\n", true)
+	--game.write_file("biter-clash.log", "Every second surface name = '" .. global["surfaceName"] .. "'\n", true)
 	if global["countdown"] <= 10 then
 		showCountdown(global["countdown"])
 		if global["countdown"] == 0 then
@@ -127,6 +127,11 @@ function on300thtick(event)
 		end
 		if group.valid == false then
 			table.remove(global["activeBiterGroups"], i)
+			goto continue
+		end
+		local randomizer = math.random(1,100)
+		if (randomizer == 1) then
+			nextStep(group)
 			goto continue
 		end
 		if group.state == defines.group_state.finished or group.state == defines.group_state.wander_in_group then

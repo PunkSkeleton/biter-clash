@@ -25,8 +25,11 @@ smallSpitterNestRecipe.energy_required = 30
 
 local mediumBiterNestItem = table.deepcopy(data.raw["item"]["gun-turret"])
 mediumBiterNestItem.name = "medium-biter-nest"
-mediumBiterNestItem.icon = "__base__/graphics/icons/biter-spawner.png"
-mediumBiterNestItem.tint = {r=1.0, g=0.7, b=0.7, a=1.0}
+mediumBiterNestItem.icons = {
+  {
+    icon = "__base__/graphics/icons/biter-spawner.png",
+    tint = {r=1.0, g=0.7, b=0.7, a=1.0}
+  }}
 mediumBiterNestItem.place_result = "medium-biter-nest"
 
 local mediumBiterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
@@ -38,8 +41,11 @@ mediumBiterNestRecipe.energy_required = 30
 
 local mediumSpitterNestItem = table.deepcopy(data.raw["item"]["gun-turret"])
 mediumSpitterNestItem.name = "medium-spitter-nest"
-mediumSpitterNestItem.icon = "__base__/graphics/icons/spitter-spawner.png"
-mediumSpitterNestItem.tint = {r=1.0, g=0.7, b=0.7, a=1.0}
+mediumSpitterNestItem.icons = {
+  {
+    icon = "__base__/graphics/icons/spitter-spawner.png",
+    tint = {r=1.0, g=0.7, b=0.7, a=1.0}
+  }}
 mediumSpitterNestItem.place_result = "medium-spitter-nest"
 
 local mediumSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
@@ -51,8 +57,11 @@ mediumSpitterNestRecipe.energy_required = 30
 
 local bigBiterNestItem = table.deepcopy(data.raw["item"]["gun-turret"])
 bigBiterNestItem.name = "big-biter-nest"
-bigBiterNestItem.icon = "__base__/graphics/icons/biter-spawner.png"
-bigBiterNestItem.tint = {r=0.13, g=0.56, b=0.66, a=1.0}
+bigBiterNestItem.icons = {
+  {
+    icon = "__base__/graphics/icons/biter-spawner.png",
+    tint = {r=0.13, g=0.56, b=0.66, a=1.0}
+  }}
 bigBiterNestItem.place_result = "big-biter-nest"
 
 local bigBiterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
@@ -64,8 +73,11 @@ bigBiterNestRecipe.energy_required = 30
 
 local bigSpitterNestItem = table.deepcopy(data.raw["item"]["gun-turret"])
 bigSpitterNestItem.name = "big-spitter-nest"
-bigSpitterNestItem.icon = "__base__/graphics/icons/spitter-spawner.png"
-bigBiterNestItem.tint = {r=0.13, g=0.56, b=0.66, a=1.0}
+bigSpitterNestItem.icons = {
+  {
+    icon = "__base__/graphics/icons/spitter-spawner.png",
+    tint = {r=0.13, g=0.56, b=0.66, a=1.0}
+  }}
 bigSpitterNestItem.place_result = "big-spitter-nest"
 
 local bigSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
@@ -77,8 +89,11 @@ bigSpitterNestRecipe.energy_required = 30
 
 local behemothBiterNestItem = table.deepcopy(data.raw["item"]["gun-turret"])
 behemothBiterNestItem.name = "behemoth-biter-nest"
-behemothBiterNestItem.icon = "__base__/graphics/icons/biter-spawner.png"
-behemothBiterNestItem.tint = {r=0.3, g=1.0, b=0.1, a=1.0}
+behemothBiterNestItem.icons = {
+  {
+    icon = "__base__/graphics/icons/biter-spawner.png",
+    tint = {r=0.3, g=1.0, b=0.1, a=1.0}
+  }}
 behemothBiterNestItem.place_result = "behemoth-biter-nest"
 
 local behemothBiterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
@@ -90,8 +105,11 @@ behemothBiterNestRecipe.energy_required = 30
 
 local behemothSpitterNestItem = table.deepcopy(data.raw["item"]["gun-turret"])
 behemothSpitterNestItem.name = "behemoth-spitter-nest"
-behemothSpitterNestItem.icon = "__base__/graphics/icons/spitter-spawner.png"
-behemothSpitterNestItem.tint = {r=0.3, g=1.0, b=0.1, a=1.0}
+behemothSpitterNestItem.icons = {
+  {
+    icon = "__base__/graphics/icons/spitter-spawner.png",
+    tint = {r=0.3, g=1.0, b=0.1, a=1.0}
+  }}
 behemothSpitterNestItem.place_result = "behemoth-spitter-nest"
 
 local behemothSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])

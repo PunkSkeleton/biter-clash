@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.3
+Date: 26. 06. 2023
+  Features:
+    - Biter groups now have a random chance (1% every 5s) to advance regardless of current state. This should help in case if a group gets stuck. 
+    - Biter upgrades icons modified so that '+' sign is much clearer.
+    - Nest icons are now properly tinted so it is easier to select correct recipe.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.2
 Date: 18. 06. 2023
   Bugfixes:
