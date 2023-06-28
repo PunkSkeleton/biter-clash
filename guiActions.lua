@@ -13,6 +13,7 @@ function setPermissionsOnTeamJoin(player)
 end
 
 function joinNorth(player)
+	clearInventories(player)
 	player.force="north"
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
 	player.teleport(pos, global["surfaceName"])
@@ -20,6 +21,7 @@ function joinNorth(player)
 end
 
 function joinSouth(player)
+	clearInventories(player)
 	player.force="south"
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
 	player.teleport(pos, global["surfaceName"])

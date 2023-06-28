@@ -85,6 +85,7 @@ end
 
 function clearInventories()
 	for _, player in pairs(game.connected_players) do
+		cancelCrafting(player)
 		clearInventory(player)
 	end 
 end
@@ -373,6 +374,7 @@ function gameOver(winningForce)
 	for i, player in pairs(game.connected_players) do
 		player.gui.top["ready"]["buttonflow2"]["biter-clash-ready"].state = false 
 		player.gui.top["biter-clash"].visible = true
+		cancelCrafting(player)
 	end
 	global["gameStarted"] = false
 	global["northSideReady"] = false
@@ -422,4 +424,13 @@ end
 
 function chartScoutedArea(forceName, pos) 
 	game.forces[forceName].chart(global["surfaceName"],{{pos.x-50, pos.y-50}, {pos.x+50, pos.y+50}})
+end
+
+function cancelCrafting(player)
+	for i=1,player.crafting_queue_size do
+		local item = player.crafting_queue[i]
+		if item ~= nil then
+			player.cancel_crafting({index=item.index, count=item.count})
+		end
+	end
 end

@@ -165,6 +165,42 @@ fireFlame.damage_per_tick = {amount = 2 / 60, type = "fire"}
 
 local yellowAmmo = table.deepcopy(data.raw["ammo"]["firearm-magazine"])
 yellowAmmo.magazine_size = 20
+yellowAmmo.ammo_type =
+    {
+      category = "bullet",
+      action =
+      {
+        {
+          type = "direct",
+          action_delivery =
+          {
+            {
+              type = "instant",
+              source_effects =
+              {
+                {
+                  type = "create-explosion",
+                  entity_name = "explosion-gunshot"
+                }
+              },
+              target_effects =
+              {
+                {
+                  type = "create-entity",
+                  entity_name = "explosion-hit",
+                  offsets = {{0, 1}},
+                  offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
+                },
+                {
+                  type = "damage",
+                  damage = { amount = 4 , type = "physical"}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
 local redAmmo = table.deepcopy(data.raw["ammo"]["piercing-rounds-magazine"])
 redAmmo.magazine_size = 20
@@ -192,7 +228,7 @@ redAmmo.ammo_type =
             },
             {
               type = "damage",
-              damage = { amount = 12, type = "physical"}
+              damage = { amount = 10, type = "physical"}
             }
           }
         }
@@ -293,4 +329,4 @@ grenade.action =
       }
     }
 
-data:extend{flamethrowerTurret, flamethrowerFireStream, fireSticker, fireFlame, yellowAmmo, redAmmo, greenAmmo, laserTurret, poisonCloud, slowdownSticker}
+data:extend{flamethrowerTurret, flamethrowerFireStream, fireSticker, fireFlame, yellowAmmo, redAmmo, greenAmmo, laserTurret, poisonCloud, slowdownSticker, grenade}

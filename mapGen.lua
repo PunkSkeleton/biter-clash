@@ -96,7 +96,7 @@ function generateMapSettings()
 		["copper-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.04},
 		["iron-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.04}, 	
 		["uranium-ore"] = {frequency = 2, size = 3, richness = 1},
-		["crude-oil"] = {frequency = math.random(6, 12), size = math.random(5, 20) * 0.1, richness = math.random(2, 9) * 0.1},
+		["crude-oil"] = {frequency = math.random(12, 24), size = math.random(5, 20) * 0.1, richness = math.random(2, 9) * 0.1},
 		["trees"] = {frequency = math.random(6, 32) * 0.05, size = math.random(2, 28) * 0.05, richness = math.random(1, 10) * 0.05},
 		["enemy-base"] = {frequency = 0, size = 0, richness = 0}
 	}

@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.4
+Date: 28. 06. 2023
+  Bugfixes:
+    - Fixed a loophole allowing to bring extra items into the start of the game by having an active crafting queue at the start of the game.
+  Balancing:
+    - Increased the oil frequency twice. This should make it easier to progress behind mediums.
+    - Yellow ammo damage 5->4, red ammo damage 12 -> 10. Yellow ammo with damage upgrade 2 still needs 2 bullets to kill small biter, while at damage upgrade 1 it needs 4. Also yellow ammo is now significantly weaker against medium biters. Generally gun turrets were much better than expected, especially due to much better upgrades than in vanilla.
+    - Reintroduced grenade nerf (AoE radius 6.5 -> 5). Mediums are now much harder to get, enemies research time was trippled and spawning interval is longer so early game offense was nerfed hard.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.3
 Date: 26. 06. 2023
   Features:
