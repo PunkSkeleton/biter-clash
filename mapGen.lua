@@ -123,6 +123,9 @@ end
 
 function reGenerateMap()
 	game.write_file("biter-clash.log", "Regenerate map called, surface name = '" .. global["surfaceName"] .. "'\n", true)
+	for i, player in pairs(game.connected_players) do
+		player.gui.center["mapRegenerating"].visible = true
+	end
 	resetForces()
 	for i, player in pairs(game.connected_players) do
 		spectate(player)
@@ -293,6 +296,7 @@ function finishMapGeneration()
 	for i, player in pairs(game.connected_players) do
 		pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 0}, 5, 0.1)
 		player.teleport(pos, global["surfaceName"])
+		player.gui.center["mapRegenerating"].visible = false
 	end
 end
 	

@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.5
+Date: 29. 06. 2023
+  Features:
+    - Added descriptions to biter upgrade technologies. Finally!
+    - The game now displays information that the map is currently being generated.
+ ---------------------------------------------------------------------------------------------------
 Version: 0.3.4
 Date: 28. 06. 2023
   Bugfixes:

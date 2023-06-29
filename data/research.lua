@@ -15,7 +15,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "adrenaline"
 	      },
 	    },
 	    prerequisites = {"logistic-science-pack", "small-biter"},
@@ -45,7 +45,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "alcohol"
 	      },
 	    },
 	    prerequisites = {"logistic-science-pack", "small-spitter"},
@@ -76,7 +76,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "resistance"
 	      },
 	    },
 	    prerequisites = {"military-science-pack", "medium-biter"},
@@ -108,7 +108,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "heavy-spit"
 	      },
 	    },
 	    prerequisites = {"military-science-pack", "medium-spitter"},
@@ -140,7 +140,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "sharp-teeth"
 	      },
 	    },
 	    prerequisites = {"chemical-science-pack", "big-biter"},
@@ -173,7 +173,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "artillery-spitter"
 	      },
 	    },
 	    prerequisites = {"chemical-science-pack", "big-spitter"},
@@ -206,7 +206,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "rapid-regeneration"
 	      },
 	    },
 	    prerequisites = {"production-science-pack", "behemoth-biter"},
@@ -240,7 +240,7 @@ data:extend({
 	    effects = {
 	      {
 	        type = "nothing",
-	        modifier = 0.50,
+	        effect_description = "aoe-spitter"
 	      },
 	    },
 	    prerequisites = {"production-science-pack", "behemoth-spitter"},

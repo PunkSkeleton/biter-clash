@@ -7,7 +7,7 @@ function createGui(player)
 	end
 	local frame = player.gui.top.add{
 		type = "frame", name = "biter-clash", caption = {"biter-clash.frame-heading"}, direction = "vertical", style = "biter-clash_frame"}
-	frame.style.width = 250
+	frame.style.width = 180
 	
 	local buttoncontainer = frame.add{ type = "flow", name = "buttonflow", direction = "vertical"}
 	
@@ -50,11 +50,15 @@ function createGui(player)
 	player.gui.top["ready"].visible = false
 	
 	local gameClock = player.gui.top.add{type="frame", name="gameClock"}
-    frame.style.padding = {0, 6, 0, 6}
+    gameClock.style.padding = {0, 6, 0, 6}
     gameClock.style.width = 80
     local label = gameClock.add{type="label", name="clockLabel"}
 		
 	player.gui.top["gameClock"].visible = false
+	
+	local mapRegenerating = player.gui.center.add{type="frame", name="mapRegenerating", caption = {"mapRegenerating.frame-heading"}}
+	mapRegenerating.style.padding = {0, 6, 0, 6}
+	player.gui.center["mapRegenerating"].visible = true
 	
 end
 
