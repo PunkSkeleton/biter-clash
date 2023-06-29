@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.6
+Date: 29. 06. 2023
+  Bugfixes:
+    - Fixed a crash when in training mode you pick up the starter chest before starting the game.
+    - Hopefully fixed a crash related to crafting queue clearing before and after the game.
+    - Fixed a bug that would make the "map is being generated" banner visible after joining the game with the map already generated.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.5
 Date: 29. 06. 2023
   Features:

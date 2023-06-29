@@ -58,7 +58,7 @@ function createGui(player)
 	
 	local mapRegenerating = player.gui.center.add{type="frame", name="mapRegenerating", caption = {"mapRegenerating.frame-heading"}}
 	mapRegenerating.style.padding = {0, 6, 0, 6}
-	player.gui.center["mapRegenerating"].visible = true
+	player.gui.center["mapRegenerating"].visible = false
 	
 end
 

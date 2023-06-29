@@ -19,21 +19,23 @@ function chartSpawningArea(offset, forceName)
 end
 
 function convertBlueprints(offset, forceName, packchest)
-	for _, entity in pairs(game.surfaces[global["surfaceName"]].find_entities({{-50, offset-50}, {50, offset+50}})) do
-		remainingGhost = true
-		if entity.is_registered_for_construction() then
-			for item_name, item_count  in pairs (packchest.get_inventory(defines.inventory.chest).get_contents()) do
-				if item_name == entity.ghost_name then 
-			    	if item_count > 0 then
-			    		entity.revive()
-			    		packchest.get_inventory(defines.inventory.chest).remove({name=item_name, count=1})
-			    		remainingGhost = false
-			    		break
-			    	end
-			    end
-			end
-			if remainingGhost then
-				entity.destroy()
+	if packchest.valid then
+		for _, entity in pairs(game.surfaces[global["surfaceName"]].find_entities({{-50, offset-50}, {50, offset+50}})) do
+			remainingGhost = true
+			if entity.is_registered_for_construction() then
+				for item_name, item_count  in pairs (packchest.get_inventory(defines.inventory.chest).get_contents()) do
+					if item_name == entity.ghost_name then 
+				    	if item_count > 0 then
+				    		entity.revive()
+				    		packchest.get_inventory(defines.inventory.chest).remove({name=item_name, count=1})
+				    		remainingGhost = false
+				    		break
+				    	end
+				    end
+				end
+				if remainingGhost then
+					entity.destroy()
+				end
 			end
 		end
 	end
@@ -427,10 +429,12 @@ function chartScoutedArea(forceName, pos)
 end
 
 function cancelCrafting(player)
-	for i=1,player.crafting_queue_size do
-		local item = player.crafting_queue[i]
-		if item ~= nil then
-			player.cancel_crafting({index=item.index, count=item.count})
+	if player.crafting_queue ~= nil then
+		for i=1,player.crafting_queue_size do
+			local item = player.crafting_queue[i]
+			if item ~= nil then
+				player.cancel_crafting({index=item.index, count=item.count})
+			end
 		end
 	end
 end

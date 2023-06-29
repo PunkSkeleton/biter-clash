@@ -24,6 +24,9 @@ function initPlayer(player)
 		else 
 			player.gui.top["biter-clash"].visible = true
 		end
+		if global["mapToBeCloned2"] then 
+			player.gui.center["mapRegenerating"].visible = true
+		end
 	end
 end
 
@@ -68,5 +71,8 @@ function onGameStart()
 	game.forces["south"].research_queue_enabled = true
 	game.map_settings.enemy_expansion.enabled = false
 	game.map_settings.pollution.enabled = true
+	for _, player in pairs(game.connected_players) do
+		player.gui.center["mapRegenerating"].visible = true
+	end
 	generateMap()
 end
