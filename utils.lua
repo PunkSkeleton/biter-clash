@@ -429,7 +429,7 @@ function chartScoutedArea(forceName, pos)
 end
 
 function cancelCrafting(player)
-	if player.crafting_queue ~= nil then
+	if player.ticks_to_respawn == nil then
 		for i=1,player.crafting_queue_size do
 			local item = player.crafting_queue[i]
 			if item ~= nil then

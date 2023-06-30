@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.7
+Date: 30. 06. 2023
+  Bugfixes:
+    - Next attempt at fixing a crash related to crafting queue clearing before and after the game.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.6
 Date: 29. 06. 2023
   Bugfixes:
