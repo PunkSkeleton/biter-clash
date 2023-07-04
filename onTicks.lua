@@ -117,8 +117,8 @@ end
 
 
 function on300thtick(event)
-	profiler2 = game.create_profiler(true)
-	profiler2.restart()
+	--profiler2 = game.create_profiler(true)
+	--profiler2.restart()
 	
 	for i, group in ipairs(global["activeBiterGroups"]) do
 		if group == nil then
@@ -129,8 +129,10 @@ function on300thtick(event)
 			table.remove(global["activeBiterGroups"], i)
 			goto continue
 		end
-		local randomizer = math.random(1,100)
+		chartScoutedArea(group.force.name, group.position)
+		local randomizer = math.random(1,50)
 		if (randomizer == 1) then
+			game.write_file("biter-clash.log", "Forcibly moving biter group at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
 			nextStep(group)
 			goto continue
 		end
@@ -141,13 +143,6 @@ function on300thtick(event)
 			if forceName == "north" then
 				enemyForce = "south"
 			end
-			chartScoutedArea(forceName, pos)
-			
-			if forceName == "north" then
-				 table.insert(global["chartNorth1"], pos)
-			else 
-				 table.insert(global["chartSouth1"], pos)
-			end
 			move = true
 			enemyEntities = game.surfaces[global["surfaceName"]].find_entities_filtered({position=pos, radius=15, force=enemyForce})
 			if enemyEntities == nil then
@@ -155,6 +150,7 @@ function on300thtick(event)
 			end
 			if next(enemyEntities) then
 				group.set_autonomous()
+				game.write_file("biter-clash.log", "Setting autonomus mode for biter group at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
 				move = false
 			end
 			if move then
@@ -164,11 +160,11 @@ function on300thtick(event)
 		end
 		::continue::
 	end
-	profiler2.stop()
-	game.write_file("biter-clash.log", "on300thtick took: ", true)
-	game.write_file("biter-clash.log", {"", profiler2}, true)
-	game.write_file("biter-clash.log", "\n", true)
-	profiler2.reset()
+	--profiler2.stop()
+	--game.write_file("biter-clash.log", "on300thtick took: ", true)
+	--game.write_file("biter-clash.log", {"", profiler2}, true)
+	--game.write_file("biter-clash.log", "\n", true)
+	--profiler2.reset()
 end
 
 function on303thtick(event)

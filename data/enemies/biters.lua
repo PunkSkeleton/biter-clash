@@ -73,7 +73,7 @@ adrenalineSmallBiter.attack_parameters =
     {
       type = "projectile",
       range = 0.5,
-      cooldown = 20,
+      cooldown = 22,
       cooldown_deviation = 0.15,
       ammo_type = make_unit_melee_ammo_type(7),
       sound = sounds.biter_roars(0.35),

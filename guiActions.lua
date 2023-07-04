@@ -18,6 +18,7 @@ function joinNorth(player)
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
 	player.teleport(pos, global["surfaceName"])
 	setPermissionsOnTeamJoin(player)
+	player.gui.center["mapRegenerating"].visible = false
 end
 
 function joinSouth(player)
@@ -26,6 +27,7 @@ function joinSouth(player)
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
 	player.teleport(pos, global["surfaceName"])
 	setPermissionsOnTeamJoin(player)
+	player.gui.center["mapRegenerating"].visible = false
 end
 
 function spectate(player)
@@ -37,6 +39,7 @@ function spectate(player)
 	player.gui.top["biter-clash"].visible = true
 	game.permissions.get_group("Players").remove_player(player)
 	game.permissions.get_group("Default").add_player(player)
+	player.gui.center["mapRegenerating"].visible = false
 end
 
 function startGame()

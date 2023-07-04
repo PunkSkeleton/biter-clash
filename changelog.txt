@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.8
+Date: 04. 07. 2023
+  Features:
+  	- Shared vision with your biters.
+    - Changed debug, it debugs different things now and generates a lot less data.
+    - Disabled vanilla victory.   
+  Balancing:
+    - Small spitter nest cost: 50/25 -> 40/25.
+    - Medium spitter nest cost: 40/40 -> 40/35.
+    - Big biter nest cost: 25/50 -> 50/50.
+    - Behemoth biter nest cost: 13/25 -> 25/25.
+    - Adrenaline small biter attack cooldown: 20 -> 22.
+  Bugfixes:
+    - Map regeneration banner is now also closed on successful team or spectator force join.   
+---------------------------------------------------------------------------------------------------
 Version: 0.3.7
 Date: 30. 06. 2023
   Bugfixes:
