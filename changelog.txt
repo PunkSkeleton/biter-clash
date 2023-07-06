@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.9
+Date: 06. 07. 2023
+  Features:
+  	- Map regeneration banner is now closeable.
+    - Added in-game guide :). It is accessible while being a spectator.
+  Bugfixes:
+    - Map regeneration banner is correctly shown after clicking regenerate map.   
+---------------------------------------------------------------------------------------------------
 Version: 0.3.8
 Date: 04. 07. 2023
   Features:
