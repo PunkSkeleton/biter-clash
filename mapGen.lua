@@ -123,6 +123,8 @@ end
 
 function reGenerateMap()
 	game.write_file("biter-clash.log", "Regenerate map called, surface name = '" .. global["surfaceName"] .. "'\n", true)
+	global["northResearchedString"] = "North completed research:\n"
+	global["southResearchedString"] = "South completed research:\n"
 	for i, player in pairs(game.connected_players) do
 		player.gui.center["mapRegenerating"].visible = true
 	end

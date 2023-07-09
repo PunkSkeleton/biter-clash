@@ -92,15 +92,7 @@ function every60thTick()
 			chestFillRatio = 1 - ((game.tick - global["gameStartedTick"]) / 162000)
 			fillFreeResourceChests(chestFillRatio)
 		end
-		local base = math.floor((game.tick - global["gameStartedTick"])/60)
-		local seconds = math.floor(base) % 60
-		local minutes = math.floor(base/60) % 60
-		local hours = math.floor(base/3600)
-		
-		caption = string.format("%02d:%02d", minutes, seconds)
-		if hours > 0 then
-		  caption = string.format("%d:%s", hours, caption)
-		end
+		caption = calculateTime()
 		for i, player in pairs(game.connected_players) do
 			local label = player.gui.top["gameClock"]["clockLabel"]
 			--game.write_file("biter-clash.log", caption .. "\n", true)

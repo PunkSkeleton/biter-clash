@@ -85,7 +85,7 @@ function createGui(player)
 	mapRegenerating = player.gui.center.add{type = "frame", name = "mapRegenerating", direction = "vertical"}
 	addTitlebar(mapRegenerating, "Map is generated", "closeRegenerateMap")
 	mapRegeneratingTextWindow = mapRegenerating.add{type = "label", caption = {"mapRegenerating.frame-heading"}}
-	mapRegeneratingTextWindow.style.single_line = false
+	mapRegeneratingTextWindow.style = "biter-clash_help"
 	mapRegeneratingTextWindow.style.width = 500
 	player.gui.center["mapRegenerating"].visible = false
 	
@@ -93,27 +93,49 @@ function createGui(player)
 	addTitlebar(guide, "Guide", "closeGuide")
 	guideInnerWindow = guide.add{type = "frame", name = "guideInnerWindow", direction = "horizontal"}
 	guideIndex = guideInnerWindow.add{type = "frame", name = "guideIndex", direction = "vertical"}
+	guideIndex.style.font = "default-large"
 	guideText = guideInnerWindow.add{type = "frame", name = "guideText", direction = "vertical"}
-	guideIndex.add{type = "label", name = "guideBasics", caption = "Basics"}
-	guideIndex.add{type = "label", name = "guideAttacking", caption = "Attacking"}
-	guideIndex.add{type = "label", name = "guideRocket", caption = "Rocket"}
-	guideIndex.add{type = "label", name = "guideStart", caption = "Game Start"}
-	guideIndex.add{type = "label", name = "guideStarterPack", caption = "Starter Pack"}
-	guideIndex.add{type = "label", name = "guideEnemies", caption = "Enemies"}
-	guideIndex.add{type = "label", name = "guideBalance", caption = "Balance Changes"}
+	guideIndex.add{type = "label", name = "guideBasics", caption = "Basics", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideAttacking", caption = "Attacking", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideRocket", caption = "Rocket", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideStart", caption = "Game Start", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideStarterPack", caption = "Starter Pack", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideEnemies", caption = "Enemies", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideBalance", caption = "Balance Changes", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideInsights", caption = "Insights", style = "biter-clash_help"}
 	guideTextWindow = guideText.add{type = "label", name = "guideTextCore", caption = {"guide.basics"}}
-	guideTextWindow.style.single_line = false
+	guideTextWindow.style = "biter-clash_help"
 	guideTextWindow.style.width = 1000
+	guideTextWindow.style.height = 800
 	player.gui.center["guide"].visible = false
 	
-	local guideToggle = player.gui.top.add{
+	insights = player.gui.center.add{type = "frame", name = "insights", direction = "vertical"}
+	addTitlebar(insights, "Insigths", "closeInsigths")
+	insightsInnerWindow = insights.add{type = "frame", name = "insightsInnerWindow", direction = "horizontal"}
+	insightsIndex = insightsInnerWindow.add{type = "frame", name = "insigthsIndex", direction = "vertical"}
+	insightsIndex.style.font = "default-large"
+	northText = insightsInnerWindow.add{type = "scroll-pane", name = "northText", direction = "vertical"}
+	northText.style.height = 800
+	southText = insightsInnerWindow.add{type = "scroll-pane", name = "southText", direction = "vertical"}
+	southText.style.height = 800
+	insightsIndex.add{type = "label", name = "insightsResearch", caption = "Research", style = "biter-clash_help"}
+	northTextWindow = northText.add{type = "label", name = "northTextCore", caption = global["northResearchedString"], style = "biter-clash_help"}
+	southTextWindow = southText.add{type = "label", name = "southTextCore", caption = global["southResearchedString"], style = "biter-clash_help"}
+	northTextWindow.style.width = 500
+	southTextWindow.style.width = 500
+	player.gui.center["insights"].visible = false
+	
+	local guideToggle = player.gui.left.add{
 		type = "frame", name = "guideToggle", caption = "", direction = "vertical", style = "biter-clash_frame"}
-	guideToggle.style.width = 130
+	guideToggle.style.width = 150
 	local buttoncontainer = guideToggle.add{ type = "flow", name = "guideToggleFlow", direction = "vertical"}
 	buttoncontainer.add{ type = "button", name = "biter-clash-show-guide", style = "rounded_button", caption = "Guide" }
 	buttoncontainer.style.minimal_width = 50
 	buttoncontainer.style.horizontally_stretchable = true
-	player.gui.top["guideToggle"].visible = true
+	buttoncontainer.add{ type = "button", name = "biter-clash-show-insigths", style = "rounded_button", caption = "Insights" }
+	buttoncontainer.style.minimal_width = 50
+	buttoncontainer.style.horizontally_stretchable = true
+	player.gui.left["guideToggle"].visible = true
 	
 end
 
@@ -124,6 +146,12 @@ function onGuiClick(event)
 			player = game.players[event.element.player_index]
 		    player.gui.center["guide"].visible = true
 		end
+		if event.element.name == "biter-clash-show-insigths" then
+			player = game.players[event.element.player_index]
+			player.gui.center["insights"]["insightsInnerWindow"]["northText"]["northTextCore"].caption = global["northResearchedString"]
+		    player.gui.center["insights"]["insightsInnerWindow"]["southText"]["southTextCore"].caption = global["southResearchedString"]
+		    player.gui.center["insights"].visible = true
+		end
 		if event.element.name == "closeRegenerateMap" then
 			player = game.players[event.element.player_index]
 		    player.gui.center["mapRegenerating"].visible = false
@@ -131,6 +159,10 @@ function onGuiClick(event)
 		if event.element.name == "closeGuide" then
 			player = game.players[event.element.player_index]
 		    player.gui.center["guide"].visible = false
+		end
+		if event.element.name == "closeInsigths" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["insights"].visible = false
 		end
 		if event.element.name == "guideBasics" then
 			player = game.players[event.element.player_index]
@@ -159,6 +191,15 @@ function onGuiClick(event)
 		if event.element.name == "guideEnemies" then
 			player = game.players[event.element.player_index]
 		    player.gui.center["guide"]["guideInnerWindow"]["guideText"]["guideTextCore"].caption = {"guide.enemies"}
+		end
+		if event.element.name == "guideInsights" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["guide"]["guideInnerWindow"]["guideText"]["guideTextCore"].caption = {"guide.insights"}
+		end
+		if event.element.name == "insightsResearch" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["insights"]["insightsInnerWindow"]["northText"]["northTextCore"].caption = global["northResearchedString"]
+		    player.gui.center["insights"]["insightsInnerWindow"]["southText"]["southTextCore"].caption = global["southResearchedString"]
 		end
         if element.name == "biter-clash-regenerate-map" then
             reGenerateMap()

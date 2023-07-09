@@ -44,3 +44,5 @@ global["chartNorth2"] = {}
 global["chartSouth2"] = {}
 global["chartNorth3"] = {}
 global["chartSouth3"] = {}
+global["northResearchedString"] = "North completed research:\n"
+global["southResearchedString"] = "South completed research:\n"

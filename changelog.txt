@@ -1,18 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.10
+Date: 09. 07. 2023
+  Features:
+    - Increased font size for guide and map regeneration banner.
+    - Guide windows is now of fixed size.
+    - Added insights window for observers. It currently includes research view. Other views may come in the future once I figure out how to add them without impacting performance.
+  Bugfixes:
+    - Changelog is now properly displayed in the game.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.9
 Date: 06. 07. 2023
   Features:
-  	- Map regeneration banner is now closeable.
+    - Map regeneration banner is now closeable.
     - Added in-game guide :). It is accessible while being a spectator.
   Bugfixes:
-    - Map regeneration banner is correctly shown after clicking regenerate map.   
+    - Map regeneration banner is correctly shown after clicking regenerate map.
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.8
 Date: 04. 07. 2023
   Features:
-  	- Shared vision with your biters.
+    - Shared vision with your biters.
     - Changed debug, it debugs different things now and generates a lot less data.
-    - Disabled vanilla victory.   
+    - Disabled vanilla victory.
   Balancing:
     - Small spitter nest cost: 50/25 -> 40/25.
     - Medium spitter nest cost: 40/40 -> 40/35.
@@ -20,7 +29,7 @@ Date: 04. 07. 2023
     - Behemoth biter nest cost: 13/25 -> 25/25.
     - Adrenaline small biter attack cooldown: 20 -> 22.
   Bugfixes:
-    - Map regeneration banner is now also closed on successful team or spectator force join.   
+    - Map regeneration banner is now also closed on successful team or spectator force join.
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.7
 Date: 30. 06. 2023
@@ -39,7 +48,7 @@ Date: 29. 06. 2023
   Features:
     - Added descriptions to biter upgrade technologies. Finally!
     - The game now displays information that the map is currently being generated.
- ---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 Version: 0.3.4
 Date: 28. 06. 2023
   Bugfixes:

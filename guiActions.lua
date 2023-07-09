@@ -19,7 +19,7 @@ function joinNorth(player)
 	player.teleport(pos, global["surfaceName"])
 	setPermissionsOnTeamJoin(player)
 	player.gui.center["mapRegenerating"].visible = false
-	player.gui.top["guideToggle"].visible = false
+	player.gui.left["guideToggle"].visible = false
 end
 
 function joinSouth(player)
@@ -29,7 +29,7 @@ function joinSouth(player)
 	player.teleport(pos, global["surfaceName"])
 	setPermissionsOnTeamJoin(player)
 	player.gui.center["mapRegenerating"].visible = false
-	player.gui.top["guideToggle"].visible = false
+	player.gui.left["guideToggle"].visible = false
 end
 
 function spectate(player)
@@ -41,7 +41,7 @@ function spectate(player)
 	player.gui.top["biter-clash"].visible = true
 	game.permissions.get_group("Players").remove_player(player)
 	game.permissions.get_group("Default").add_player(player)
-	player.gui.top["guideToggle"].visible = true
+	player.gui.left["guideToggle"].visible = true
 end
 
 function startGame()
@@ -51,6 +51,8 @@ function startGame()
 	game.forces["south"].technologies["automation"].researched = true
 	game.forces["south"].technologies["logistics"].researched = true
 	game.forces["south"].technologies["rocket-silo"].researched = true
+	global["northResearchedString"] = "North completed research:\n"
+	global["southResearchedString"] = "South completed research:\n"
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
 	game.forces["north"].set_spawn_position(pos,global["surfaceName"])
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)

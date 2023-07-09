@@ -438,3 +438,15 @@ function cancelCrafting(player)
 		end
 	end
 end
+
+function calculateTime()
+	local base = math.floor((game.tick - global["gameStartedTick"])/60)
+	local seconds = math.floor(base) % 60
+	local minutes = math.floor(base/60) % 60
+	local hours = math.floor(base/3600)
+	result = string.format("%02d:%02d", minutes, seconds)
+	if hours > 0 then
+	  result = string.format("%d:%s", hours, result)
+	end
+	return result
+end

@@ -1,5 +1,10 @@
 function onResearchFinished(event)
 	game.forces["spectators"].print("Team " .. event.research.force.name .. " finished researching " .. event.research.name .. "!")
+	if event.research.force.name == "north" then
+		global["northResearchedString"] = global["northResearchedString"] .. calculateTime() .. ": " .. event.research.name .. "\n"
+	else
+		global["southResearchedString"] = global["southResearchedString"] .. calculateTime() .. ": " .. event.research.name .. "\n"
+	end
 	if event.research.name == "adrenaline" then
 		if event.research.force.name == "north" then
 			global["adrenalineResearchedNorth"] = true

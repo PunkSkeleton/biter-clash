@@ -70,3 +70,12 @@ data.raw["gui-style"]["default"]["biter-clash_radiobutton"] =
     left_margin = 5,
     right_margin = 5
 }
+data.raw["gui-style"]["default"]["biter-clash_help"] =
+{
+    type = "label_style",
+    parent = "label",
+    maximal_width = 400,
+    single_line = false,
+    font = "default-large"
+}
+
