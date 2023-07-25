@@ -78,4 +78,25 @@ data.raw["gui-style"]["default"]["biter-clash_help"] =
     single_line = false,
     font = "default-large"
 }
-
+data.raw["gui-style"]["default"]["biter-clash_period"] =
+{
+    type = "button_style",
+    parent = "rounded_button",
+    width = 100,
+    font = "default-large"
+}
+data.raw["gui-style"]["default"]["biter-clash_production_icon"] =
+{
+    type = "label_style",
+    parent = "biter-clash_help",
+    width = 40,
+    single_line = true
+}
+data.raw["gui-style"]["default"]["biter-clash_production_value"] =
+{
+    type = "label_style",
+    parent = "biter-clash_help",
+    width = 100,
+    single_line = true,
+    horizontal_align = "right"
+}

@@ -46,3 +46,18 @@ global["chartNorth3"] = {}
 global["chartSouth3"] = {}
 global["northResearchedString"] = "North completed research:\n"
 global["southResearchedString"] = "South completed research:\n"
+global["insightsItems"] = {"firearm-magazine", "piercing-rounds-magazine",
+							"gun-turret", "flamethrower-turret", "laser-turret", 
+							"stone-wall", "grenade", "poison-capsule", "slowdown-capsule",
+							"automation-science-pack", "logistic-science-pack", "military-science-pack", "chemical-science-pack", "production-science-pack", "utility-science-pack",
+							"small-biter-nest", "medium-biter-nest", "big-biter-nest", "behemoth-biter-nest",
+							"small-spitter-nest", "medium-spitter-nest", "big-spitter-nest", "behemoth-spitter-nest"
+							}
+global["insightsNonKillableItems"] = {"firearm-magazine", "piercing-rounds-magazine",
+						    "grenade", "poison-capsule", "slowdown-capsule",
+							"automation-science-pack", "logistic-science-pack", "military-science-pack", "chemical-science-pack", "production-science-pack", "utility-science-pack"
+							}
+global["insightsKillableItems"] = {"gun-turret", "flamethrower-turret", "laser-turret", "stone-wall", 
+							"small-biter-nest", "medium-biter-nest", "big-biter-nest", "behemoth-biter-nest",
+							"small-spitter-nest", "medium-spitter-nest", "big-spitter-nest", "behemoth-spitter-nest"
+							}

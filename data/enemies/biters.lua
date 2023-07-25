@@ -94,12 +94,12 @@ resistantMediumBiter.resistances =
       {
         type = "physical",
         decrease = 6,
-        percent = 20
+        percent = 30
       },
       {
         type = "explosion",
         decrease = 4,
-        percent = 20
+        percent = 30
       }
       ,
       {

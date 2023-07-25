@@ -1836,3 +1836,170 @@ data:extend(
     order = "c-k-f-e"
   }
 })
+
+data:extend(
+{
+  {
+    type = "technology",
+    name = "research-speed-1",
+    icon_size = 256, icon_mipmaps = 4,
+    icons = util.technology_icon_constant_speed("__base__/graphics/technology/research-speed.png"),
+    effects =
+    {
+      {
+        type = "laboratory-speed",
+        modifier = 0.4
+      }
+    },
+    prerequisites = {"automation-2"},
+    unit =
+    {
+      count = 100,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1}
+      },
+      time = 30
+    },
+    upgrade = true,
+    order = "c-m-a"
+  },
+  {
+    type = "technology",
+    name = "research-speed-2",
+    icon_size = 256, icon_mipmaps = 4,
+    icons = util.technology_icon_constant_speed("__base__/graphics/technology/research-speed.png"),
+    effects =
+    {
+      {
+        type = "laboratory-speed",
+        modifier = 0.6
+      }
+    },
+    prerequisites = {"research-speed-1"},
+    unit =
+    {
+      count = 200,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1}
+      },
+      time = 30
+    },
+    upgrade = true,
+    order = "c-m-b"
+  },
+  {
+    type = "technology",
+    name = "research-speed-3",
+    icon_size = 256, icon_mipmaps = 4,
+    icons = util.technology_icon_constant_speed("__base__/graphics/technology/research-speed.png"),
+    effects =
+    {
+      {
+        type = "laboratory-speed",
+        modifier = 0.8
+      }
+    },
+    prerequisites = {"research-speed-2"},
+    unit =
+    {
+      count = 250,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1}
+      },
+      time = 30
+    },
+    upgrade = true,
+    order = "c-m-c"
+  },
+  {
+    type = "technology",
+    name = "research-speed-4",
+    icon_size = 256, icon_mipmaps = 4,
+    icons = util.technology_icon_constant_speed("__base__/graphics/technology/research-speed.png"),
+    effects =
+    {
+      {
+        type = "laboratory-speed",
+        modifier = 1
+      }
+    },
+    prerequisites = {"research-speed-3"},
+    unit =
+    {
+      count = 500,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1}
+      },
+      time = 30
+    },
+    upgrade = true,
+    order = "c-m-d"
+  },
+  {
+    type = "technology",
+    name = "research-speed-5",
+    icon_size = 256, icon_mipmaps = 4,
+    icons = util.technology_icon_constant_speed("__base__/graphics/technology/research-speed.png"),
+    effects =
+    {
+      {
+        type = "laboratory-speed",
+        modifier = 1
+      }
+    },
+    prerequisites = {"research-speed-4"},
+    unit =
+    {
+      count = 500,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1}
+      },
+      time = 30
+    },
+    upgrade = true,
+    order = "c-m-d"
+  },
+  {
+    type = "technology",
+    name = "research-speed-6",
+    icon_size = 256, icon_mipmaps = 4,
+    icons = util.technology_icon_constant_speed("__base__/graphics/technology/research-speed.png"),
+    effects =
+    {
+      {
+        type = "laboratory-speed",
+        modifier = 1.2
+      }
+    },
+    prerequisites = {"research-speed-5"},
+    unit =
+    {
+      count = 500,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"utility-science-pack", 1}
+      },
+      time = 30
+    },
+    upgrade = true,
+    order = "c-m-d"
+  }
+})

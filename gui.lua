@@ -1,5 +1,6 @@
 require "mapGen"
 require "guiActions"
+require "insights"
 
 function addTitlebar(gui, caption, close_button_name)
   local titlebar = gui.add{type = "flow"}
@@ -112,13 +113,27 @@ function createGui(player)
 	insights = player.gui.center.add{type = "frame", name = "insights", direction = "vertical"}
 	addTitlebar(insights, "Insigths", "closeInsigths")
 	insightsInnerWindow = insights.add{type = "frame", name = "insightsInnerWindow", direction = "horizontal"}
+	insightsInnerWindow.style.height = 820
+	insightsInnerWindow.style.width = 1200
 	insightsIndex = insightsInnerWindow.add{type = "frame", name = "insigthsIndex", direction = "vertical"}
 	insightsIndex.style.font = "default-large"
+	insightsIndex.style.width = 150
 	northText = insightsInnerWindow.add{type = "scroll-pane", name = "northText", direction = "vertical"}
 	northText.style.height = 800
+	northText.visible = false
 	southText = insightsInnerWindow.add{type = "scroll-pane", name = "southText", direction = "vertical"}
 	southText.style.height = 800
+	southText.visible = false
+	production = prepareProductionWindow(insightsInnerWindow)
+	production.visible = false
+	consumption = prepareConsumptionWindow(insightsInnerWindow)
+	consumption.visible = false
+	itemFlow = prepareItemFlowWindow(insightsInnerWindow)
+	itemFlow.visible = false
 	insightsIndex.add{type = "label", name = "insightsResearch", caption = "Research", style = "biter-clash_help"}
+	insightsIndex.add{type = "label", name = "insightsProduction", caption = "Production", style = "biter-clash_help"}
+	insightsIndex.add{type = "label", name = "insightsConsumption", caption = "Consumption", style = "biter-clash_help"}
+	insightsIndex.add{type = "label", name = "insightsItemFlow", caption = "Item Flow", style = "biter-clash_help"}
 	northTextWindow = northText.add{type = "label", name = "northTextCore", caption = global["northResearchedString"], style = "biter-clash_help"}
 	southTextWindow = southText.add{type = "label", name = "southTextCore", caption = global["southResearchedString"], style = "biter-clash_help"}
 	northTextWindow.style.width = 500
@@ -148,8 +163,6 @@ function onGuiClick(event)
 		end
 		if event.element.name == "biter-clash-show-insigths" then
 			player = game.players[event.element.player_index]
-			player.gui.center["insights"]["insightsInnerWindow"]["northText"]["northTextCore"].caption = global["northResearchedString"]
-		    player.gui.center["insights"]["insightsInnerWindow"]["southText"]["southTextCore"].caption = global["southResearchedString"]
 		    player.gui.center["insights"].visible = true
 		end
 		if event.element.name == "closeRegenerateMap" then
@@ -198,8 +211,88 @@ function onGuiClick(event)
 		end
 		if event.element.name == "insightsResearch" then
 			player = game.players[event.element.player_index]
+			player.gui.center["insights"]["insightsInnerWindow"]["production"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["consumption"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["itemFlow"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["northText"].visible = true
+			player.gui.center["insights"]["insightsInnerWindow"]["southText"].visible = true
 		    player.gui.center["insights"]["insightsInnerWindow"]["northText"]["northTextCore"].caption = global["northResearchedString"]
 		    player.gui.center["insights"]["insightsInnerWindow"]["southText"]["southTextCore"].caption = global["southResearchedString"]
+		end
+		if event.element.name == "insightsProduction" then
+			player = game.players[event.element.player_index]
+			updateProductionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_thousand_hours)
+			player.gui.center["insights"]["insightsInnerWindow"]["northText"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["southText"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["consumption"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["itemFlow"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["production"].visible = true
+		end
+		if event.element.name == "productionTotal" then
+			player = game.players[event.element.player_index]
+			updateProductionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_thousand_hours)
+		end
+		if event.element.name == "productionOneMinute" then
+			player = game.players[event.element.player_index]
+			updateProductionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_minute)
+		end
+		if event.element.name == "productionTenMinutes" then
+			player = game.players[event.element.player_index]
+			updateProductionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.ten_minutes)
+		end
+		if event.element.name == "productionOneHour" then
+			player = game.players[event.element.player_index]
+			updateProductionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_hour)
+		end
+		if event.element.name == "insightsConsumption" then
+			player = game.players[event.element.player_index]
+			updateConsumptionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_thousand_hours)
+			player.gui.center["insights"]["insightsInnerWindow"]["northText"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["southText"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["itemFlow"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["production"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["consumption"].visible = true
+		end
+		if event.element.name == "consumptionTotal" then
+			player = game.players[event.element.player_index]
+			updateConsumptionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_thousand_hours)
+		end
+		if event.element.name == "consumptionOneMinute" then
+			player = game.players[event.element.player_index]
+			updateConsumptionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_minute)
+		end
+		if event.element.name == "consumptionTenMinutes" then
+			player = game.players[event.element.player_index]
+			updateConsumptionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.ten_minutes)
+		end
+		if event.element.name == "consumptionOneHour" then
+			player = game.players[event.element.player_index]
+			updateConsumptionWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_hour)
+		end
+		if event.element.name == "insightsItemFlow" then
+			player = game.players[event.element.player_index]
+			updateItemFlowWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_thousand_hours)
+			player.gui.center["insights"]["insightsInnerWindow"]["northText"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["southText"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["production"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["consumption"].visible = false
+			player.gui.center["insights"]["insightsInnerWindow"]["itemFlow"].visible = true
+		end
+		if event.element.name == "itemFlowTotal" then
+			player = game.players[event.element.player_index]
+			updateItemFlowWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_thousand_hours)
+		end
+		if event.element.name == "itemFlowOneMinute" then
+			player = game.players[event.element.player_index]
+			updateItemFlowWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_minute)
+		end
+		if event.element.name == "itemFlowTenMinutes" then
+			player = game.players[event.element.player_index]
+			updateItemFlowWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.ten_minutes)
+		end
+		if event.element.name == "itemFlowOneHour" then
+			player = game.players[event.element.player_index]
+			updateItemFlowWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_hour)
 		end
         if element.name == "biter-clash-regenerate-map" then
             reGenerateMap()

@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.11
+Date: 25. 07. 2023
+  Features:
+    - Added production, consumption and item flow views to insights window.
+  Balancing:
+    - Resistant medium biter percentage resistances to physical and explosion damage increased from 20 to 30. 
+  Bugfixes:
+    - Labolatory research speed bonuses were not doubled like other upgrades. This fix should make research speed bonus a little more interesting option but it might need some further buff.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.10
 Date: 09. 07. 2023
   Features:
