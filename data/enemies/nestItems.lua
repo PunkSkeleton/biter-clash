@@ -7,7 +7,7 @@ smallBiterNestItem.place_result = "small-biter-nest"
 local smallBiterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
 smallBiterNestRecipe.enabled = false
 smallBiterNestRecipe.name = "small-biter-nest"
-smallBiterNestRecipe.ingredients = {{"copper-plate",25},{"iron-plate",50}}
+smallBiterNestRecipe.ingredients = {{"copper-plate",30},{"iron-plate",60}}
 smallBiterNestRecipe.result = "small-biter-nest"
 smallBiterNestRecipe.energy_required = 30
 
@@ -19,7 +19,7 @@ smallSpitterNestItem.place_result = "small-spitter-nest"
 local smallSpitterNestRecipe = table.deepcopy(data.raw["recipe"]["gun-turret"])
 smallSpitterNestRecipe.enabled = false
 smallSpitterNestRecipe.name = "small-spitter-nest"
-smallSpitterNestRecipe.ingredients = {{"copper-plate",40},{"iron-plate",25}}
+smallSpitterNestRecipe.ingredients = {{"copper-plate",50},{"iron-plate",25}}
 smallSpitterNestRecipe.result = "small-spitter-nest"
 smallSpitterNestRecipe.energy_required = 30
 
