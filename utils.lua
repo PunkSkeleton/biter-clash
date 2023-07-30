@@ -450,3 +450,19 @@ function calculateTime()
 	end
 	return result
 end
+
+function shouldDisplayMenu()
+ 	if global["gameStarted"] then
+ 		activeSpectators = false
+		for _, player in pairs(game.connected_players) do
+			if player.force.name == "spectators" then
+				activeSpectators = true
+			else
+				goto finish
+			end
+		end
+		return activeSpectators
+	end
+	::finish::
+	return false
+end

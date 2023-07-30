@@ -152,6 +152,11 @@ function on300thtick(event)
 		end
 		::continue::
 	end
+	if shouldDisplayMenu() then
+		for _, player2 in pairs(game.connected_players) do
+			player2.gui.top["biter-clash"].visible = true
+		end
+	end
 	--profiler2.stop()
 	--game.write_file("biter-clash.log", "on300thtick took: ", true)
 	--game.write_file("biter-clash.log", {"", profiler2}, true)

@@ -1,5 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.12
+Date: 30. 07. 2023
+  Features:
+    - Added a safeguard against abandoned games: if no players are in active forces and there are spectators then the spectators should see the main GUI allowing map regeneration.
+---------------------------------------------------------------------------------------------------
+Version: 0.3.12
 Date: 28. 07. 2023
   Balancing:
     - Small biter nest cost increased from 50/25 to 60/30
