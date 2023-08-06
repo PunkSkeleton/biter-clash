@@ -3,10 +3,10 @@ require "pregame"
 require "mapGen"
 require "gui"
 require "resources"
-require "ai.ai"
 require "globals"
 require "onTicks"
 require "eventHandlers"
+require "ai.biterStagingAreas"
 
 script.on_init(onGameStart)
 script.on_event(defines.events.on_tick, onTick)

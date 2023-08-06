@@ -1,5 +1,12 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.3.12
+Version: 0.4.0
+Date: 06. 08. 2023
+  Bugfixes:
+    - Fixed changelog for 0.3.13.
+  Features:
+    - Added patches of grass in the middle of each biter spawning area so that nest placement in single area is more reliable
+---------------------------------------------------------------------------------------------------
+Version: 0.3.13
 Date: 30. 07. 2023
   Features:
     - Added a safeguard against abandoned games: if no players are in active forces and there are spectators then the spectators should see the main GUI allowing map regeneration.

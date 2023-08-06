@@ -1,4 +1,5 @@
 require "utils"
+require "ai.ai"
 
 function generateStartingArea(size)
 	tiles = {}
@@ -70,6 +71,11 @@ function generateBiterSpawingArea()
 	j=500
 	for i=-500,500 do 
 		table.insert(tiles, {name = "lab-dark-1",position = {i,j}})
+	end
+	game.surfaces[global["surfaceName"]].set_tiles(tiles)
+	tiles = {}
+	for i, currentArea in pairs(biterStagingAreas) do
+		table.insert(tiles, {name = "grass-1",position = {currentArea["middleX"],currentArea["middleY"]}})		
 	end
 	game.surfaces[global["surfaceName"]].set_tiles(tiles)
 end
