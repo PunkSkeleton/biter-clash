@@ -69,27 +69,33 @@ function removeAllBluprints()
 end
 
 function clearInventory(player)
-	for item_name, item_count  in pairs (player.get_inventory(defines.inventory.character_main).get_contents()) do
-		player.get_inventory(defines.inventory.character_main).remove({name=item_name, count=item_count})
-	end
-	player.get_inventory(defines.inventory.character_guns).clear()
-	player.get_inventory(defines.inventory.character_ammo).clear()
-	player.get_inventory(defines.inventory.character_armor).clear()
-	player.get_inventory(defines.inventory.character_trash).clear()
-	local cursor_stack = player.cursor_stack 
-	if cursor_stack ~= nil then
-		if cursor_stack.valid_for_read == true then
-			local item_name = cursor_stack.name
-			cursor_stack.count = 0
+	if player.ticks_to_respawn == nil then
+		for item_name, item_count  in pairs (player.get_inventory(defines.inventory.character_main).get_contents()) do
+			player.get_inventory(defines.inventory.character_main).remove({name=item_name, count=item_count})
+		end
+		player.get_inventory(defines.inventory.character_guns).clear()
+		player.get_inventory(defines.inventory.character_ammo).clear()
+		player.get_inventory(defines.inventory.character_armor).clear()
+		player.get_inventory(defines.inventory.character_trash).clear()
+		local cursor_stack = player.cursor_stack 
+		if cursor_stack ~= nil then
+			if cursor_stack.valid_for_read == true then
+				local item_name = cursor_stack.name
+				cursor_stack.count = 0
+			end
 		end
 	end
 end
 
 function clearInventories()
 	for _, player in pairs(game.connected_players) do
-		cancelCrafting(player)
-		clearInventory(player)
+		clearInventories(player)
 	end 
+end
+
+function clearInventories(player)
+	cancelCrafting(player)
+	clearInventory(player)
 end
 
 function clearQuickBars()

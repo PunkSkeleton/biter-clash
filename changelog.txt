@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.1
+Date: 14. 08. 2023
+  Bugfixes:
+    - Fixed a rare crash during team joining.
+    - Reduced the width of the research text windows a little so that when vertical scrool appears the horizontal scroll does not appear.
+---------------------------------------------------------------------------------------------------
 Version: 0.4.0
 Date: 06. 08. 2023
   Bugfixes:

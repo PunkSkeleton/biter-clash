@@ -136,8 +136,8 @@ function createGui(player)
 	insightsIndex.add{type = "label", name = "insightsItemFlow", caption = "Item Flow", style = "biter-clash_help"}
 	northTextWindow = northText.add{type = "label", name = "northTextCore", caption = global["northResearchedString"], style = "biter-clash_help"}
 	southTextWindow = southText.add{type = "label", name = "southTextCore", caption = global["southResearchedString"], style = "biter-clash_help"}
-	northTextWindow.style.width = 500
-	southTextWindow.style.width = 500
+	northTextWindow.style.width = 490
+	southTextWindow.style.width = 490
 	player.gui.center["insights"].visible = false
 	
 	local guideToggle = player.gui.left.add{
