@@ -87,7 +87,7 @@ function clearInventory(player)
 	end
 end
 
-function clearInventories()
+function clearAllInventories()
 	for _, player in pairs(game.connected_players) do
 		clearInventories(player)
 	end 

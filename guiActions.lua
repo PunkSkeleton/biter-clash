@@ -66,7 +66,7 @@ function startGame()
 		game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, false)
 		game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, true)
 		clearAllGhosts()
-		clearInventories()
+		clearAllInventories()
 		clearQuickBars()	
 		for i, player in pairs(game.connected_players) do
 			if player.force ~= "spectators" then
