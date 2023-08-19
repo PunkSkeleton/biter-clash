@@ -329,4 +329,7 @@ grenade.action =
       }
     }
 
-data:extend{flamethrowerTurret, flamethrowerFireStream, fireSticker, fireFlame, yellowAmmo, redAmmo, greenAmmo, laserTurret, poisonCloud, slowdownSticker, grenade}
+local gunTurret = table.deepcopy(data.raw["ammo-turret"]["gun-turret"])
+gunTurret.attack_parameters.cooldown = 10
+   
+data:extend{flamethrowerTurret, flamethrowerFireStream, fireSticker, fireFlame, yellowAmmo, redAmmo, greenAmmo, laserTurret, poisonCloud, slowdownSticker, grenade, gunTurret}

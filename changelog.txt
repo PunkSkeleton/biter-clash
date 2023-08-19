@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.2
+Date: 19. 08. 2023
+  Balancing:
+    - Gun turret shooting speed reduced from 10 per second to 6 per second, gun turrets damage output scales crazily good
+    - All ammo shooting speed bonuses increased by 10%, this should make them more important, at level 4 shooting speed will be still 16% lower than before nerf
+    - Small biter nest cost increased from 60/30 to 100/50, rushing seems way too good currently, this is also to offset for gun turret nerf
+    - Small spitter nest cost increased from 25/50 to 45/90, reasons are the same as above
+    - Starter pack iron plates, copper plates, iron gear wheels and electronic circuit increased by 50%
+---------------------------------------------------------------------------------------------------
 Version: 0.4.1
 Date: 14. 08. 2023
   Bugfixes:

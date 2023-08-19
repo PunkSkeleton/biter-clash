@@ -97,12 +97,12 @@ data:extend(
       {
         type = "gun-speed",
         ammo_category = "bullet",
-        modifier = 0.3
+        modifier = 0.4
       },
       {
         type = "gun-speed",
         ammo_category = "shotgun-shell",
-        modifier = 0.3
+        modifier = 0.4
       }
     },
     prerequisites = {"military"},
@@ -128,12 +128,12 @@ data:extend(
       {
         type = "gun-speed",
         ammo_category = "bullet",
-        modifier = 0.4
+        modifier = 0.5
       },
       {
         type = "gun-speed",
         ammo_category = "shotgun-shell",
-        modifier = 0.4
+        modifier = 0.5
       }
     },
     prerequisites = {"weapon-shooting-speed-1"},
@@ -1122,17 +1122,17 @@ data:extend(
       {
         type = "gun-speed",
         ammo_category = "bullet",
-        modifier = 0.5
+        modifier = 0.6
       },
       {
         type = "gun-speed",
         ammo_category = "shotgun-shell",
-        modifier = 0.5
+        modifier = 0.6
       },
       {
         type = "gun-speed",
         ammo_category = "rocket",
-        modifier = 0.5
+        modifier = 0.6
       }
     },
     prerequisites = {"weapon-shooting-speed-2"},
@@ -1160,17 +1160,17 @@ data:extend(
       {
         type = "gun-speed",
         ammo_category = "bullet",
-        modifier = 0.7
+        modifier = 0.8
       },
       {
         type = "gun-speed",
         ammo_category = "shotgun-shell",
-        modifier = 0.7
+        modifier = 0.8
       },
       {
         type = "gun-speed",
         ammo_category = "rocket",
-        modifier = 1.4
+        modifier = 1.5
       }
     },
     prerequisites = {"weapon-shooting-speed-3"},
@@ -1198,22 +1198,22 @@ data:extend(
       {
         type = "gun-speed",
         ammo_category = "bullet",
-        modifier = 0.7
+        modifier = 0.8
       },
       {
         type = "gun-speed",
         ammo_category = "shotgun-shell",
-        modifier = 0.9
+        modifier = 1.0
       },
       {
         type = "gun-speed",
         ammo_category = "cannon-shell",
-        modifier = 1.6
+        modifier = 1.7
       },
       {
         type = "gun-speed",
         ammo_category = "rocket",
-        modifier = 1.8
+        modifier = 1.9
       }
     },
     prerequisites = {"weapon-shooting-speed-4"},
@@ -1247,17 +1247,17 @@ data:extend(
       {
         type = "gun-speed",
         ammo_category = "shotgun-shell",
-        modifier = 0.8
+        modifier = 0.9
       },
       {
         type = "gun-speed",
         ammo_category = "cannon-shell",
-        modifier = 3
+        modifier = 3.1
       },
       {
         type = "gun-speed",
         ammo_category = "rocket",
-        modifier = 2.6
+        modifier = 2.7
       }
     },
     prerequisites = {"weapon-shooting-speed-5"},
