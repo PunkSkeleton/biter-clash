@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.4
+Date: 04. 09. 2023
+  Bugfixes:
+    - Players should no longer be stuck during map regeneration.
+  Balancing:
+    - Increased cost of ammo damage upgrades by 25%.
+---------------------------------------------------------------------------------------------------
 Version: 0.4.3
 Date: 19. 08. 2023
   Balancing:

@@ -40,7 +40,7 @@ data:extend(
     prerequisites = {"military"},
     unit =
     {
-      count = 100*1,
+      count = 125*1,
       ingredients =
       {
         {"automation-science-pack", 1}
@@ -76,7 +76,7 @@ data:extend(
     prerequisites = {"physical-projectile-damage-1"},
     unit =
     {
-      count = 100*2,
+      count = 125*2,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -203,7 +203,7 @@ data:extend(
     prerequisites = {"physical-projectile-damage-2"},
     unit =
     {
-      count = 100*3,
+      count = 125*3,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -241,7 +241,7 @@ data:extend(
     prerequisites = {"physical-projectile-damage-3"},
     unit =
     {
-      count = 100*4,
+      count = 125*4,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -284,7 +284,7 @@ data:extend(
     prerequisites = {"physical-projectile-damage-4"},
     unit =
     {
-      count = 100*5,
+      count = 125*5,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -328,7 +328,7 @@ data:extend(
     prerequisites = {"physical-projectile-damage-5"},
     unit =
     {
-      count = 100*6,
+      count = 125*6,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -373,7 +373,7 @@ data:extend(
     prerequisites = {"physical-projectile-damage-6", "space-science-pack"},
     unit =
     {
-      count_formula = "2^(L-7)*1000",
+      count_formula = "2^(L-7)*1250",
       ingredients =
       {
         {"automation-science-pack", 1},
