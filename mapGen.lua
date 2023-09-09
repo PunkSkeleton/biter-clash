@@ -97,12 +97,12 @@ function generateMapSettings()
 	settings.terrain_segmentation = math.random(1, 6) * 0.5
 	settings.cliff_settings = {cliff_elevation_interval = math.random(10, 20), cliff_elevation_0 = math.random(10, 30)}
 	settings.autoplace_controls = {
-		["coal"] = {frequency = math.random(9, 12), size = math.random(3, 10) * 0.1, richness = math.random(2, 8) * 0.06},
+		["coal"] = {frequency = math.random(9, 12), size = math.random(5, 14) * 0.1, richness = math.random(2, 8) * 0.06},
 		["stone"] = {frequency = math.random(9, 12), size = math.random(3, 10) * 0.1, richness = math.random(2, 8) * 0.06},
 		["copper-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.04},
 		["iron-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.04}, 	
 		["uranium-ore"] = {frequency = 2, size = 3, richness = 1},
-		["crude-oil"] = {frequency = math.random(12, 24), size = math.random(5, 20) * 0.1, richness = math.random(2, 9) * 0.1},
+		["crude-oil"] = {frequency = math.random(18, 36), size = math.random(5, 20) * 0.1, richness = math.random(2, 9) * 0.1},
 		["trees"] = {frequency = math.random(6, 32) * 0.05, size = math.random(2, 28) * 0.05, richness = math.random(1, 10) * 0.05},
 		["enemy-base"] = {frequency = 0, size = 0, richness = 0}
 	}
@@ -145,8 +145,7 @@ function reGenerateMap()
 	game.write_file("biter-clash.log", "Regenerate map 2, surface name = '" .. global["surfaceName"] .. "'\n", true)
 	generateMap()
 	for i, player in pairs(game.connected_players) do
-		pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 0}, 5, 0.1)
-		player.teleport(pos, global["surfaceName"])
+		player.teleport({0, i}, global["surfaceName"])
 		player.gui.top["gameClock"].visible = false
 	end
 	game.forces["spectators"].chart(global["surfaceName"],{{-5000, -5000}, {5000, 5000}})

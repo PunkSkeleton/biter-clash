@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.5
+Date: 09. 09. 2023
+  Bugfixes:
+    - Fixed a critical crash during map regeneration (caused by previous bugfix).
+  Balancing:
+    - Further increased the frequency of oil and also increased the frequency of coal to make higher tech easier to get.
+---------------------------------------------------------------------------------------------------
 Version: 0.4.4
 Date: 04. 09. 2023
   Bugfixes:
