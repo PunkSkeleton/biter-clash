@@ -437,9 +437,11 @@ end
 function cancelCrafting(player)
 	if player.ticks_to_respawn == nil then
 		for i=1,player.crafting_queue_size do
-			local item = player.crafting_queue[i]
-			if item ~= nil then
-				player.cancel_crafting({index=item.index, count=item.count})
+			if player.crafting_queue ~= nil then
+				local item = player.crafting_queue[i]
+				if item ~= nil then
+					player.cancel_crafting({index=item.index, count=item.count})
+				end
 			end
 		end
 	end

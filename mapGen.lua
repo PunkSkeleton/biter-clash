@@ -212,6 +212,7 @@ function fillStarterChest(chest)
 	chest.insert({name="iron-gear-wheel", count=300})
 	chest.insert({name="electronic-circuit", count=300})
 	chest.insert({name="wood", count=100})
+	chest.insert({name="electric-mining-drill", count=50})
 end
 
 function spawnNorthStart()
