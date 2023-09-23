@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.7
+Date: 23. 09. 2023
+  Balancing:
+    - Nerfed various aspects of flamethrower damage, overall nerf should be about 33%.
+    - Increased flamethrower fluid consumption by 50%.
+    - Increased the average amount of water on the maps.
+    - Greatly increased the number of cliffs and their continuity.
+---------------------------------------------------------------------------------------------------
 Version: 0.4.6
 Date: 22. 09. 2023
   Bugfixes:

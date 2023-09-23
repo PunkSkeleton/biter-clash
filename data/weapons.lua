@@ -39,7 +39,7 @@ flamethrowerTurret.attack_parameters =
         {type = "heavy-oil", damage_modifier = 1.5},
         {type = "light-oil", damage_modifier = 2}
       },
-      fluid_consumption = 1,
+      fluid_consumption = 1.5,
 
       gun_center_shift =
       {
@@ -133,7 +133,7 @@ flamethrowerFireStream.action =
             },
             {
               type = "damage",
-              damage = { amount = 0.5, type = "fire" },
+              damage = { amount = 0.4, type = "fire" },
               apply_damage_to_trees = false
             }
           }
@@ -158,10 +158,10 @@ flamethrowerFireStream.action =
     
 local fireSticker = table.deepcopy(data.raw["sticker"]["fire-sticker"])
 fireSticker.duration_in_ticks = 10 * 60
-fireSticker.damage_per_tick = { amount = 3 * 50 / 60, type = "fire" }
+fireSticker.damage_per_tick = { amount = 2 * 50 / 60, type = "fire" }
 
 local fireFlame = table.deepcopy(data.raw["fire"]["fire-flame"])
-fireFlame.damage_per_tick = {amount = 2 / 60, type = "fire"}
+fireFlame.damage_per_tick = {amount = 1 / 60, type = "fire"}
 
 local yellowAmmo = table.deepcopy(data.raw["ammo"]["firearm-magazine"])
 yellowAmmo.magazine_size = 20

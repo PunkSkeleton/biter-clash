@@ -92,10 +92,10 @@ function generateMapSettings()
 	local settings = {}
 	settings.width = 1100
 	settings.height = 1100
-	settings.water = math.random(1, 8) * 0.4
+	settings.water = math.random(2, 7) * 0.5
 	settings.starting_area = 1
 	settings.terrain_segmentation = math.random(1, 6) * 0.5
-	settings.cliff_settings = {cliff_elevation_interval = math.random(10, 20), cliff_elevation_0 = math.random(10, 30)}
+	settings.cliff_settings = {cliff_elevation_interval = math.random(10, 20), cliff_elevation_0 = math.random(10, 20), richness = math.random(5, 10) * 0.8}
 	settings.autoplace_controls = {
 		["coal"] = {frequency = math.random(9, 12), size = math.random(5, 14) * 0.1, richness = math.random(2, 8) * 0.06},
 		["stone"] = {frequency = math.random(9, 12), size = math.random(3, 10) * 0.1, richness = math.random(2, 8) * 0.06},
