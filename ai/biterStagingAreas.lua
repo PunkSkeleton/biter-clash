@@ -9,7 +9,7 @@ rightBottomY = -500
 middleX = -525
 middleY = -525
 
-while rightBottomX < 500 do
+while rightBottomX < 600 do
 	currentArea = {}
 	currentArea["leftTopX"] = leftTopX
 	currentArea["leftTopY"] = leftTopY
@@ -31,7 +31,7 @@ rightBottomY = 550
 middleX = -525
 middleY = 525
 
-while rightBottomX < 500 do
+while rightBottomX < 600 do
 	currentArea = {}
 	currentArea["leftTopX"] = leftTopX
 	currentArea["leftTopY"] = leftTopY
@@ -53,7 +53,7 @@ rightBottomY = -450
 middleX = -525
 middleY = -475
 
-while rightBottomY < 450 do
+while rightBottomY < 550 do
 	currentArea = {}
 	currentArea["leftTopX"] = leftTopX
 	currentArea["leftTopY"] = leftTopY
@@ -75,7 +75,7 @@ rightBottomY = -450
 middleX = 525
 middleY = -475
 
-while rightBottomY < 450 do
+while rightBottomY < 550 do
 	currentArea = {}
 	currentArea["leftTopX"] = leftTopX
 	currentArea["leftTopY"] = leftTopY

@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.8
+Date: 25. 09. 2023
+  Bugfixes:
+    - Tried to reduce the likehood of biters getting stuck, also more than doubled the frequency at which they are forcibly unstuck.
+    - Fixed that exactly 8 biter staging areas... weren't biter staging areas.
+---------------------------------------------------------------------------------------------------
 Version: 0.4.7
 Date: 23. 09. 2023
   Balancing:

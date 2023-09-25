@@ -58,6 +58,10 @@ function advanceBiters(biterGroup, forceName, startPosX, startPosY)
 	position = {x = targetPositionX + jitterX, y = targetPositionY + jitterY}
 	currentSurface = game.surfaces[global["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position("assembling-machine-1", position, 128, 1)
+	if pos == nil then
+		game.write_file("biter-clash.log", "Biters target position was nil, moving straight to the silo! (group: " .. currentPosX .. ":" .. currentPosY .. ")\n", true)	
+		pos = {x = 0 + jitterX, y = siloPosY + jitterY}
+	end
 	--game.write_file("biter-clash.log", "Added command to move: " .. currentPosX .. ":" .. currentPosY .. " calculated distance: " .. distanceX .. ":" .. distanceY .. "\n", true)	
     biterGroup.set_command({
 		type = defines.command.attack_area,

@@ -122,7 +122,7 @@ function on300thtick(event)
 			goto continue
 		end
 		chartScoutedArea(group.force.name, group.position)
-		local randomizer = math.random(1,50)
+		local randomizer = math.random(1,20)
 		if (randomizer == 1) then
 			game.write_file("biter-clash.log", "Forcibly moving biter group at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
 			nextStep(group)
