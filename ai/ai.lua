@@ -139,16 +139,54 @@ end
 function firstCommand() 
 	if global["northAiBiterGroup"] ~= nil then
 		local currentArea = biterStagingAreas[global["biterStagingAreaPointer"]]
-		table.insert(global["activeBiterGroups"], global["northAiBiterGroup"])
-		advanceBiters(global["northAiBiterGroup"], "north", currentArea["middleX"], currentArea["middleY"] + 750)
+		local biterMap = {}
+		biterMap["group"] = global["northAiBiterGroup"]
+		biterMap["position"] = biterMap["group"].position
+		biterMap["ticksIdle"] = 0
+		biterMap["ticksSinceLastCommand"] = 0
+		biterMap["opposingForce"] = "south"
+		biterMap["force"] = "north"
+		table.insert(global["activeBiterGroups"], biterMap)
+		advanceBiters(biterMap["group"], "north", currentArea["middleX"], currentArea["middleY"] + 750)
 	end
 	if global["southAiBiterGroup"] ~= nil then
 		local currentArea = biterStagingAreas[global["biterStagingAreaPointer"]]
-		table.insert(global["activeBiterGroups"], global["southAiBiterGroup"])
-		advanceBiters(global["southAiBiterGroup"], "south", currentArea["middleX"], currentArea["middleY"] - 750)		
+		local biterMap = {}
+		biterMap["group"] = global["southAiBiterGroup"]
+		biterMap["position"] = biterMap["group"].position
+		biterMap["ticksIdle"] = 0
+		biterMap["ticksSinceLastCommand"] = 0
+		biterMap["opposingForce"] = "north"
+		biterMap["force"] = "south"
+		table.insert(global["activeBiterGroups"], biterMap)
+		advanceBiters(biterMap["group"], "south", currentArea["middleX"], currentArea["middleY"] - 750)		
 	end
 end
 
 function nextStep(biterGroup) 
 	advanceBiters(biterGroup, biterGroup.force.name, biterGroup.position.x, biterGroup.position.y)
+end
+
+function tryReformGroup(biterMap)
+	currentSurface = game.surfaces[global["surfaceName"]]
+	local individualBiters = currentSurface.find_enemy_units(biterMap.position, 18, biterMap["opposingForce"])
+	if individualBiters ~= nil then
+		if #individualBiters ~= 0 then
+			pos = currentSurface.find_non_colliding_position("assembling-machine-1", biterMap["position"], 512, 1)
+			local biterGroup = currentSurface.create_unit_group({position = pos, force = biterMap["force"]})
+			for _, biter in pairs(individualBiters) do
+				biterGroup.add_member(biter)
+			end
+			local newBiterMap = {}
+			newBiterMap["group"] = biterGroup
+			newBiterMap["position"] = biterGroup.position
+			newBiterMap["ticksIdle"] = 0
+			newBiterMap["ticksSinceLastCommand"] = 0
+			newBiterMap["opposingForce"] = biterMap["opposingForce"]
+			newBiterMap["force"] = biterMap["force"]
+			table.insert(global["activeBiterGroups"], newBiterMap)
+			game.write_file("biter-clash.log", "Stuck biter group reformed at position: " .. newBiterMap["position"].x .. "," .. newBiterMap["position"].y .. "\n", true)
+			advanceBiters(newBiterMap["group"], newBiterMap["force"], newBiterMap["position"].x, newBiterMap["position"].y)
+		end
+	end
 end

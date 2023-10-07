@@ -112,19 +112,41 @@ function on300thtick(event)
 	--profiler2 = game.create_profiler(true)
 	--profiler2.restart()
 	
-	for i, group in ipairs(global["activeBiterGroups"]) do
+	for i, biterMap in ipairs(global["activeBiterGroups"]) do
+		group = biterMap["group"]
 		if group == nil then
 			table.remove(global["activeBiterGroups"], i)
 			goto continue
 		end
 		if group.valid == false then
 			table.remove(global["activeBiterGroups"], i)
+			tryReformGroup(biterMap)
 			goto continue
 		end
 		chartScoutedArea(group.force.name, group.position)
-		local randomizer = math.random(1,20)
-		if (randomizer == 1) then
+		local forceMove = false
+		if biterMap["position"] == group.position then
+			biterMap["ticksIdle"] = biterMap["ticksIdle"] + 1
+			game.write_file("biter-clash.log", "Idle biter group detected for: " .. biterMap["ticksIdle"] .. " at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
+			if biterMap["ticksIdle"] > 24 then
+				forceMove = true
+			end
+		else 
+			biterMap["position"] = group.position
+			biterMap["ticksIdle"] = 0
+		end 
+		biterMap["ticksSinceLastCommand"] = biterMap["ticksSinceLastCommand"] + 1
+		if biterMap["ticksSinceLastCommand"] > 30 then 
+			game.write_file("biter-clash.log", "No new commands for: " .. biterMap["ticksSinceLastCommand"] .. " at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
+			if biterMap["ticksSinceLastCommand"] > 60 then 
+				forceMove = true
+			end
+		end
+		
+		if forceMove then
 			game.write_file("biter-clash.log", "Forcibly moving biter group at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
+			biterMap["ticksIdle"] = 0
+			biterMap["ticksSinceLastCommand"] = 0
 			nextStep(group)
 			goto continue
 		end
@@ -136,6 +158,8 @@ function on300thtick(event)
 				enemyForce = "south"
 			end
 			move = true
+			biterMap["ticksIdle"] = 0
+			biterMap["ticksSinceLastCommand"] = 0
 			enemyEntities = game.surfaces[global["surfaceName"]].find_entities_filtered({position=pos, radius=15, force=enemyForce})
 			if enemyEntities == nil then
 				goto continue

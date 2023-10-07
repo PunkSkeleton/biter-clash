@@ -6,9 +6,10 @@ function setPermissionsOnTeamJoin(player)
 		player.gui.top["biter-clash"].visible = false
         if not global["gameStarted"] then
 			player.gui.top["ready"].visible = true
-			game.permissions.get_group("Default").remove_player(player)
-			game.permissions.get_group("Players").add_player(player)
 		end
+		game.permissions.get_group("Default").remove_player(player)
+		game.permissions.get_group("Players").add_player(player)
+		player.gui.left["team-join"].visible = false
     end
 end
 
@@ -42,6 +43,7 @@ function spectate(player)
 	game.permissions.get_group("Players").remove_player(player)
 	game.permissions.get_group("Default").add_player(player)
 	player.gui.left["guideToggle"].visible = true
+	player.gui.left["team-join"].visible = true
 end
 
 function startGame()
@@ -74,6 +76,9 @@ function startGame()
 				player.gui.top["ready"].visible = false
 			else 
 				player.gui.top["biter-clash"].visible = true
+				if global["lockTeams"] then
+					player.gui.left["team-join"].visible = false
+				end
 			end
 		end
     end
@@ -107,4 +112,14 @@ function teamReady(player, setReady)
 	end
 end
 
+function lockTeams(player, lockState)
+	if global["gameStarted"] == false then
+		global["lockTeams"] = lockState
+		for i, player in pairs(game.connected_players) do
+			player.gui.left["team-join"]["teamJoinButtonflow"]["lock-teams"].state = lockState
+		end
+	else
+		player.gui.left["team-join"]["teamJoinButtonflow"]["lock-teams"].state = global["lockTeams"]
+	end
+end
 

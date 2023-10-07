@@ -133,7 +133,7 @@ end
 
 function onPlayerDied(event)
 	player = game.get_player(event.player_index)
-	player.ticks_to_respawn = math.ceil((event.tick - global["gameStartedTick"]) / 60)
+	player.ticks_to_respawn = math.ceil((event.tick - global["gameStartedTick"]) / 120)
 end
 
 function onRocketLaunched(event) 

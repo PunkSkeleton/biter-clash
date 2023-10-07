@@ -41,22 +41,18 @@ function createGui(player)
 	buttoncontainer.add{ type = "button", name = "biter-clash-regenerate-map", style = "rounded_button", caption = {"biter-clash.regenerate-map"} }
 	buttoncontainer.style.minimal_width = 100
 	buttoncontainer.style.horizontally_stretchable = true
-	
-	buttoncontainer.add{ type = "button", name = "biter-clash-join-north", style = "rounded_button", caption = {"biter-clash.join-north"} }
-	buttoncontainer.style.minimal_width = 100
-	buttoncontainer.style.horizontally_stretchable = true
-	
-	buttoncontainer.add{ type = "button", name = "biter-clash-join-south", style = "rounded_button", caption = {"biter-clash.join-south"} }
-	buttoncontainer.style.minimal_width = 100
-	buttoncontainer.style.horizontally_stretchable = true
-	
-	buttoncontainer.add{ type = "button", name = "biter-clash-spectate", style = "rounded_button", caption = {"biter-clash.spectate"} }
-	buttoncontainer.style.minimal_width = 100
-	buttoncontainer.style.horizontally_stretchable = true
-	
 	buttoncontainer.add{ type = "button", name = "biter-clash-start-game", style = "rounded_button", caption = {"biter-clash.start-game"} }
-	buttoncontainer.style.minimal_width = 100
-	buttoncontainer.style.horizontally_stretchable = true
+	
+	local teamJoinFrame = player.gui.left.add{
+		type = "frame", name = "team-join", direction = "vertical", style = "biter-clash_frame"}
+	teamJoinFrame.style.width = 150
+	local teamJoinButtoncontainer = teamJoinFrame.add{ type = "flow", name = "teamJoinButtonflow", direction = "vertical"}
+	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-spectate", style = "rounded_button", caption = {"biter-clash.spectate"} }
+	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-north", style = "rounded_button", caption = {"biter-clash.join-north"} }
+	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-south", style = "rounded_button", caption = {"biter-clash.join-south"} }
+	teamJoinButtoncontainer.add{ type = "checkbox", name = "lock-teams", caption = {"biter-clash.lockTeams"}, state = false }
+	teamJoinButtoncontainer.style.minimal_width = 100
+	teamJoinButtoncontainer.style.horizontally_stretchable = true
 	
 	local frame2 = player.gui.top.add{
 		type = "frame", name = "ready", caption = {"ready.frame-heading"}, direction = "vertical", style = "biter-clash_frame"}
@@ -71,10 +67,7 @@ function createGui(player)
 	player.gui.top["ready"].visible = false
 	
 	buttoncontainer2.add{ type = "button", name = "biter-clash-exit-team", style = "rounded_button", caption = {"biter-clash.exit-team"} }
-	buttoncontainer2.style.minimal_width = 100
-	buttoncontainer2.style.horizontally_stretchable = true
 	
-	player.gui.top["ready"].visible = false
 	
 	local gameClock = player.gui.top.add{type="frame", name="gameClock"}
     gameClock.style.padding = {0, 6, 0, 6}
@@ -335,6 +328,14 @@ function onGuiCheckedStateChanged(event)
 				setReady = true
 			end
 			teamReady(game.players[event.element.player_index], setReady)
+        	return
+        end
+        if element.name == "lock-teams" then
+			local lockState = false
+			if element.state == true then
+				lockState = true
+			end
+			lockTeams(game.players[event.element.player_index], lockState)
         	return
         end
 	end

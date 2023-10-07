@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.5.0
+Date: 07. 10. 2023
+  Bugfixes:
+    - Biters should not get stuck for a long time anymore.
+  Balancing:
+    - By popular demand: halved respawn times. Now it's 1/120th of the current game length. Not that I agree with that change but sometimes one needs to surrender to the masses...
+  Features:
+    - You can now have players joining mid-game with tournament mode on. You can disable this feature by selecting "Lock Teams" checkbox before the start of the game.
+---------------------------------------------------------------------------------------------------
 Version: 0.4.9
 Date: 04. 10. 2023
   Balancing:
