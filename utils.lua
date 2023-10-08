@@ -382,6 +382,7 @@ function gameOver(winningForce)
 	for i, player in pairs(game.connected_players) do
 		player.gui.top["ready"]["buttonflow2"]["biter-clash-ready"].state = false 
 		player.gui.top["biter-clash"].visible = true
+		player.gui.left["team-join"].visible = true
 		cancelCrafting(player)
 	end
 	global["gameStarted"] = false
