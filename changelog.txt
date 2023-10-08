@@ -5,10 +5,12 @@ Date: 08. 10. 2023
     - Biters should not get stuck for a long time anymore.
   Balancing:
     - By popular demand: halved respawn times. Now it's 1/120th of the current game length. Not that I agree with that change but sometimes one needs to surrender to the masses...
+    - Direct flamethrower damage reduced by 25%, this should reduce effectiveness of massing them.
   Features:
     - You can now have players joining mid-game with tournament mode on. You can disable this feature by selecting "Lock Teams" checkbox before the start of the game.
     - It is no longer possible to regenerate map while players are in the teams. Random players joining the game won't be therefore able to do it when the teams are preparing for the game. To regenerate the map after the game everyone has to join spectators.
     - It is no longer possible to force the game start as a spectator in tournament mode.
+    - Added text notifications for players joining and leaving teams and to teams setting their ready state.
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.9
 Date: 04. 10. 2023

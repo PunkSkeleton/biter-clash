@@ -133,7 +133,7 @@ flamethrowerFireStream.action =
             },
             {
               type = "damage",
-              damage = { amount = 0.4, type = "fire" },
+              damage = { amount = 0.3, type = "fire" },
               apply_damage_to_trees = false
             }
           }

@@ -20,6 +20,7 @@ function joinNorth(player)
 	setPermissionsOnTeamJoin(player)
 	player.gui.center["mapRegenerating"].visible = false
 	player.gui.left["guideToggle"].visible = false
+	game.print(player.name .. " has joined team north!")
 end
 
 function joinSouth(player)
@@ -30,9 +31,11 @@ function joinSouth(player)
 	setPermissionsOnTeamJoin(player)
 	player.gui.center["mapRegenerating"].visible = false
 	player.gui.left["guideToggle"].visible = false
+	game.print(player.name .. " has joined team south!")
 end
 
 function spectate(player)
+	game.print(player.name .. " has left team " .. player.force.name .. "!")
 	player.force="spectators"
 	pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0,0}, 5, 0.1)
 	if pos ~= nil then
@@ -92,6 +95,11 @@ function startingSequence()
 end
 
 function teamReady(player, setReady)
+	local readyString = "not ready"
+	if setReady then
+		readyString = "ready"
+	end
+	game.print(player.name .. " has set team " .. player.force.name .. " to " .. readyString .. "!")
 	if player.force.name == "north" then
 		global["northSideReady"] = setReady
 		for i, player in pairs(game.connected_players) do
@@ -107,6 +115,15 @@ function teamReady(player, setReady)
 			end
 		end
 	end
+	local northReadyString = "is not"
+	local southReadyString = "is not"
+	if global["northSideReady"] then
+		northReadyString = "is"
+	end
+	if global["southSideReady"] then
+		southReadyString = "is"
+	end
+	game.print("Currently north " .. northReadyString .. " ready and south " .. southReadyString .. " ready!")
 	if global["southSideReady"] and global["northSideReady"] then
 		startingSequence()
 	end
