@@ -290,7 +290,8 @@ function onGuiClick(event)
         if element.name == "biter-clash-regenerate-map" then
         	for i, player in pairs(game.connected_players) do
 				if player.force.name ~= "spectators" then
-					game.print("Map regeneration not allowed when teams are populated, please leave the teams before regenerating!")
+					currentPlayer = game.players[event.element.player_index]
+					currentPlayer.print("Map regeneration not allowed when teams are populated, please leave the teams before regenerating!")
 					return
 				end
 			end
