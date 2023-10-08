@@ -50,7 +50,7 @@ function createGui(player)
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-spectate", style = "rounded_button", caption = {"biter-clash.spectate"} }
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-north", style = "rounded_button", caption = {"biter-clash.join-north"} }
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-south", style = "rounded_button", caption = {"biter-clash.join-south"} }
-	teamJoinButtoncontainer.add{ type = "checkbox", name = "lock-teams", caption = {"biter-clash.lockTeams"}, state = false }
+	teamJoinButtoncontainer.add{ type = "checkbox", name = "lock-teams", caption = {"biter-clash.lockTeams"}, state = global["lockTeams"] }
 	teamJoinButtoncontainer.style.minimal_width = 100
 	teamJoinButtoncontainer.style.horizontally_stretchable = true
 	
@@ -288,6 +288,12 @@ function onGuiClick(event)
 			updateItemFlowWindow(player.gui.center["insights"]["insightsInnerWindow"], defines.flow_precision_index.one_hour)
 		end
         if element.name == "biter-clash-regenerate-map" then
+        	for i, player in pairs(game.connected_players) do
+				if player.force.name ~= "spectators" then
+					game.print("Map regeneration not allowed when teams are populated, please leave the teams before regenerating!")
+					return
+				end
+			end
             reGenerateMap()
             return
         end
@@ -305,8 +311,13 @@ function onGuiClick(event)
 	            return
 	        end
 	        if element.name == "biter-clash-start-game" then
-	            startGame()
-	            return
+	        	if settings.global["tournament-mode"].value == false then
+		            startGame()
+		        else
+		        	player = game.players[event.element.player_index]
+		        	player.print("Start game as specator disabled in tournament mode, to start the game join a team and check Team Ready!")
+		        end
+		        return	            
 	        end
 	        if element.name == "biter-clash-exit-team" then
 	        	player = game.players[event.element.player_index]

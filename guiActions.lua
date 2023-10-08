@@ -2,7 +2,6 @@ require "utils"
 
 function setPermissionsOnTeamJoin(player)
 	if settings.global["tournament-mode"].value == true then
-		player.gui.top["ready"].visible = true
 		player.gui.top["biter-clash"].visible = false
         if not global["gameStarted"] then
 			player.gui.top["ready"].visible = true
@@ -71,8 +70,9 @@ function startGame()
 		clearAllInventories()
 		clearQuickBars()	
 		for i, player in pairs(game.connected_players) do
-			if player.force ~= "spectators" then
+			if player.force.name ~= "spectators" then
 				player.gui.top["biter-clash"].visible = false
+				player.gui.left["team-join"].visible = false
 				player.gui.top["ready"].visible = false
 			else 
 				player.gui.top["biter-clash"].visible = true
