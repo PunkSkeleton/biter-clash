@@ -1,4 +1,26 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.0
+Date: 12. 11. 2024
+  Balancing:
+    - Increased the spawning time to 12.5s, 10s was probably too big of a change even taking into account that first nests will be typically placed one minute later.
+    - Increased attack frequency significantly.
+    - Added some material to each player during game start to allow immediate crafting.
+  Features:
+    - Updated to Factorio 2.0. Most of the new researches (including trigger tech and stuff like electric mining drill) are researched at the game start.
+    - Added Quick Guide window displayed when joining team. It mainly reminds about having to place a starting blueprint.
+    - Added 2 example blueprints to player inventory when joining team before the game start.
+    - Increased the frequency at which biters receive commands. This should make their movement much smoother.
+  Bugfixes:
+    - Thanks to Factorio 2.0 API biters will not get stuck anymore. This time for real.
+---------------------------------------------------------------------------------------------------
+Version: 0.5.1
+Date: 24. 11. 2023
+  Balancing:
+    - Doubled the cost of nests, tripled their spawn rate (to 1 per 10s). Nests were always meant to be powerful, now there is often a problem with space for placing them. Also more biters in generals should make gun turrets worse.
+    - Artillery spitter attack cooldown 5s -> 6s
+  Features:
+    - Biters spawn much more dense around the spawners.
+---------------------------------------------------------------------------------------------------
 Version: 0.5.0
 Date: 08. 10. 2023
   Bugfixes:

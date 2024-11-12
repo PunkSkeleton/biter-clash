@@ -21,7 +21,7 @@ function addTitlebar(gui, caption, close_button_name)
     type = "sprite-button",
     name = close_button_name,
     style = "frame_action_button",
-    sprite = "utility/close_white",
+    sprite = "utility/close",
     hovered_sprite = "utility/close_black",
     clicked_sprite = "utility/close_black",
     tooltip = {"gui.close-instruction"},
@@ -50,7 +50,7 @@ function createGui(player)
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-spectate", style = "rounded_button", caption = {"biter-clash.spectate"} }
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-north", style = "rounded_button", caption = {"biter-clash.join-north"} }
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-south", style = "rounded_button", caption = {"biter-clash.join-south"} }
-	teamJoinButtoncontainer.add{ type = "checkbox", name = "lock-teams", caption = {"biter-clash.lockTeams"}, state = global["lockTeams"] }
+	teamJoinButtoncontainer.add{ type = "checkbox", name = "lock-teams", caption = {"biter-clash.lockTeams"}, state = storage["lockTeams"] }
 	teamJoinButtoncontainer.style.minimal_width = 100
 	teamJoinButtoncontainer.style.horizontally_stretchable = true
 	
@@ -82,6 +82,13 @@ function createGui(player)
 	mapRegeneratingTextWindow.style = "biter-clash_help"
 	mapRegeneratingTextWindow.style.width = 500
 	player.gui.center["mapRegenerating"].visible = false
+	
+	quickGuide = player.gui.center.add{type = "frame", name = "quickGuide", direction = "vertical"}
+	addTitlebar(quickGuide, "Quick Guide", "closeQuickGuide")
+	quickGuideTextWindow = quickGuide.add{type = "label", caption = {"quickGuide.frame-heading"}}
+	quickGuideTextWindow.style = "biter-clash_help"
+	quickGuideTextWindow.style.width = 800
+	player.gui.center["quickGuide"].visible = false
 	
 	guide = player.gui.center.add{type = "frame", name = "guide", direction = "vertical"}
 	addTitlebar(guide, "Guide", "closeGuide")
@@ -127,8 +134,8 @@ function createGui(player)
 	insightsIndex.add{type = "label", name = "insightsProduction", caption = "Production", style = "biter-clash_help"}
 	insightsIndex.add{type = "label", name = "insightsConsumption", caption = "Consumption", style = "biter-clash_help"}
 	insightsIndex.add{type = "label", name = "insightsItemFlow", caption = "Item Flow", style = "biter-clash_help"}
-	northTextWindow = northText.add{type = "label", name = "northTextCore", caption = global["northResearchedString"], style = "biter-clash_help"}
-	southTextWindow = southText.add{type = "label", name = "southTextCore", caption = global["southResearchedString"], style = "biter-clash_help"}
+	northTextWindow = northText.add{type = "label", name = "northTextCore", caption = storage["northResearchedString"], style = "biter-clash_help"}
+	southTextWindow = southText.add{type = "label", name = "southTextCore", caption = storage["southResearchedString"], style = "biter-clash_help"}
 	northTextWindow.style.width = 490
 	southTextWindow.style.width = 490
 	player.gui.center["insights"].visible = false
@@ -161,6 +168,10 @@ function onGuiClick(event)
 		if event.element.name == "closeRegenerateMap" then
 			player = game.players[event.element.player_index]
 		    player.gui.center["mapRegenerating"].visible = false
+		end
+		if event.element.name == "closeQuickGuide" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["quickGuide"].visible = false
 		end
 		if event.element.name == "closeGuide" then
 			player = game.players[event.element.player_index]
@@ -209,8 +220,8 @@ function onGuiClick(event)
 			player.gui.center["insights"]["insightsInnerWindow"]["itemFlow"].visible = false
 			player.gui.center["insights"]["insightsInnerWindow"]["northText"].visible = true
 			player.gui.center["insights"]["insightsInnerWindow"]["southText"].visible = true
-		    player.gui.center["insights"]["insightsInnerWindow"]["northText"]["northTextCore"].caption = global["northResearchedString"]
-		    player.gui.center["insights"]["insightsInnerWindow"]["southText"]["southTextCore"].caption = global["southResearchedString"]
+		    player.gui.center["insights"]["insightsInnerWindow"]["northText"]["northTextCore"].caption = storage["northResearchedString"]
+		    player.gui.center["insights"]["insightsInnerWindow"]["southText"]["southTextCore"].caption = storage["southResearchedString"]
 		end
 		if event.element.name == "insightsProduction" then
 			player = game.players[event.element.player_index]
@@ -298,7 +309,7 @@ function onGuiClick(event)
             reGenerateMap()
             return
         end
-        if not global["mapToBeCloned2"] then
+        if not storage["mapToBeCloned2"] then
 	        if element.name == "biter-clash-join-north" then
 	            joinNorth(game.players[event.element.player_index])
 	            return

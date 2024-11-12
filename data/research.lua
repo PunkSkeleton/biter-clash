@@ -369,7 +369,7 @@ data:extend({
 	        recipe = "behemoth-biter-nest",
 	      },
 	    },
-	    prerequisites = {"big-biter", "military-science-pack", "chemical-science-pack", "advanced-electronics", "robotics"},
+	    prerequisites = {"big-biter", "military-science-pack", "chemical-science-pack", "advanced-circuit", "robotics"},
 	    unit = {
 	      count = 100,
 	      ingredients = {
@@ -494,7 +494,7 @@ data:extend({
 	        recipe = "behemoth-spitter-nest",
 	      },
 	    },
-	    prerequisites = {"big-spitter", "military-science-pack", "chemical-science-pack", "advanced-electronics", "robotics"},
+	    prerequisites = {"big-spitter", "military-science-pack", "chemical-science-pack", "advanced-circuit", "robotics"},
 	    unit = {
 	      count = 100,
 	      ingredients = {

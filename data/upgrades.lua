@@ -4,9 +4,9 @@ local stronger_explosives_1_icon = "__base__/graphics/technology/stronger-explos
 local stronger_explosives_2_icon = "__base__/graphics/technology/stronger-explosives-2.png"
 local stronger_explosives_3_icon = "__base__/graphics/technology/stronger-explosives-3.png"
 local refined_flammables_icon = "__base__/graphics/technology/refined-flammables.png"
-local energy_weapons_damage_1_icon = "__base__/graphics/technology/energy-weapons-damage.png"
-local energy_weapons_damage_2_icon = "__base__/graphics/technology/energy-weapons-damage.png"
-local energy_weapons_damage_3_icon = "__base__/graphics/technology/energy-weapons-damage.png"
+local laser_weapons_damage_1_icon = "__base__/graphics/technology/laser-weapons-damage.png"
+local laser_weapons_damage_2_icon = "__base__/graphics/technology/laser-weapons-damage.png"
+local laser_weapons_damage_3_icon = "__base__/graphics/technology/laser-weapons-damage.png"
 local weapon_shooting_speed_1_icon = "__base__/graphics/technology/weapon-shooting-speed-1.png"
 local weapon_shooting_speed_2_icon = "__base__/graphics/technology/weapon-shooting-speed-2.png"
 local weapon_shooting_speed_3_icon = "__base__/graphics/technology/weapon-shooting-speed-3.png"
@@ -877,9 +877,9 @@ data:extend(
 {
   {
     type = "technology",
-    name = "energy-weapons-damage-1",
+    name = "laser-weapons-damage-1",
     icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_1_icon),
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_1_icon),
     effects =
     {
       {
@@ -906,9 +906,9 @@ data:extend(
   },
   {
     type = "technology",
-    name = "energy-weapons-damage-2",
+    name = "laser-weapons-damage-2",
     icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_1_icon),
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_1_icon),
     effects =
     {
       {
@@ -917,7 +917,7 @@ data:extend(
         modifier = 0.4
       }
     },
-    prerequisites = {"energy-weapons-damage-1"},
+    prerequisites = {"laser-weapons-damage-1"},
     unit =
     {
       count = 100*2,
@@ -935,9 +935,9 @@ data:extend(
   },
   {
     type = "technology",
-    name = "energy-weapons-damage-3",
+    name = "laser-weapons-damage-3",
     icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_1_icon),
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_1_icon),
     effects =
     {
       {
@@ -946,7 +946,7 @@ data:extend(
         modifier = 0.6
       }
     },
-    prerequisites = {"energy-weapons-damage-2"},
+    prerequisites = {"laser-weapons-damage-2"},
     unit =
     {
       count = 100*3,
@@ -964,9 +964,9 @@ data:extend(
   },
   {
     type = "technology",
-    name = "energy-weapons-damage-4",
+    name = "laser-weapons-damage-4",
     icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_2_icon),
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_2_icon),
     effects =
     {
       {
@@ -975,7 +975,7 @@ data:extend(
         modifier = 0.8
       }
     },
-    prerequisites = {"energy-weapons-damage-3"},
+    prerequisites = {"laser-weapons-damage-3"},
     unit =
     {
       count = 100*4,
@@ -993,9 +993,9 @@ data:extend(
   },
   {
     type = "technology",
-    name = "energy-weapons-damage-5",
+    name = "laser-weapons-damage-5",
     icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_3_icon),
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_3_icon),
     effects =
     {
       {
@@ -1009,7 +1009,7 @@ data:extend(
         modifier = 0.8
       }
     },
-    prerequisites = {"energy-weapons-damage-4"},
+    prerequisites = {"laser-weapons-damage-4"},
     unit =
     {
       count = 100*5,
@@ -1028,9 +1028,9 @@ data:extend(
   },
   {
     type = "technology",
-    name = "energy-weapons-damage-6",
+    name = "laser-weapons-damage-6",
     icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_3_icon),
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_3_icon),
     effects =
     {
       {
@@ -1049,7 +1049,7 @@ data:extend(
         modifier = 1.2
       }
     },
-    prerequisites = {"energy-weapons-damage-5"},
+    prerequisites = {"laser-weapons-damage-5"},
     unit =
     {
       count = 100*6,
@@ -1068,9 +1068,9 @@ data:extend(
   },
   {
     type = "technology",
-    name = "energy-weapons-damage-7",
+    name = "laser-weapons-damage-7",
     icon_size = 256, icon_mipmaps = 4,
-    icons = util.technology_icon_constant_damage(energy_weapons_damage_3_icon),
+    icons = util.technology_icon_constant_damage(laser_weapons_damage_3_icon),
     effects =
     {
       {
@@ -1089,7 +1089,7 @@ data:extend(
         modifier = 0.6
       }
     },
-    prerequisites = {"energy-weapons-damage-6", "space-science-pack"},
+    prerequisites = {"laser-weapons-damage-6", "space-science-pack"},
     unit =
     {
       count_formula = "2^(L-7)*1000",

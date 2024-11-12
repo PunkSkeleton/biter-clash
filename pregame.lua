@@ -8,23 +8,23 @@ end
 
 function initPlayer(player)
 	-- if player is not on current surface or is from the old game then the player joins for the first time so has not been initialized 
-	currentSurface = game.surfaces[global["surfaceName"]]
+	currentSurface = game.surfaces[storage["surfaceName"]]
 	if player.surface.name ~= currentSurface.name then
-		pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 0}, 5, 0.1)
+		pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0, 0}, 5, 0.1)
 		if pos == nil then
 			pos = {0,0}
 		end
-		player.teleport(pos, global["surfaceName"])
+		player.teleport(pos, storage["surfaceName"])
 		player.force="spectators"
 		createGui(player)
-		if global["gameStarted"] then
+		if storage["gameStarted"] then
 			player.gui.top["biter-clash"].visible = false
 			player.gui.top["ready"].visible = false
 			player.gui.top["gameClock"].visible = true
 		else 
 			player.gui.top["biter-clash"].visible = true
 		end
-		if global["mapToBeCloned2"] then 
+		if storage["mapToBeCloned2"] then 
 			player.gui.center["mapRegenerating"].visible = true
 		end
 	end
@@ -68,8 +68,7 @@ function onGameStart()
 	game.create_force("south")
 	game.permissions.create_group("Players")
 	game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, false)
-	game.forces["north"].research_queue_enabled = true
-	game.forces["south"].research_queue_enabled = true
+	game.permissions.get_group("Players").set_allows_action(defines.gui_type.blueprint_library, true)
 	game.map_settings.enemy_expansion.enabled = false
 	game.map_settings.pollution.enabled = true
 	for _, player in pairs(game.connected_players) do

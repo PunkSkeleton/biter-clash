@@ -49,7 +49,7 @@ flamethrowerTurret.attack_parameters =
         west = math3d.vector2.add(fireutil.gun_center_base, fireutil.turret_gun_shift.west)
       },
       gun_barrel_length = 0.4,
-
+      ammo_category = "flamethrower",
       ammo_type =
       {
         category = "flamethrower",
@@ -67,51 +67,9 @@ flamethrowerTurret.attack_parameters =
 
       cyclic_sound =
       {
-        begin_sound =
-        {
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-start-01.ogg",
-            volume = 0.5
-          },
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-start-02.ogg",
-            volume = 0.5
-          },
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-start-03.ogg",
-            volume = 0.5
-          }
-        },
-        middle_sound =
-        {
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-mid-01.ogg",
-            volume = 0.5
-          },
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-mid-02.ogg",
-            volume = 0.5
-          },
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-mid-03.ogg",
-            volume = 0.5
-          }
-        },
-        end_sound =
-        {
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-end-01.ogg",
-            volume = 0.5
-          },
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-end-02.ogg",
-            volume = 0.5
-          },
-          {
-            filename = "__base__/sound/fight/flamethrower-turret-end-03.ogg",
-            volume = 0.5
-          }
-        }
+        begin_sound = sound_variations("__base__/sound/fight/flamethrower-turret-start", 3, 0.5),
+        middle_sound = sound_variations("__base__/sound/fight/flamethrower-turret-mid", 3, 0.5),
+        end_sound = sound_variations("__base__/sound/fight/flamethrower-turret-end", 3, 0.5)
       }
     }
 
@@ -247,6 +205,7 @@ laserTurret.attack_parameters =
       source_direction_count = 64,
       source_offset = {0, -3.423489 / 4},
       damage_modifier = 2,
+      ammo_category = "laser",
       ammo_type =
       {
         category = "laser",

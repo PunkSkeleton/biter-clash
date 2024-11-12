@@ -1,4 +1,4 @@
-cooldown = 1800
+cooldown = 750
 
 local smallBiterNest = table.deepcopy(data.raw["unit-spawner"]["biter-spawner"])
 smallBiterNest.name = "small-biter-nest"
@@ -9,6 +9,7 @@ smallBiterNest.max_count_of_owned_units = 99999
 smallBiterNest.max_friends_around_to_spawn = 99999
 smallBiterNest.max_richness_for_spawn_shift = 99999
 smallBiterNest.max_spawn_shift = 1
+smallBiterNest.spawning_spacing = 0.05
 smallBiterNest.result_units = (function()
                      local res = {}
                      res[1] = {"small-biter", {{0.0, 1.0}, {1.0, 1.0}}}
@@ -30,9 +31,9 @@ smallSpitterNest.name = "small-spitter-nest"
 smallSpitterNest.flags = {"placeable-player", "player-creation", "placeable-enemy", "not-repairable"}
 smallSpitterNest.max_health = 999999
 smallSpitterNest.healing_per_tick = 1
-smallSpitterNest.max_count_of_owned_units = 9999
-smallSpitterNest.max_friends_around_to_spawn = 9999
-smallSpitterNest.max_richness_for_spawn_shift = 9999
+smallSpitterNest.max_count_of_owned_units = 99999
+smallSpitterNest.max_friends_around_to_spawn = 99999
+smallSpitterNest.max_richness_for_spawn_shift = 99999
 smallSpitterNest.result_units = (function()
                      local res = {}
                      res[1] = {"small-spitter", {{0.0, 1.0}, {1.0, 1.0}}}

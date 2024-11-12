@@ -6,8 +6,8 @@ function addProductionItem(northWindow, southWindow, name)
 	northProductionValueName = "northProduction" .. name .. "Value"
 	southProductionValueName = "southProduction" .. name .. "Value"
 	iconString = "[img=item." .. name .. "]:"
-	northProductionStatistics = game.forces["north"].item_production_statistics
-	southProductionStatistics = game.forces["north"].item_production_statistics
+	northProductionStatistics = game.forces["north"].get_item_production_statistics(storage["surfaceName"])
+	southProductionStatistics = game.forces["south"].get_item_production_statistics(storage["surfaceName"])
     northItemFlow = northWindow.add{type = "flow", name = northProductionFlowName, direction = "horizontal"}
 	northItemFlow.add{type = "label", name = northProductionIconName, style = "biter-clash_production_icon", caption = iconString }
 	northItemFlow.add{type = "label", name = northProductionValueName, style = "biter-clash_production_value", caption = northProductionStatistics.get_input_count(name) }
@@ -28,7 +28,7 @@ function prepareProductionWindow(parentWindow)
 	productionLeftWindow.add{type = "label", name = "productionLeftLabel", caption = "North production: ", style = "biter-clash_help"}
 	productionRightWindow = productionMainWindow.add{type = "flow", name = "productionRightWindow", direction = "vertical"}
 	productionRightWindow.add{type = "label", name = "productionLeftLabel", caption = "South production: ", style = "biter-clash_help"}
-	for i, item in pairs(global["insightsItems"]) do
+	for i, item in pairs(storage["insightsItems"]) do
 		addProductionItem(productionLeftWindow, productionRightWindow, item)
 	end
 	productionLeftWindow.style.width = 500
@@ -44,12 +44,12 @@ function updateProductionWindowItem(parentWindow, name, period)
 	southValueName = "southProduction" .. name .. "Value"
 	northValueWindow = parentWindow["production"]["productionMainWindow"]["productionLeftWindow"][northFlowName][northValueName]
 	southValueWindow = parentWindow["production"]["productionMainWindow"]["productionRightWindow"][southFlowName][southValueName]
-	northValueWindow.caption = game.forces["north"].item_production_statistics.get_flow_count({name=name, input=true, precision_index=period, count=true})
-	southValueWindow.caption = game.forces["south"].item_production_statistics.get_flow_count({name=name, input=true, precision_index=period, count=true})
+	northValueWindow.caption = game.forces["north"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="input", precision_index=period, count=true})
+	southValueWindow.caption = game.forces["south"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="input", precision_index=period, count=true})
 end
 
 function updateProductionWindow(parentWindow, period)
-	for i, item in pairs(global["insightsItems"]) do
+	for i, item in pairs(storage["insightsItems"]) do
 		updateProductionWindowItem(parentWindow, item, period)
 	end
 end
@@ -62,8 +62,8 @@ function addConsumptionItem(northWindow, southWindow, name)
 	northConsumptionValueName = "northConsumption" .. name .. "Value"
 	southConsumptionValueName = "southConsumption" .. name .. "Value"
 	iconString = "[img=item." .. name .. "]:"
-	northConsumptionStatistics = game.forces["north"].item_production_statistics
-	southConsumptionStatistics = game.forces["north"].item_production_statistics
+	northConsumptionStatistics = game.forces["north"].get_item_production_statistics(storage["surfaceName"])
+	southConsumptionStatistics = game.forces["south"].get_item_production_statistics(storage["surfaceName"])
 	northTotal = northConsumptionStatistics.get_output_count(name)
 	southTotal = southConsumptionStatistics.get_output_count(name)
     northItemFlow = northWindow.add{type = "flow", name = northConsumptionFlowName, direction = "horizontal"}
@@ -86,7 +86,7 @@ function prepareConsumptionWindow(parentWindow)
 	consumptionLeftWindow.add{type = "label", name = "consumptionLeftLabel", caption = "North consumption: ", style = "biter-clash_help"}
 	consumptionRightWindow = consumptionMainWindow.add{type = "flow", name = "consumptionRightWindow", direction = "vertical"}
 	consumptionRightWindow.add{type = "label", name = "consumptionLeftLabel", caption = "South consumption: ", style = "biter-clash_help"}
-	for i, item in pairs(global["insightsItems"]) do
+	for i, item in pairs(storage["insightsItems"]) do
 		addConsumptionItem(consumptionLeftWindow, consumptionRightWindow, item)
 	end
 	consumptionLeftWindow.style.width = 500
@@ -102,8 +102,8 @@ function updateConsumptionWindowItemWithKills(parentWindow, name, period)
 	southValueName = "southConsumption" .. name .. "Value"
 	northValueWindow = parentWindow["consumption"]["consumptionMainWindow"]["consumptionLeftWindow"][northFlowName][northValueName]
 	southValueWindow = parentWindow["consumption"]["consumptionMainWindow"]["consumptionRightWindow"][southFlowName][southValueName]
-	northNumericValue = game.forces["north"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true}) + game.forces["north"].kill_count_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
-	southNumericValue = game.forces["south"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true}) + game.forces["south"].kill_count_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
+	northNumericValue = game.forces["north"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true}) + game.forces["north"].get_kill_count_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
+	southNumericValue = game.forces["south"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true}) + game.forces["south"].get_kill_count_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
 	northValueWindow.caption = northNumericValue
 	southValueWindow.caption = southNumericValue
 end
@@ -115,17 +115,17 @@ function updateConsumptionWindowItem(parentWindow, name, period)
 	southValueName = "southConsumption" .. name .. "Value"
 	northValueWindow = parentWindow["consumption"]["consumptionMainWindow"]["consumptionLeftWindow"][northFlowName][northValueName]
 	southValueWindow = parentWindow["consumption"]["consumptionMainWindow"]["consumptionRightWindow"][southFlowName][southValueName]
-	northNumericValue = game.forces["north"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
-	southNumericValue = game.forces["south"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
+	northNumericValue = game.forces["north"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
+	southNumericValue = game.forces["south"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
 	northValueWindow.caption = northNumericValue
 	southValueWindow.caption = southNumericValue
 end
 
 function updateConsumptionWindow(parentWindow, period)
-	for i, item in pairs(global["insightsNonKillableItems"]) do
+	for i, item in pairs(storage["insightsNonKillableItems"]) do
 		updateConsumptionWindowItem(parentWindow, item, period)
 	end
-	for i, item in pairs(global["insightsKillableItems"]) do
+	for i, item in pairs(storage["insightsKillableItems"]) do
 		updateConsumptionWindowItemWithKills(parentWindow, item, period)
 	end
 end
@@ -138,8 +138,8 @@ function addItemFlowItem(northWindow, southWindow, name)
 	northItemFlowValueName = "northItemFlow" .. name .. "Value"
 	southItemFlowValueName = "southItemFlow" .. name .. "Value"
 	iconString = "[img=item." .. name .. "]:"
-	northItemFlowStatistics = game.forces["north"].item_production_statistics
-	southItemFlowStatistics = game.forces["north"].item_production_statistics
+	northItemFlowStatistics = game.forces["north"].get_item_production_statistics(storage["surfaceName"])
+	southItemFlowStatistics = game.forces["south"].get_item_production_statistics(storage["surfaceName"])
 	northTotal = northItemFlowStatistics.get_output_count(name)
 	southTotal = southItemFlowStatistics.get_output_count(name)
     northItemFlow = northWindow.add{type = "flow", name = northItemFlowFlowName, direction = "horizontal"}
@@ -162,7 +162,7 @@ function prepareItemFlowWindow(parentWindow)
 	itemFlowLeftWindow.add{type = "label", name = "itemFlowLeftLabel", caption = "North item flow: ", style = "biter-clash_help"}
 	itemFlowRightWindow = itemFlowMainWindow.add{type = "flow", name = "itemFlowRightWindow", direction = "vertical"}
 	itemFlowRightWindow.add{type = "label", name = "itemFlowLeftLabel", caption = "South item flow: ", style = "biter-clash_help"}
-	for i, item in pairs(global["insightsItems"]) do
+	for i, item in pairs(storage["insightsItems"]) do
 		addItemFlowItem(itemFlowLeftWindow, itemFlowRightWindow, item)
 	end
 	itemFlowLeftWindow.style.width = 500
@@ -178,10 +178,10 @@ function updateItemFlowWindowItemWithKills(parentWindow, name, period)
 	southValueName = "southItemFlow" .. name .. "Value"
 	northValueWindow = parentWindow["itemFlow"]["itemFlowMainWindow"]["itemFlowLeftWindow"][northFlowName][northValueName]
 	southValueWindow = parentWindow["itemFlow"]["itemFlowMainWindow"]["itemFlowRightWindow"][southFlowName][southValueName]
-	northConsumptionNumericValue = game.forces["north"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true}) + game.forces["north"].kill_count_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
-	southConsumptionNumericValue = game.forces["south"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true}) + game.forces["south"].kill_count_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
-	northValueWindow.caption = game.forces["north"].item_production_statistics.get_flow_count({name=name, input=true, precision_index=period, count=true}) - northConsumptionNumericValue
-	southValueWindow.caption = game.forces["south"].item_production_statistics.get_flow_count({name=name, input=true, precision_index=period, count=true}) - southConsumptionNumericValue
+	northConsumptionNumericValue = game.forces["north"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true}) + game.forces["north"].get_kill_count_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
+	southConsumptionNumericValue = game.forces["south"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true}) + game.forces["south"].get_kill_count_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
+	northValueWindow.caption = game.forces["north"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="input", precision_index=period, count=true}) - northConsumptionNumericValue
+	southValueWindow.caption = game.forces["south"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="input", precision_index=period, count=true}) - southConsumptionNumericValue
 end
 
 function updateItemFlowWindowItem(parentWindow, name, period)
@@ -191,17 +191,17 @@ function updateItemFlowWindowItem(parentWindow, name, period)
 	southValueName = "southItemFlow" .. name .. "Value"
 	northValueWindow = parentWindow["itemFlow"]["itemFlowMainWindow"]["itemFlowLeftWindow"][northFlowName][northValueName]
 	southValueWindow = parentWindow["itemFlow"]["itemFlowMainWindow"]["itemFlowRightWindow"][southFlowName][southValueName]
-	northConsumptionNumericValue = game.forces["north"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
-	southConsumptionNumericValue = game.forces["south"].item_production_statistics.get_flow_count({name=name, input=false, precision_index=period, count=true})
-	northValueWindow.caption = game.forces["north"].item_production_statistics.get_flow_count({name=name, input=true, precision_index=period, count=true}) - northConsumptionNumericValue
-	southValueWindow.caption = game.forces["south"].item_production_statistics.get_flow_count({name=name, input=true, precision_index=period, count=true}) - southConsumptionNumericValue
+	northConsumptionNumericValue = game.forces["north"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
+	southConsumptionNumericValue = game.forces["south"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="output", precision_index=period, count=true})
+	northValueWindow.caption = game.forces["north"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="input", precision_index=period, count=true}) - northConsumptionNumericValue
+	southValueWindow.caption = game.forces["south"].get_item_production_statistics(storage["surfaceName"]).get_flow_count({name=name, category="input", precision_index=period, count=true}) - southConsumptionNumericValue
 end
 
 function updateItemFlowWindow(parentWindow, period)
-	for i, item in pairs(global["insightsNonKillableItems"]) do
+	for i, item in pairs(storage["insightsNonKillableItems"]) do
 		updateItemFlowWindowItem(parentWindow, item, period)
 	end
-	for i, item in pairs(global["insightsKillableItems"]) do
+	for i, item in pairs(storage["insightsKillableItems"]) do
 		updateItemFlowWindowItemWithKills(parentWindow, item, period)
 	end
 end

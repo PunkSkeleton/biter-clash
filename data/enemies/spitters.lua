@@ -147,7 +147,7 @@ function drunken_spitter_attack_parameters(data)
 end
 
 smallSpitter = table.deepcopy(data.raw["unit"]["small-spitter"])
-smallSpitter.pollution_to_join_attack = 0
+smallSpitter.absorptions_to_join_attack = { pollution = 0 }
 
 local drunkenSmallSpitter = table.deepcopy(smallSpitter)
 drunkenSmallSpitter.name = "drunken-small-spitter"
@@ -166,7 +166,7 @@ drunkenSmallSpitter.attack_parameters =  drunken_spitter_attack_parameters({
     })
     
 mediumSpitter = table.deepcopy(data.raw["unit"]["medium-spitter"])
-mediumSpitter.pollution_to_join_attack = 0
+mediumSpitter.absorptions_to_join_attack = { pollution = 0 }
 
 local heavyHitterMediumSpitter = table.deepcopy(mediumSpitter)
 heavyHitterMediumSpitter.name = "heavy-hitter-medium-spitter"
@@ -186,7 +186,7 @@ heavyHitterMediumSpitter.attack_parameters = spitter_mid_attack_parameters(
     })
     
 bigSpitter = table.deepcopy(data.raw["unit"]["big-spitter"])
-bigSpitter.pollution_to_join_attack = 0
+bigSpitter.absorptions_to_join_attack = { pollution = 0 }
 bigSpitter.spawning_time_modifier = 1
 
 local artilleryBigSpitter = table.deepcopy(bigSpitter)
@@ -196,7 +196,7 @@ artilleryBigSpitter.attack_parameters = spitter_big_attack_parameters(
       acid_stream_name = "acid-stream-spitter-big",
       range = 40,
       min_attack_distance = 20,
-      cooldown = 300,
+      cooldown = 360,
       cooldown_deviation = 0.15,
       damage_modifier = 36,
       scale = scale_spitter_big,
@@ -207,7 +207,7 @@ artilleryBigSpitter.attack_parameters = spitter_big_attack_parameters(
     })
     
 behemothSpitter = table.deepcopy(data.raw["unit"]["behemoth-spitter"])
-behemothSpitter.pollution_to_join_attack = 0
+behemothSpitter.absorptions_to_join_attack = { pollution = 0 }
 behemothSpitter.spawning_time_modifier = 1
 
 local aoeBehemothSpitter = table.deepcopy(behemothSpitter)

@@ -6,21 +6,21 @@ function selectBitersInner(area, force, offset)
 	local position = {x = middleX, y = middleY}
 	if force == "south" then
 		opposingForce = "north"
-		--game.write_file("biter-clash.log", "a\n", true)
+		--helpers.write_file("biter-clash.log", "a\n", true)
 	else
 		opposingForce = "south"
-		--game.write_file("biter-clash.log", "b\n", true)
+		--helpers.write_file("biter-clash.log", "b\n", true)
 	end
-	--game.write_file("biter-clash.log", "c\n", true)
-	--game.write_file("biter-clash.log", "Selecting biters!" .. " middle: " .. middleX .. ":" .. middleY .. "force: " .. force .. "\n", true)
- 	currentSurface = game.surfaces[global["surfaceName"]]
+	--helpers.write_file("biter-clash.log", "c\n", true)
+	--helpers.write_file("biter-clash.log", "Selecting biters!" .. " middle: " .. middleX .. ":" .. middleY .. "force: " .. force .. "\n", true)
+ 	currentSurface = game.surfaces[storage["surfaceName"]]
 	local individualBiters = currentSurface.find_enemy_units(position, 36, opposingForce)
 	if individualBiters == nil then
-		--game.write_file("biter-clash.log", "individualBiters is nil!\n", true)
+		--helpers.write_file("biter-clash.log", "individualBiters is nil!\n", true)
 		return nil
 	end
 	if #individualBiters == 0 then
-		--game.write_file("biter-clash.log", "individualBiters size is zero!\n", true)
+		--helpers.write_file("biter-clash.log", "individualBiters size is zero!\n", true)
 		return nil
 	end
 	return individualBiters
@@ -33,13 +33,13 @@ function advanceBiters(biterGroup, forceName, startPosX, startPosY)
 	else
 		siloPosY = -750
 	end
-	--game.write_file("biter-clash.log", "Advancing biters from position: \n" .. startPosX .. ":" .. startPosY, true)
+	--helpers.write_file("biter-clash.log", "Advancing biters from position: \n" .. startPosX .. ":" .. startPosY, true)
 	local currentPosX = startPosX
 	local currentPosY = startPosY
 	local distanceX = math.abs(currentPosX)
 	local absY = math.abs(currentPosY)
 	local distanceY = math.abs(absY - math.abs(siloPosY))
-	--game.write_file("biter-clash.log", "Distances: \n" .. distanceX .. ":" .. distanceY, true)
+	--helpers.write_file("biter-clash.log", "Distances: \n" .. distanceX .. ":" .. distanceY, true)
 	local closeByRatio = (math.random(10, 100))/100
 	local distanceToTravelX = distanceX * closeByRatio
 	local distanceToTravelY = distanceY * closeByRatio
@@ -56,13 +56,13 @@ function advanceBiters(biterGroup, forceName, startPosX, startPosY)
 	local jitterX = math.random(-50,50)
 	local jitterY = math.random(-50,50)
 	position = {x = targetPositionX + jitterX, y = targetPositionY + jitterY}
-	currentSurface = game.surfaces[global["surfaceName"]]
+	currentSurface = game.surfaces[storage["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position("assembling-machine-1", position, 128, 1)
 	if pos == nil then
-		game.write_file("biter-clash.log", "Biters target position was nil, moving straight to the silo! (group: " .. currentPosX .. ":" .. currentPosY .. ")\n", true)	
+		helpers.write_file("biter-clash.log", "Biters target position was nil, moving straight to the silo! (group: " .. currentPosX .. ":" .. currentPosY .. ")\n", true)	
 		pos = {x = 0 + jitterX, y = siloPosY + jitterY}
 	end
-	--game.write_file("biter-clash.log", "Added command to move: " .. currentPosX .. ":" .. currentPosY .. " calculated distance: " .. distanceX .. ":" .. distanceY .. "\n", true)	
+	--helpers.write_file("biter-clash.log", "Added command to move: " .. currentPosX .. ":" .. currentPosY .. " calculated distance: " .. distanceX .. ":" .. distanceY .. "\n", true)	
     biterGroup.set_command({
 		type = defines.command.attack_area,
 		destination = pos,
@@ -74,7 +74,7 @@ end
 function aiRootStep()
 	profiler = game.create_profiler(true)
 	profiler.restart()
-	local currentPointer = global["biterStagingAreaPointer"]
+	local currentPointer = storage["biterStagingAreaPointer"]
 	currentPointer = currentPointer + 1
 	if currentPointer > #biterStagingAreas then
 		currentPointer = 1
@@ -82,24 +82,24 @@ function aiRootStep()
 	-- 10% chance of attack happening
 	local randomizer = math.random(1,10)
 	if (randomizer == 1) then
-		global["aiRootActive"] = true
+		storage["aiRootActive"] = true
 	end
-	global["biterStagingAreaPointer"] = currentPointer
+	storage["biterStagingAreaPointer"] = currentPointer
 	profiler.stop()
-	--game.write_file("biter-clash.log", "aiStep took: ", true)
-	--game.write_file("biter-clash.log", {"", profiler}, true)
-	--game.write_file("biter-clash.log", "\n", true)
+	--helpers.write_file("biter-clash.log", "aiStep took: ", true)
+	--helpers.write_file("biter-clash.log", {"", profiler}, true)
+	--helpers.write_file("biter-clash.log", "\n", true)
 	profiler.reset()
 end
 
 function selectBiters(force)
-	local currentArea = biterStagingAreas[global["biterStagingAreaPointer"]]
+	local currentArea = biterStagingAreas[storage["biterStagingAreaPointer"]]
 	if force == "north" then
 		offset = 750
-		global["northAiBiters"] = selectBitersInner(currentArea, "north", offset)
+		storage["northAiBiters"] = selectBitersInner(currentArea, "north", offset)
 	else 
 		offset = -750
-		global["southAiBiters"] = selectBitersInner(currentArea, "south", offset)
+		storage["southAiBiters"] = selectBitersInner(currentArea, "south", offset)
 	end
 end
 
@@ -107,58 +107,58 @@ function formBiterGroup(force)
 	offset = 0
 	if force == "north"  then	
 		offset = 750
-		if global["northAiBiters"] == nil then
+		if storage["northAiBiters"] == nil then
 			return
 		end
 	else
 		offset = -750
-		if global["southAiBiters"] == nil then
+		if storage["southAiBiters"] == nil then
 			return
 		end
 	end
-	local area = biterStagingAreas[global["biterStagingAreaPointer"]]
+	local area = biterStagingAreas[storage["biterStagingAreaPointer"]]
 	local middleX = area["middleX"]
 	local middleY = area["middleY"] + offset
 	local position = {x = middleX, y = middleY}
-	currentSurface = game.surfaces[global["surfaceName"]]
+	currentSurface = game.surfaces[storage["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position("assembling-machine-1", position, 512, 1)
 	local biterGroup = currentSurface.create_unit_group({position = pos, force = force})
 	if force == "north" then
-		for _, biter in pairs(global["northAiBiters"]) do
+		for _, biter in pairs(storage["northAiBiters"]) do
 			biterGroup.add_member(biter)
 		end
-		global["northAiBiterGroup"] = biterGroup
+		storage["northAiBiterGroup"] = biterGroup
 	else 
-		for _, biter in pairs(global["southAiBiters"]) do
+		for _, biter in pairs(storage["southAiBiters"]) do
 			biterGroup.add_member(biter)
 		end
-		global["southAiBiterGroup"] = biterGroup
+		storage["southAiBiterGroup"] = biterGroup
 	end
 end
 
 function firstCommand() 
-	if global["northAiBiterGroup"] ~= nil then
-		local currentArea = biterStagingAreas[global["biterStagingAreaPointer"]]
+	if storage["northAiBiterGroup"] ~= nil then
+		local currentArea = biterStagingAreas[storage["biterStagingAreaPointer"]]
 		local biterMap = {}
-		biterMap["group"] = global["northAiBiterGroup"]
+		biterMap["group"] = storage["northAiBiterGroup"]
 		biterMap["position"] = biterMap["group"].position
 		biterMap["ticksIdle"] = 0
 		biterMap["ticksSinceLastCommand"] = 0
 		biterMap["opposingForce"] = "south"
 		biterMap["force"] = "north"
-		table.insert(global["activeBiterGroups"], biterMap)
+		table.insert(storage["activeBiterGroups"], biterMap)
 		advanceBiters(biterMap["group"], "north", currentArea["middleX"], currentArea["middleY"] + 750)
 	end
-	if global["southAiBiterGroup"] ~= nil then
-		local currentArea = biterStagingAreas[global["biterStagingAreaPointer"]]
+	if storage["southAiBiterGroup"] ~= nil then
+		local currentArea = biterStagingAreas[storage["biterStagingAreaPointer"]]
 		local biterMap = {}
-		biterMap["group"] = global["southAiBiterGroup"]
+		biterMap["group"] = storage["southAiBiterGroup"]
 		biterMap["position"] = biterMap["group"].position
 		biterMap["ticksIdle"] = 0
 		biterMap["ticksSinceLastCommand"] = 0
 		biterMap["opposingForce"] = "north"
 		biterMap["force"] = "south"
-		table.insert(global["activeBiterGroups"], biterMap)
+		table.insert(storage["activeBiterGroups"], biterMap)
 		advanceBiters(biterMap["group"], "south", currentArea["middleX"], currentArea["middleY"] - 750)		
 	end
 end
@@ -168,8 +168,8 @@ function nextStep(biterGroup)
 end
 
 function tryReformGroup(biterMap)
-	currentSurface = game.surfaces[global["surfaceName"]]
-	local individualBiters = currentSurface.find_enemy_units(biterMap.position, 18, biterMap["opposingForce"])
+	currentSurface = game.surfaces[storage["surfaceName"]]
+	local individualBiters = currentSurface.find_enemy_units(biterMap.position, 30, biterMap["opposingForce"])
 	if individualBiters ~= nil then
 		if #individualBiters ~= 0 then
 			pos = currentSurface.find_non_colliding_position("assembling-machine-1", biterMap["position"], 512, 1)
@@ -184,8 +184,8 @@ function tryReformGroup(biterMap)
 			newBiterMap["ticksSinceLastCommand"] = 0
 			newBiterMap["opposingForce"] = biterMap["opposingForce"]
 			newBiterMap["force"] = biterMap["force"]
-			table.insert(global["activeBiterGroups"], newBiterMap)
-			game.write_file("biter-clash.log", "Stuck biter group reformed at position: " .. newBiterMap["position"].x .. "," .. newBiterMap["position"].y .. "\n", true)
+			table.insert(storage["activeBiterGroups"], newBiterMap)
+			helpers.write_file("biter-clash.log", "Stuck biter group reformed at position: " .. newBiterMap["position"].x .. "," .. newBiterMap["position"].y .. "\n", true)
 			advanceBiters(newBiterMap["group"], newBiterMap["force"], newBiterMap["position"].x, newBiterMap["position"].y)
 		end
 	end

@@ -1,5 +1,26 @@
 local sounds = require("__base__.prototypes.entity.sounds")
 
+
+local make_unit_melee_ammo_type = function(damage_value)
+  return
+  {
+    target_type = "entity",
+    action =
+    {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+          type = "damage",
+          damage = { amount = damage_value , type = "physical"}
+        }
+      }
+    }
+  }
+end
+
 small_biter_scale = 0.5
 small_biter_tint1 = {r=0.60, g=0.58, b=0.51, a=1}
 small_biter_tint2 = {r=0.9 , g=0.83, b=0.54, a=1}
@@ -65,13 +86,14 @@ function add_biter_die_animation(scale, tint1, tint2, corpse)
 end
 
 smallBiter = table.deepcopy(data.raw["unit"]["small-biter"])
-smallBiter.pollution_to_join_attack = 0
+smallBiter.absorptions_to_join_attack = { pollution = 0 }
 
 local adrenalineSmallBiter = table.deepcopy(smallBiter)
 adrenalineSmallBiter.name = "adrenaline-small-biter"
 adrenalineSmallBiter.attack_parameters =
     {
       type = "projectile",
+      ammo_category = "melee",
       range = 0.5,
       cooldown = 22,
       cooldown_deviation = 0.15,
@@ -85,7 +107,7 @@ adrenalineSmallBiter.distance_per_frame = 0.25
 adrenalineSmallBiter.distraction_cooldown = 0.25
 
 mediumBiter = table.deepcopy(data.raw["unit"]["medium-biter"])
-mediumBiter.pollution_to_join_attack = 0
+mediumBiter.absorptions_to_join_attack = { pollution = 0 }
 
 resistantMediumBiter = table.deepcopy(mediumBiter) 
 resistantMediumBiter.name = "resistant-medium-biter"
@@ -131,7 +153,7 @@ resistantMediumBiter.resistances =
     }
 
 bigBiter = table.deepcopy(data.raw["unit"]["big-biter"])
-bigBiter.pollution_to_join_attack = 0
+bigBiter.absorptions_to_join_attack = { pollution = 0 }
 bigBiter.spawning_time_modifier = 1
 
 sharpTeethBigBiter = table.deepcopy(bigBiter)
@@ -139,6 +161,7 @@ sharpTeethBigBiter.name = "sharp-teeth-big-biter"
 sharpTeethBigBiter.attack_parameters =
     {
       type = "projectile",
+      ammo_category = "melee",
       range = 1.5,
       cooldown = 35,
       cooldown_deviation = 0.15,
@@ -149,7 +172,7 @@ sharpTeethBigBiter.attack_parameters =
     }
     
 behemothBiter = table.deepcopy(data.raw["unit"]["behemoth-biter"])
-behemothBiter.pollution_to_join_attack = 0
+behemothBiter.absorptions_to_join_attack = { pollution = 0 }
 behemothBiter.spawning_time_modifier = 1
 
 regenerativeBehemothBiter = table.deepcopy(behemothBiter)
