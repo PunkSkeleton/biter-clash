@@ -6,7 +6,8 @@ Date: 12. 11. 2024
     - Increased attack frequency significantly.
     - Added some material to each player during game start to allow immediate crafting.
   Features:
-    - Updated to Factorio 2.0. Most of the new researches (including trigger tech and stuff like electric mining drill) are researched at the game start.
+    - Updated to Factorio 2.0. Most of the new researches (including trigger tech and stuff like electric mining drill) are researched at the game start. Due to the extent of the changes some bugs are expected.
+    - Initial offshore pump moved one tile further from the silo due it having to be placed adjacent to water. This will cause old bluprints to fail.
     - Added Quick Guide window displayed when joining team. It mainly reminds about having to place a starting blueprint.
     - Added 2 example blueprints to player inventory when joining team before the game start.
     - Increased the frequency at which biters receive commands. This should make their movement much smoother.
