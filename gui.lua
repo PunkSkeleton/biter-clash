@@ -90,6 +90,20 @@ function createGui(player)
 	quickGuideTextWindow.style.width = 800
 	player.gui.center["quickGuide"].visible = false
 	
+	victory = player.gui.center.add{type = "frame", name = "victory", direction = "vertical"}
+	addTitlebar(victory, "Victory", "closeVictory")
+	victoryTextWindow = victory.add{type = "label", caption = {"victory.frame-heading"}}
+	victoryTextWindow.style = "biter-clash_help"
+	victoryTextWindow.style.width = 500
+	player.gui.center["victory"].visible = false
+	
+	defeat = player.gui.center.add{type = "frame", name = "defeat", direction = "vertical"}
+	addTitlebar(defeat, "Defeat", "closeDefeat")
+	defeatTextWindow = defeat.add{type = "label", caption = {"defeat.frame-heading"}}
+	defeatTextWindow.style = "biter-clash_help"
+	defeatTextWindow.style.width = 800
+	player.gui.center["defeat"].visible = false
+	
 	guide = player.gui.center.add{type = "frame", name = "guide", direction = "vertical"}
 	addTitlebar(guide, "Guide", "closeGuide")
 	guideInnerWindow = guide.add{type = "frame", name = "guideInnerWindow", direction = "horizontal"}
@@ -172,6 +186,14 @@ function onGuiClick(event)
 		if event.element.name == "closeQuickGuide" then
 			player = game.players[event.element.player_index]
 		    player.gui.center["quickGuide"].visible = false
+		end
+		if event.element.name == "closeVictory" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["victory"].visible = false
+		end
+		if event.element.name == "closeDefeat" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["defeat"].visible = false
 		end
 		if event.element.name == "closeGuide" then
 			player = game.players[event.element.player_index]

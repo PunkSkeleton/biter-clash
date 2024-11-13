@@ -133,6 +133,8 @@ function reGenerateMap()
 	storage["southResearchedString"] = "South completed research:\n"
 	for i, player in pairs(game.connected_players) do
 		player.gui.center["mapRegenerating"].visible = true
+		player.gui.center["victory"].visible = false
+		player.gui.center["defeat"].visible = false
 	end
 	resetForces()
 	for i, player in pairs(game.connected_players) do

@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.1
+Date: 13. 11. 2024
+  Features:
+    - Added another example blueprint. This one is not the basic one...
+    - Added victory and defeat banners.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.0
 Date: 12. 11. 2024
   Balancing:
