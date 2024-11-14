@@ -506,6 +506,50 @@ data:extend({
 	      time = 30,
 	    },
 	    order = "b-c-a",
-	  }
-  }
+	  },
+	  {
+	    type = "technology",
+	    name = "laser",
+	    icon = "__base__/graphics/technology/laser.png",
+	    icon_size = 256,
+	    prerequisites = {"battery", "chemical-science-pack"},
+	    unit =
+	    {
+	      count = 50,
+	      ingredients =
+	      {
+	        {"automation-science-pack", 1},
+	        {"logistic-science-pack", 1},
+	        {"chemical-science-pack", 1}
+	      },
+	      time = 30
+	    }
+  	},
+  	{
+	    type = "technology",
+	    name = "laser-turret",
+	    icon = "__base__/graphics/technology/laser-turret.png",
+	    icon_size = 256,
+	    effects =
+	    {
+	      {
+	        type = "unlock-recipe",
+	        recipe = "laser-turret"
+	      }
+	    },
+	    prerequisites = {"laser", "military-science-pack"},
+	    unit =
+	    {
+	      count = 50,
+	      ingredients =
+	      {
+	        {"automation-science-pack", 1},
+	        {"logistic-science-pack", 1},
+	        {"military-science-pack", 1},
+	        {"chemical-science-pack", 1}
+	      },
+	      time = 30
+	    }
+	 }
+  }   
 )

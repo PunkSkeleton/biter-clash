@@ -201,7 +201,7 @@ laserTurret.attack_parameters =
     {
       type = "beam",
       cooldown = 40,
-      range = 50,
+      range = 60,
       source_direction_count = 64,
       source_offset = {0, -3.423489 / 4},
       damage_modifier = 2,
@@ -209,7 +209,7 @@ laserTurret.attack_parameters =
       ammo_type =
       {
         category = "laser",
-        energy_consumption = "800kJ",
+        energy_consumption = "400kJ",
         action =
         {
           type = "direct",

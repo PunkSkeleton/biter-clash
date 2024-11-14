@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.2
+Date: 14. 11. 2024
+  Balancing:
+    - Laser turret range 50 -> 60.
+    - Laser turret energy per shot 800kJ -> 400 kJ
+    - Laser and laser turret researches cost x50 each
+---------------------------------------------------------------------------------------------------
 Version: 0.6.1
 Date: 13. 11. 2024
   Features:
