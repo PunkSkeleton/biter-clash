@@ -372,41 +372,43 @@ function swapBuiltNest(sourceNestName, targetNestName, force)
 end
 
 function gameOver(winningForce)
-	helpers.write_file("biter-clash.log", "Game over! " .. winningForce .. " won!", true)
-	game.forces["north"].chart(storage["surfaceName"],{{-5000, -5000}, {5000, 5000}})
-	game.forces["south"].chart(storage["surfaceName"],{{-5000, -5000}, {5000, 5000}})
-	position = nil
-	if winningForce == "south" then
-		position = {x=0, y=-750}
-	else
-		position = {x=0, y=750}
-	end
-	game.surfaces[storage["surfaceName"]].create_entity({
-        name = "atomic-rocket",
-        position = position,
-        force = winningForce,
-        source = position,
-        target = position,
-        max_range = 1,
-        speed = 0.1
-    })
-	for i, player in pairs(game.connected_players) do
-		player.gui.top["ready"]["buttonflow2"]["biter-clash-ready"].state = false 
-		player.gui.top["biter-clash"].visible = true
-		player.gui.left["team-join"].visible = true
-		if player.force.name == winningForce then
-			player.gui.center["victory"].visible = true
-		else 
-			player.gui.center["defeat"].visible = true
+	if storage["gameStarted"] == true then
+		helpers.write_file("biter-clash.log", "Game over! " .. winningForce .. " won!", true)
+		game.forces["north"].chart(storage["surfaceName"],{{-5000, -5000}, {5000, 5000}})
+		game.forces["south"].chart(storage["surfaceName"],{{-5000, -5000}, {5000, 5000}})
+		position = nil
+		if winningForce == "south" then
+			position = {x=0, y=-750}
+		else
+			position = {x=0, y=750}
 		end
-		cancelCrafting(player)
+		game.surfaces[storage["surfaceName"]].create_entity({
+	        name = "atomic-rocket",
+	        position = position,
+	        force = winningForce,
+	        source = position,
+	        target = position,
+	        max_range = 1,
+	        speed = 0.1
+	    })
+		for i, player in pairs(game.connected_players) do
+			player.gui.top["ready"]["buttonflow2"]["biter-clash-ready"].state = false 
+			player.gui.top["biter-clash"].visible = true
+			player.gui.left["team-join"].visible = true
+			if player.force.name == winningForce then
+				player.gui.center["victory"].visible = true
+			elseif player.force.name ~= "spectators" then
+				player.gui.center["defeat"].visible = true
+			end
+			cancelCrafting(player)
+		end
+		storage["gameStarted"] = false
+		storage["northSideReady"] = false
+		storage["southSideReady"] = false
+		game.permissions.get_group("Players").set_allows_action(defines.input_action.open_blueprint_library_gui, true)
+		game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, true)
+		game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, false)
 	end
-	storage["gameStarted"] = false
-	storage["northSideReady"] = false
-	storage["southSideReady"] = false
-	game.permissions.get_group("Players").set_allows_action(defines.input_action.open_blueprint_library_gui, true)
-	game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, true)
-	game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, false)
 end
 
 function resetForces()

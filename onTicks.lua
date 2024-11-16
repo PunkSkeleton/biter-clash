@@ -125,14 +125,14 @@ function on121thtick(event)
 		end
 		chartScoutedArea(group.force.name, group.position)
 		local forceMove = false
-		if group.moving_state == defines.moving_state.stale or group.moving_state == defines.moving_state.stuck then
-			helpers.write_file("biter-clash.log", "Stuck or stale biter group detected at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
+		if group.moving_state == defines.moving_state.stuck then
+			helpers.write_file("biter-clash.log", "Stuck biter group detected at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
 			forceMove = true
 		end
 		if biterMap["position"] == group.position then
 			biterMap["ticksIdle"] = biterMap["ticksIdle"] + 1
 			helpers.write_file("biter-clash.log", "Idle biter group detected for: " .. biterMap["ticksIdle"] .. " at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
-			if biterMap["ticksIdle"] > 60 then
+			if biterMap["ticksIdle"] > 10 then
 				forceMove = true
 			end
 		else 
@@ -140,9 +140,9 @@ function on121thtick(event)
 			biterMap["ticksIdle"] = 0
 		end 
 		biterMap["ticksSinceLastCommand"] = biterMap["ticksSinceLastCommand"] + 1
-		if biterMap["ticksSinceLastCommand"] > 45 then 
+		if biterMap["ticksSinceLastCommand"] > 10 then 
 			helpers.write_file("biter-clash.log", "No new commands for: " .. biterMap["ticksSinceLastCommand"] .. " at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
-			if biterMap["ticksSinceLastCommand"] > 90 then 
+			if biterMap["ticksSinceLastCommand"] > 15 then 
 				forceMove = true
 			end
 		end

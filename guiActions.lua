@@ -57,61 +57,63 @@ function spectate(player)
 end
 
 function startGame()
-	game.forces["north"].technologies["automation"].researched = true
-	game.forces["north"].technologies["electronics"].researched = true
-	game.forces["north"].technologies["steam-power"].researched = true
-	game.forces["north"].technologies["automation-science-pack"].researched = true
-	game.forces["north"].technologies["radar"].researched = true
-	game.forces["north"].technologies["electric-mining-drill"].researched = true
-	game.forces["north"].technologies["repair-pack"].researched = true
-	game.forces["north"].technologies["oil-processing"].researched = true
-	game.forces["north"].technologies["logistics"].researched = true
-	game.forces["north"].technologies["rocket-silo"].researched = true
-	game.forces["south"].technologies["automation"].researched = true
-	game.forces["south"].technologies["electronics"].researched = true
-	game.forces["south"].technologies["steam-power"].researched = true
-	game.forces["south"].technologies["automation-science-pack"].researched = true
-	game.forces["south"].technologies["radar"].researched = true
-	game.forces["south"].technologies["electric-mining-drill"].researched = true
-	game.forces["south"].technologies["repair-pack"].researched = true
-	game.forces["south"].technologies["oil-processing"].researched = true
-	game.forces["south"].technologies["logistics"].researched = true
-	game.forces["south"].technologies["rocket-silo"].researched = true
-	storage["northResearchedString"] = "North completed research:\n"
-	storage["southResearchedString"] = "South completed research:\n"
-	pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
-	game.forces["north"].set_spawn_position(pos,storage["surfaceName"])
-	pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
-	game.forces["south"].set_spawn_position(pos,storage["surfaceName"])
-	storage["gameStarted"] = true
-	storage["gameStartedTick"] = game.tick
-	convertBlueprints(-750, "north", storage["northPackchest"])
-	convertBlueprints(750, "south", storage["southPackchest"])
-	if settings.global["tournament-mode"].value == true then
-		game.permissions.get_group("Players").set_allows_action(defines.input_action.open_blueprint_library_gui, false)
-		game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, false)
-		game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, true)
-		clearAllGhosts()
-		for i, player in pairs(game.connected_players) do
-			if player.force.name ~= "spectators" then
-				player.gui.top["biter-clash"].visible = false
-				player.gui.left["team-join"].visible = false
-				player.gui.top["ready"].visible = false
-			else 
-				player.gui.top["biter-clash"].visible = true
-				if storage["lockTeams"] then
+	if storage["gameStarted"] == false then
+		game.forces["north"].technologies["automation"].researched = true
+		game.forces["north"].technologies["electronics"].researched = true
+		game.forces["north"].technologies["steam-power"].researched = true
+		game.forces["north"].technologies["automation-science-pack"].researched = true
+		game.forces["north"].technologies["radar"].researched = true
+		game.forces["north"].technologies["electric-mining-drill"].researched = true
+		game.forces["north"].technologies["repair-pack"].researched = true
+		game.forces["north"].technologies["oil-processing"].researched = true
+		game.forces["north"].technologies["logistics"].researched = true
+		game.forces["north"].technologies["rocket-silo"].researched = true
+		game.forces["south"].technologies["automation"].researched = true
+		game.forces["south"].technologies["electronics"].researched = true
+		game.forces["south"].technologies["steam-power"].researched = true
+		game.forces["south"].technologies["automation-science-pack"].researched = true
+		game.forces["south"].technologies["radar"].researched = true
+		game.forces["south"].technologies["electric-mining-drill"].researched = true
+		game.forces["south"].technologies["repair-pack"].researched = true
+		game.forces["south"].technologies["oil-processing"].researched = true
+		game.forces["south"].technologies["logistics"].researched = true
+		game.forces["south"].technologies["rocket-silo"].researched = true
+		storage["northResearchedString"] = "North completed research:\n"
+		storage["southResearchedString"] = "South completed research:\n"
+		pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
+		game.forces["north"].set_spawn_position(pos,storage["surfaceName"])
+		pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
+		game.forces["south"].set_spawn_position(pos,storage["surfaceName"])
+		storage["gameStarted"] = true
+		storage["gameStartedTick"] = game.tick
+		convertBlueprints(-750, "north", storage["northPackchest"])
+		convertBlueprints(750, "south", storage["southPackchest"])
+		if settings.global["tournament-mode"].value == true then
+			game.permissions.get_group("Players").set_allows_action(defines.input_action.open_blueprint_library_gui, false)
+			game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, false)
+			game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, true)
+			clearAllGhosts()
+			for i, player in pairs(game.connected_players) do
+				if player.force.name ~= "spectators" then
+					player.gui.top["biter-clash"].visible = false
 					player.gui.left["team-join"].visible = false
+					player.gui.top["ready"].visible = false
+				else 
+					player.gui.top["biter-clash"].visible = true
+					if storage["lockTeams"] then
+						player.gui.left["team-join"].visible = false
+					end
 				end
 			end
-		end
-    end
-    clearAllInventories()
-	clearQuickBars()
-    for i, player in pairs(game.connected_players) do
-    	player.gui.top["gameClock"].visible = true
-    	player.gui.center["quickGuide"].visible = false
-    	fillStarterInventory(player)
-    end
+	    end
+	    clearAllInventories()
+		clearQuickBars()
+	    for i, player in pairs(game.connected_players) do
+	    	player.gui.top["gameClock"].visible = true
+	    	player.gui.center["quickGuide"].visible = false
+	    	fillStarterInventory(player)
+	    end
+	end
 end
 
 function startingSequence()
