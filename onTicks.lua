@@ -115,14 +115,17 @@ function on121thtick(event)
 	for i, biterMap in ipairs(storage["activeBiterGroups"]) do
 		group = biterMap["group"]
 		if group == nil then
-			table.remove(storage["activeBiterGroups"], i)
+			storage["activeBiterGroups"][i] = nil
+			helpers.write_file("biter-clash.log", "nil biter group detected at: " .. biterMap["position"].x .. "," .. biterMap["position"].y .. "\n", true)
 			goto continue
 		end
 		if group.valid == false then
-			table.remove(storage["activeBiterGroups"], i)
+			helpers.write_file("biter-clash.log", "invalid biter group detected at: " .. biterMap["position"].x .. "," .. biterMap["position"].y .. "\n", true)
+			storage["activeBiterGroups"][i] = nil
 			tryReformGroup(biterMap)
 			goto continue
 		end
+		helpers.write_file("biter-clash.log", "charting position : " .. group.position.x .. "," .. group.position.y .. "\n", true)
 		chartScoutedArea(group.force.name, group.position)
 		local forceMove = false
 		if group.moving_state == defines.moving_state.stuck then
@@ -174,7 +177,7 @@ function on121thtick(event)
 				move = false
 			end
 			if move then
-				nextStep(group)
+				--nextStep(group)
 			end
 			goto continue
 		end

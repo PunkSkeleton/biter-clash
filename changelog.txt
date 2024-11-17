@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.4
+Date: 17. 11. 2024
+  Bugfixes:
+    - Reworked the AI. Hopefully biters won't hang anymore but with the strange things happening to command groups everything is possible.
+  Features:
+    - Added another example blueprint from bloke14.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.3
 Date: 16. 11. 2024
   Bugfixes:

@@ -27,15 +27,15 @@ function selectBitersInner(area, force, offset)
 end
 	
 
-function advanceBiters(biterGroup, forceName, startPosX, startPosY)
-	if forceName == "north" then
+function advanceBiters(biterGroup)
+	if biterGroup.force == "north" then
 		siloPosY = 750
 	else
 		siloPosY = -750
 	end
 	--helpers.write_file("biter-clash.log", "Advancing biters from position: \n" .. startPosX .. ":" .. startPosY, true)
-	local currentPosX = startPosX
-	local currentPosY = startPosY
+	local currentPosX = biterGroup.position.x
+	local currentPosY = biterGroup.position.y
 	local distanceX = math.abs(currentPosX)
 	local absY = math.abs(currentPosY)
 	local distanceY = math.abs(absY - math.abs(siloPosY))
@@ -63,10 +63,10 @@ function advanceBiters(biterGroup, forceName, startPosX, startPosY)
 		pos = {x = 0 + jitterX, y = siloPosY + jitterY}
 	end
 	--helpers.write_file("biter-clash.log", "Added command to move: " .. currentPosX .. ":" .. currentPosY .. " calculated distance: " .. distanceX .. ":" .. distanceY .. "\n", true)	
-    biterGroup.set_command({
+    biterGroup.group.set_command({
 		type = defines.command.attack_area,
 		destination = pos,
-		radius = 32,
+		radius = 40,
 		distraction = defines.distraction.by_enemy
 	})
 end
@@ -146,8 +146,10 @@ function firstCommand()
 		biterMap["ticksSinceLastCommand"] = 0
 		biterMap["opposingForce"] = "south"
 		biterMap["force"] = "north"
-		table.insert(storage["activeBiterGroups"], biterMap)
-		advanceBiters(biterMap["group"], "north", currentArea["middleX"], currentArea["middleY"] + 750)
+		id = biterMap["group"].unique_id
+		helpers.write_file("biter-clash.log", "Commandable created with ID: " .. biterMap["group"].unique_id .."\n", true)
+		storage["activeBiterGroups"][id] = biterMap
+		advanceBiters(biterMap)
 	end
 	if storage["southAiBiterGroup"] ~= nil then
 		local currentArea = biterStagingAreas[storage["biterStagingAreaPointer"]]
@@ -158,13 +160,15 @@ function firstCommand()
 		biterMap["ticksSinceLastCommand"] = 0
 		biterMap["opposingForce"] = "north"
 		biterMap["force"] = "south"
-		table.insert(storage["activeBiterGroups"], biterMap)
-		advanceBiters(biterMap["group"], "south", currentArea["middleX"], currentArea["middleY"] - 750)		
+		id = biterMap["group"].unique_id
+		helpers.write_file("biter-clash.log", "Commandable created with ID: " .. id .."\n", true)
+		storage["activeBiterGroups"][id] = biterMap
+		advanceBiters(biterMap)		
 	end
 end
 
 function nextStep(biterGroup) 
-	advanceBiters(biterGroup, biterGroup.force.name, biterGroup.position.x, biterGroup.position.y)
+	advanceBiters(biterGroup)
 end
 
 function tryReformGroup(biterMap)
@@ -184,9 +188,25 @@ function tryReformGroup(biterMap)
 			newBiterMap["ticksSinceLastCommand"] = 0
 			newBiterMap["opposingForce"] = biterMap["opposingForce"]
 			newBiterMap["force"] = biterMap["force"]
-			table.insert(storage["activeBiterGroups"], newBiterMap)
+			id = newBiterMap["group"].unique_id
+			storage["activeBiterGroups"][id] = newBiterMap
+			helpers.write_file("biter-clash.log", "Commandable created with ID: " .. id .."\n", true)
 			helpers.write_file("biter-clash.log", "Stuck biter group reformed at position: " .. newBiterMap["position"].x .. "," .. newBiterMap["position"].y .. "\n", true)
-			advanceBiters(newBiterMap["group"], newBiterMap["force"], newBiterMap["position"].x, newBiterMap["position"].y)
+			advanceBiters(newBiterMap)
+		end
+	end
+end
+
+function onAiCommandCompleted(event)
+	biterGroup = storage["activeBiterGroups"][event.unit_number]
+	helpers.write_file("biter-clash.log", "Ai command completed for: " .. event.unit_number .. "\n", true)
+	if biterGroup ~= nil then
+		if biterGroup.group.valid then
+			helpers.write_file("biter-clash.log", "Ai command completed for: " .. event.unit_number .. " with result: " .. event.result .. " at position: " .. biterGroup.position.x .. "," .. biterGroup.position.y .. " engine position: " .. biterGroup.group.position.x .. "," .. biterGroup.group.position.y .."\n", true)
+			biterGroup["position"] = biterGroup.group.position
+			advanceBiters(biterGroup)
+		else
+			tryReformGroup(biterGroup)
 		end
 	end
 end
