@@ -118,6 +118,7 @@ function createGui(player)
 	guideIndex.add{type = "label", name = "guideEnemies", caption = "Enemies", style = "biter-clash_help"}
 	guideIndex.add{type = "label", name = "guideBalance", caption = "Balance Changes", style = "biter-clash_help"}
 	guideIndex.add{type = "label", name = "guideInsights", caption = "Insights", style = "biter-clash_help"}
+	guideIndex.add{type = "label", name = "guideQuickTips", caption = "Quick Tips", style = "biter-clash_help"}
 	guideTextWindow = guideText.add{type = "label", name = "guideTextCore", caption = {"guide.basics"}}
 	guideTextWindow.style = "biter-clash_help"
 	guideTextWindow.style.width = 1000
@@ -234,6 +235,10 @@ function onGuiClick(event)
 		if event.element.name == "guideInsights" then
 			player = game.players[event.element.player_index]
 		    player.gui.center["guide"]["guideInnerWindow"]["guideText"]["guideTextCore"].caption = {"guide.insights"}
+		end
+		if event.element.name == "guideQuickTips" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["guide"]["guideInnerWindow"]["guideText"]["guideTextCore"].caption = {"guide.quickTips"}
 		end
 		if event.element.name == "insightsResearch" then
 			player = game.players[event.element.player_index]

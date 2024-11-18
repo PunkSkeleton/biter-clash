@@ -97,10 +97,10 @@ function generateMapSettings()
 	settings.terrain_segmentation = math.random(1, 6) * 0.5
 	settings.cliff_settings = {name = "cliff-bc", cliff_elevation_interval = math.random(10, 20), cliff_elevation_0 = math.random(10, 20), richness = math.random(5, 10) * 0.8, cliff_smoothing = 0.7}
 	settings.autoplace_controls = {
-		["coal"] = {frequency = math.random(9, 12), size = math.random(5, 14) * 0.1, richness = math.random(2, 8) * 0.06},
-		["stone"] = {frequency = math.random(9, 12), size = math.random(3, 10) * 0.1, richness = math.random(2, 8) * 0.06},
-		["copper-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.04},
-		["iron-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.04}, 	
+		["coal"] = {frequency = math.random(9, 12), size = math.random(5, 14) * 0.1, richness = math.random(2, 8) * 0.07},
+		["stone"] = {frequency = math.random(9, 12), size = math.random(3, 10) * 0.1, richness = math.random(2, 8) * 0.07},
+		["copper-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.05},
+		["iron-ore"] = {frequency = math.random(12, 20), size = math.random(4, 12) * 0.1, richness = math.random(2,12) * 0.05}, 	
 		["uranium-ore"] = {frequency = 2, size = 3, richness = 1},
 		["crude-oil"] = {frequency = math.random(18, 36), size = math.random(5, 20) * 0.1, richness = math.random(2, 9) * 0.1},
 		["trees"] = {frequency = math.random(6, 32) * 0.05, size = math.random(2, 28) * 0.05, richness = math.random(1, 10) * 0.05},
