@@ -112,20 +112,22 @@ function on121thtick(event)
 	--profiler2 = game.create_profiler(true)
 	--profiler2.restart()
 	
-	for i, biterMap in ipairs(storage["activeBiterGroups"]) do
+	removeList = {}
+	
+	for i, biterMap in pairs(storage["activeBiterGroups"]) do
 		group = biterMap["group"]
 		if group == nil then
-			storage["activeBiterGroups"][i] = nil
+			table.insert(removeList, i)
 			helpers.write_file("biter-clash.log", "nil biter group detected at: " .. biterMap["position"].x .. "," .. biterMap["position"].y .. "\n", true)
 			goto continue
 		end
 		if group.valid == false then
 			helpers.write_file("biter-clash.log", "invalid biter group detected at: " .. biterMap["position"].x .. "," .. biterMap["position"].y .. "\n", true)
-			storage["activeBiterGroups"][i] = nil
+			table.insert(removeList, i)
 			tryReformGroup(biterMap)
 			goto continue
 		end
-		helpers.write_file("biter-clash.log", "charting position : " .. group.position.x .. "," .. group.position.y .. "\n", true)
+		--helpers.write_file("biter-clash.log", "charting position : " .. group.position.x .. "," .. group.position.y .. "\n", true)
 		chartScoutedArea(group.force.name, group.position)
 		local forceMove = false
 		if group.moving_state == defines.moving_state.stuck then
@@ -154,7 +156,7 @@ function on121thtick(event)
 			helpers.write_file("biter-clash.log", "Forcibly moving biter group at position: " .. group.position.x .. "," .. group.position.y .. "\n", true)
 			biterMap["ticksIdle"] = 0
 			biterMap["ticksSinceLastCommand"] = 0
-			nextStep(group)
+			nextStep(biterMap)
 			goto continue
 		end
 		if group.state == defines.group_state.finished or group.state == defines.group_state.wander_in_group then
@@ -177,7 +179,7 @@ function on121thtick(event)
 				move = false
 			end
 			if move then
-				--nextStep(group)
+				--nextStep(biterMap)
 			end
 			goto continue
 		end
@@ -187,6 +189,9 @@ function on121thtick(event)
 		for _, player2 in pairs(game.connected_players) do
 			player2.gui.top["biter-clash"].visible = true
 		end
+	end
+	for _, index in ipairs(removeList) do
+		storage["activeBiterGroups"][index] = nil
 	end
 	--profiler2.stop()
 	--helpers.write_file("biter-clash.log", "on300thtick took: ", true)

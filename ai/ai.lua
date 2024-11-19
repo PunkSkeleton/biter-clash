@@ -199,10 +199,10 @@ end
 
 function onAiCommandCompleted(event)
 	biterGroup = storage["activeBiterGroups"][event.unit_number]
-	helpers.write_file("biter-clash.log", "Ai command completed for: " .. event.unit_number .. "\n", true)
+	--helpers.write_file("biter-clash.log", "Ai command completed for: " .. event.unit_number .. "\n", true)
 	if biterGroup ~= nil then
 		if biterGroup.group.valid then
-			helpers.write_file("biter-clash.log", "Ai command completed for: " .. event.unit_number .. " with result: " .. event.result .. " at position: " .. biterGroup.position.x .. "," .. biterGroup.position.y .. " engine position: " .. biterGroup.group.position.x .. "," .. biterGroup.group.position.y .."\n", true)
+			--helpers.write_file("biter-clash.log", "Ai command completed for: " .. event.unit_number .. " with result: " .. event.result .. " at position: " .. biterGroup.position.x .. "," .. biterGroup.position.y .. " engine position: " .. biterGroup.group.position.x .. "," .. biterGroup.group.position.y .."\n", true)
 			biterGroup["position"] = biterGroup.group.position
 			advanceBiters(biterGroup)
 		else
