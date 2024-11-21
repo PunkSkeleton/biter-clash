@@ -9,7 +9,15 @@ require("data.weapons")
 require("data.research")
 require("data.upgrades")
 require("data.sprites")
-
+data:extend({
+  {
+    type = "font",
+    name = "biter-clash",
+    from = "fira-code",
+    size = 16
+  }
+})
+  
 data.raw["gui-style"]["default"]["biter-clash_frame"] =
 {
     type = "frame_style",
@@ -38,14 +46,14 @@ data.raw["gui-style"]["default"]["biter-clash_help"] =
     parent = "label",
     maximal_width = 400,
     single_line = false,
-    font = "default-large"
+    font = "biter-clash"
 }
 data.raw["gui-style"]["default"]["biter-clash_period"] =
 {
     type = "button_style",
     parent = "rounded_button",
     width = 100,
-    font = "default-large"
+    font = "biter-clash"
 }
 data.raw["gui-style"]["default"]["biter-clash_production_icon"] =
 {

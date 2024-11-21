@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.8
+Date: 21. 11. 2024
+  Features:
+    - Significantly increased rocket silo pickup time to prevent accidental pickup.
+    - Standarized health of all free resource generators (chests and water pump) to 500.
+    - Fira code regular size 16 is now default font for improved visual clarity.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.7
 Date: 21. 11. 2024
   Bugfixes:
