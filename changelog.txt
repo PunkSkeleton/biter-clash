@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.7
-Date: 19. 11. 2024
+Date: 21. 11. 2024
   Bugfixes:
     - Tweaked AI behavior in an attempt to eliminate wandering just outside of the base.
   Features:
