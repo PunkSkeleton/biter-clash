@@ -66,7 +66,7 @@ function advanceBiters(biterGroup)
     biterGroup.group.set_command({
 		type = defines.command.attack_area,
 		destination = pos,
-		radius = 40,
+		radius = 32,
 		distraction = defines.distraction.by_enemy
 	})
 end

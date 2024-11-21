@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.7
+Date: 19. 11. 2024
+  Bugfixes:
+    - Tweaked AI behavior in an attempt to eliminate wandering just outside of the base.
+  Features:
+    - Significantly increased mining time of resource chest and free water pump to prevent accidental pickup.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.6
 Date: 19. 11. 2024
   Bugfixes:

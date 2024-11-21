@@ -169,7 +169,7 @@ function on121thtick(event)
 			move = true
 			biterMap["ticksIdle"] = 0
 			biterMap["ticksSinceLastCommand"] = 0
-			enemyEntities = game.surfaces[storage["surfaceName"]].find_entities_filtered({position=pos, radius=15, force=enemyForce})
+			enemyEntities = game.surfaces[storage["surfaceName"]].find_entities_filtered({position=pos, radius=5, force=enemyForce})
 			if enemyEntities == nil then
 				goto continue
 			end
