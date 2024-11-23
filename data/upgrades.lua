@@ -108,7 +108,7 @@ data:extend(
     prerequisites = {"military"},
     unit =
     {
-      count = 100*1,
+      count = 75*1,
       ingredients =
       {
         {"automation-science-pack", 1}
@@ -139,7 +139,7 @@ data:extend(
     prerequisites = {"weapon-shooting-speed-1"},
     unit =
     {
-      count = 100*2,
+      count = 75*2,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -1138,7 +1138,7 @@ data:extend(
     prerequisites = {"weapon-shooting-speed-2"},
     unit =
     {
-      count = 100*3,
+      count = 75*3,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -1176,7 +1176,7 @@ data:extend(
     prerequisites = {"weapon-shooting-speed-3"},
     unit =
     {
-      count = 100*4,
+      count = 75*4,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -1219,7 +1219,7 @@ data:extend(
     prerequisites = {"weapon-shooting-speed-4"},
     unit =
     {
-      count = 100*5,
+      count = 75*5,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -1263,7 +1263,7 @@ data:extend(
     prerequisites = {"weapon-shooting-speed-5"},
     unit =
     {
-      count = 100*6,
+      count = 75*6,
       ingredients =
       {
         {"automation-science-pack", 1},
@@ -1623,7 +1623,7 @@ data:extend(
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.4
+        modifier = 0.6
       }
     },
     unit =
@@ -1650,7 +1650,7 @@ data:extend(
       },
       {
         type = "character-crafting-speed",
-        modifier = 0.2
+        modifier = 0.3
       }
     },
     prerequisites = {"steel-processing"},
@@ -1851,7 +1851,7 @@ data:extend(
         modifier = 0.4
       }
     },
-    prerequisites = {"automation-2"},
+    prerequisites = {"logistic-science-pack"},
     unit =
     {
       count = 100,

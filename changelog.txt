@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.9
+Date: 23. 11. 2024
+  Balancing:
+    - Weapon shooting speed upgrade cost reduced from 100xlevel to 75xlevel.
+    - Steelaxe handcrafting speed bonus 20% -> 30%.
+    - Toolbelt handcrafting speed bonus 40% -> 60%.
+    - Lab research speed researches now require only green science (not automation 2).
+    - Heavy armor reserach cost 30->50.
+  Features:
+    - Research cleanup - now oil technologies should not be available until after Oil Gathering is researched.
+    - Updated standard blueprints to utilize updated free resource generators - for easier alignment.    
+---------------------------------------------------------------------------------------------------
 Version: 0.6.8
 Date: 21. 11. 2024
   Features:

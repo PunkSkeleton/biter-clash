@@ -550,6 +550,138 @@ data:extend({
 	      },
 	      time = 30
 	    }
-	 }
+	 },
+	 {
+	    type = "technology",
+	    name = "heavy-armor",
+	    icon = "__base__/graphics/technology/heavy-armor.png",
+	    icon_size = 256,
+	    effects =
+	    {
+	      {
+	        type = "unlock-recipe",
+	        recipe = "heavy-armor"
+	      }
+	    },
+	    prerequisites = {"military", "steel-processing"},
+	    unit =
+	    {
+	      count = 50,
+	      ingredients = {{"automation-science-pack", 1}},
+	      time = 30
+	    }
+	  },
+	  {
+	    type = "technology",
+	    name = "plastics",
+	    icon = "__base__/graphics/technology/plastics.png",
+	    icon_size = 256,
+	    prerequisites = {"oil-gathering"},
+	    effects =
+	    {
+	      {
+	        type = "unlock-recipe",
+	        recipe = "plastic-bar"
+	      }
+	    },
+	    unit =
+	    {
+	      count = 200,
+	      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
+	      time = 30
+	    }
+	  },
+	  {
+	    type = "technology",
+	    name = "sulfur-processing",
+	    icon = "__base__/graphics/technology/sulfur-processing.png",
+	    icon_size = 256,
+	    prerequisites = {"oil-gathering"},
+	    effects =
+	    {
+	      {
+	        type = "unlock-recipe",
+	        recipe = "sulfuric-acid"
+	      },
+	      {
+	        type = "unlock-recipe",
+	        recipe = "sulfur"
+	      }
+	    },
+	    unit =
+	    {
+	      count = 150,
+	      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
+	      time = 30
+	    }
+	  },
+	  {
+	    type = "technology",
+	    name = "flammables",
+	    icon = "__base__/graphics/technology/flammables.png",
+	    icon_size = 256,
+	    prerequisites = {"oil-gathering"},
+	    unit =
+	    {
+	      count = 50,
+	      ingredients =
+	      {
+	        {"automation-science-pack", 1},
+	        {"logistic-science-pack", 1}
+	      },
+	      time = 30
+	    }
+	  },
+	  {
+	    type = "technology",
+	    name = "oil-gathering",
+	    icon = "__base__/graphics/technology/oil-gathering.png",
+	    icon_size = 256,
+	    prerequisites = {"fluid-handling"},
+	    effects =
+	    {
+	      {
+	        type = "unlock-recipe",
+	        recipe = "pumpjack"
+	      },
+	      {
+	        type = "unlock-recipe",
+	        recipe = "oil-refinery"
+	      },
+	      {
+	        type = "unlock-recipe",
+	        recipe = "chemical-plant"
+	      },
+	      {
+	        type = "unlock-recipe",
+	        recipe = "basic-oil-processing"
+	      },
+	      {
+	        type = "unlock-recipe",
+	        recipe = "solid-fuel-from-petroleum-gas"
+	      }
+	    },
+	    unit =
+	    {
+	      count = 100,
+	      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
+	      time = 30
+	    }
+	  },
+	  {
+	    type = "technology",
+	    name = "oil-processing",
+	    icon = "__base__/graphics/technology/oil-processing.png",
+	    icon_size = 256,
+	    prerequisites = {"oil-gathering"},
+	    effects =
+	    {
+	    },
+	    research_trigger =
+	    {
+	      type = "mine-entity",
+	      entity = "crude-oil"
+	    }
+	  }
   }   
 )
