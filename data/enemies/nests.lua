@@ -1,4 +1,4 @@
-cooldown = 750
+cooldown = 840
 
 local smallBiterNest = table.deepcopy(data.raw["unit-spawner"]["biter-spawner"])
 smallBiterNest.name = "small-biter-nest"

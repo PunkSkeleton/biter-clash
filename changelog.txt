@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.10
+Date: 26. 11. 2024
+  Balancing:
+    - Increased biter spawning interval from 12.5s to 14s to offset for better AI.
+  Features:
+    - Biters should proceed to silo faster, especially when close to it. They can be even ordered to go behind it which leads to more random behavior.
+  Bugfixes:
+    - Fixed AI logic so biters no longer get stuck infinitely (current max is around 4 minutes) or do very weird things. Fixed performance issues, now only 1 biter group is processed per tick, instead of all of them being processed in 1 tick which would cause some frames to process longer than 16.6 ms (in fact much much longer if many biter groups are active) which would lead to short pauses in the game.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.9
 Date: 23. 11. 2024
   Balancing:

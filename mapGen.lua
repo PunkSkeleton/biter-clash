@@ -112,13 +112,13 @@ function generateMapSettings()
 end
 
 function generateMap()		
-	helpers.write_file("biter-clash.log", "Generate map called, surface name = '" .. storage["surfaceName"] .. "'\n", true)
+	--helpers.write_file("biter-clash.log", "Generate map called, surface name = '" .. storage["surfaceName"] .. "'\n", true)
 	if storage["surfaceName"] == nil then
 		helpers.write_file("biter-clash.log", "Surface name is nil\n", true)
 		storage["surfaceIndex"] = 99
 		storage["surfaceName"] = "biterWars" .. storage["surfaceIndex"]
 	end
-	helpers.write_file("biter-clash.log", "Generate map 2, surface name = '" .. storage["surfaceName"] .. "'\n", true)
+	--helpers.write_file("biter-clash.log", "Generate map 2, surface name = '" .. storage["surfaceName"] .. "'\n", true)
 	game.create_surface(storage["surfaceName"], generateMapSettings())
 	storage["mapGeneratedTick"] = game.tick
 	storage["prepareMap"] = true
@@ -128,7 +128,7 @@ function generateMap()
 end
 
 function reGenerateMap()
-	helpers.write_file("biter-clash.log", "Regenerate map called, surface name = '" .. storage["surfaceName"] .. "'\n", true)
+	--helpers.write_file("biter-clash.log", "Regenerate map called, surface name = '" .. storage["surfaceName"] .. "'\n", true)
 	storage["northResearchedString"] = "North completed research:\n"
 	storage["southResearchedString"] = "South completed research:\n"
 	for i, player in pairs(game.connected_players) do
@@ -144,7 +144,7 @@ function reGenerateMap()
 	game.delete_surface(storage["surfaceName"])
 	storage["surfaceIndex"] = storage["surfaceIndex"] + 2
 	storage["surfaceName"] = "biterWars" .. storage["surfaceIndex"]
-	helpers.write_file("biter-clash.log", "Regenerate map 2, surface name = '" .. storage["surfaceName"] .. "'\n", true)
+	--helpers.write_file("biter-clash.log", "Regenerate map 2, surface name = '" .. storage["surfaceName"] .. "'\n", true)
 	generateMap()
 	for i, player in pairs(game.connected_players) do
 		player.teleport({0, i}, storage["surfaceName"])
@@ -294,10 +294,10 @@ function finishGeneration()
 	spawnSouthStart()
 	pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0,-740}, 5, 0.1)
 	game.forces["north"].set_spawn_position(pos,storage["surfaceName"])
-	helpers.write_file("biter-clash.log", "spawn position north: " .. pos.y, true)
+	--helpers.write_file("biter-clash.log", "spawn position north: " .. pos.y, true)
 	pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0, 760}, 5, 0.1)
 	game.forces["south"].set_spawn_position(pos,storage["surfaceName"])
-	helpers.write_file("biter-clash.log", "spawn position south: " .. pos.y, true)
+	--helpers.write_file("biter-clash.log", "spawn position south: " .. pos.y, true)
 end
 
 function finishMapGeneration()
