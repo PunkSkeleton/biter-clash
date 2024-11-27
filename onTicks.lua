@@ -12,10 +12,10 @@ function onTick()
 			selectBiters("south")
 			storage["aiStep"] = 3
 		elseif storage["aiStep"] == 3 then
-			formBiterGroup("north")
+			formBiterGroup("northBiters")
 			storage["aiStep"] = 4
 		elseif storage["aiStep"] == 4 then
-			formBiterGroup("south")
+			formBiterGroup("southBiters")
 			storage["aiStep"] = 5
 		elseif storage["aiStep"] == 5 then
 			firstCommand()

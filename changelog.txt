@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.11
+Date: 27. 11. 2024
+  Features:
+    - Biters are now in separate forces to not genereate warnings when dying.
+  Bugfixes:
+    - Fixed a critical bug that would crash the game if biters are used by one of the sides...
+    - Minor guide corrections.
+    - Added latest changes into the guide.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.10
 Date: 26. 11. 2024
   Balancing:

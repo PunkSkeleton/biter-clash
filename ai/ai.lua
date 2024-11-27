@@ -4,7 +4,7 @@ function selectBitersInner(area, force, offset)
 	local middleX = area["middleX"]
 	local middleY = area["middleY"] + offset
 	local position = {x = middleX, y = middleY}
-	if force == "south" then
+	if force == "southBiters" then
 		opposingForce = "north"
 		--helpers.write_file("biter-clash.log", game.tick .. ": a\n", true)
 	else
@@ -28,7 +28,7 @@ end
 	
 
 function advanceBiters(biterGroup)
-	if biterGroup.force == "north" then
+	if biterGroup.force == "northBiters" then
 		siloPosY = 750
 	else
 		siloPosY = -750
@@ -105,7 +105,7 @@ end
 
 function formBiterGroup(force)
 	offset = 0
-	if force == "north"  then	
+	if force == "northBiters"  then	
 		offset = 750
 		if storage["northAiBiters"] == nil then
 			return
@@ -122,8 +122,9 @@ function formBiterGroup(force)
 	local position = {x = middleX, y = middleY}
 	currentSurface = game.surfaces[storage["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position("assembling-machine-1", position, 512, 1)
+	
 	local biterGroup = currentSurface.create_unit_group({position = pos, force = force})
-	if force == "north" then
+	if force == "northBiters" then
 		for _, biter in pairs(storage["northAiBiters"]) do
 			biter.release_from_spawner()
 			biter.ai_settings.allow_destroy_when_commands_fail = false
@@ -152,7 +153,7 @@ function firstCommand()
 		biterMap["ticksIdle"] = 0
 		biterMap["ticksSinceLastCommand"] = 0
 		biterMap["opposingForce"] = "south"
-		biterMap["force"] = "north"
+		biterMap["force"] = "northBiters"
 		biterMap["autonomous"] = false
 		id = biterMap["group"].unique_id
 		biterMap["id"] = id
@@ -168,9 +169,10 @@ function firstCommand()
 		biterMap["ticksIdle"] = 0
 		biterMap["ticksSinceLastCommand"] = 0
 		biterMap["opposingForce"] = "north"
-		biterMap["force"] = "south"
+		biterMap["force"] = "southBiters"
 		biterMap["autonomous"] = false
 		id = biterMap["group"].unique_id
+		biterMap["id"] = id
 		--helpers.write_file("biter-clash.log", game.tick .. ": Commandable created with ID: " .. id .."\n", true)
 		storage["activeBiterGroups"][id] = biterMap
 		advanceBiters(biterMap)		
@@ -223,7 +225,7 @@ function onAiCommandCompleted(event)
 			biterGroup["position"] = biterGroup.group.position
 			forceName = biterGroup.force.name
 			enemyForce = "north"
-			if forceName == "north" then
+			if forceName == "northBiters" then
 				enemyForce = "south"
 			end
 			enemyEntities = game.surfaces[storage["surfaceName"]].find_entities_filtered({position=biterGroup["position"], radius=3, force=enemyForce})
@@ -265,6 +267,8 @@ end
 
 function processBiterGroup(biterMap)
 	group = biterMap["group"]
+	--helpers.write_file("biter-clash.log", game.tick .. ": processing biter group: " .. biterMap["id"] .. " at: " .. biterMap["position"].x .. "," .. biterMap["position"].y .. "\n", true)
+
 	if group == nil then
 		storage["activeBiterGroups"][biterMap["id"]] = nil
 		--helpers.write_file("biter-clash.log", game.tick .. ": nil biter group: " .. biterMap["id"] .. " detected at: " .. biterMap["position"].x .. "," .. biterMap["position"].y .. "\n", true)
@@ -316,7 +320,7 @@ function processBiterGroup(biterMap)
 		pos = group.position
 		forceName = group.force.name
 		enemyForce = "north"
-		if forceName == "north" then
+		if forceName == "northBiters" then
 			enemyForce = "south"
 		end
 		move = true
