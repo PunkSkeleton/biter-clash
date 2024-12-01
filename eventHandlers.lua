@@ -8,73 +8,73 @@ function onResearchFinished(event)
 	if event.research.name == "adrenaline" then
 		if event.research.force.name == "north" then
 			storage["adrenalineResearchedNorth"] = true
-			swapBuiltNest("small-biter-nest", "nest-adrenaline", "north")
+			swapBuiltNest("small-biter-nest", "nest-adrenaline", "northBiters")
 		else 
 			storage["adrenalineResearchedSouth"] = true
-			swapBuiltNest("small-biter-nest", "nest-adrenaline", "south")
+			swapBuiltNest("small-biter-nest", "nest-adrenaline", "southBiters")
 		end
 	end
 	if event.research.name == "alcohol" then
 		if event.research.force.name == "north" then
 			storage["alcoholResearchedNorth"] = true
-			swapBuiltNest("small-spitter-nest", "nest-drunken", "north")
+			swapBuiltNest("small-spitter-nest", "nest-drunken", "northBiters")
 		else 
 			storage["alcoholResearchedSouth"] = true
-			swapBuiltNest("small-spitter-nest", "nest-drunken", "south")
+			swapBuiltNest("small-spitter-nest", "nest-drunken", "southBiters")
 		end
 	end
 	if event.research.name == "resistance" then
 		if event.research.force.name == "north" then
 			storage["resistanceResearchedNorth"] = true
-			swapBuiltNest("medium-biter-nest", "nest-resistant", "north")
+			swapBuiltNest("medium-biter-nest", "nest-resistant", "northBiters")
 		else 
 			storage["resistanceResearchedSouth"] = true
-			swapBuiltNest("medium-biter-nest", "nest-resistant", "south")
+			swapBuiltNest("medium-biter-nest", "nest-resistant", "southBiters")
 		end
 	end
 	if event.research.name == "heavy-spit" then
 		if event.research.force.name == "north" then
 			storage["heavySpitResearchedNorth"] = true
-			swapBuiltNest("medium-spitter-nest", "medium-spitter-nest-heavy", "north")
+			swapBuiltNest("medium-spitter-nest", "medium-spitter-nest-heavy", "northBiters")
 		else 
 			storage["heavySpitResearchedSouth"] = true
-			swapBuiltNest("medium-spitter-nest", "medium-spitter-nest-heavy", "south")
+			swapBuiltNest("medium-spitter-nest", "medium-spitter-nest-heavy", "southBiters")
 		end
 	end
 	if event.research.name == "sharp-teeth" then
 		if event.research.force.name == "north" then
 			storage["sharpTeethResearchedNorth"] = true
-			swapBuiltNest("big-biter-nest", "big-biter-nest-sharp-teeth", "north")
+			swapBuiltNest("big-biter-nest", "big-biter-nest-sharp-teeth", "northBiters")
 		else 
 			storage["sharpTeethResearchedSouth"] = true
-			swapBuiltNest("big-biter-nest", "big-biter-nest-sharp-teeth", "south")
+			swapBuiltNest("big-biter-nest", "big-biter-nest-sharp-teeth", "southBiters")
 		end
 	end
 	if event.research.name == "artillery-spitter" then
 		if event.research.force.name == "north" then
 			storage["artilleryResearchedNorth"] = true
-			swapBuiltNest("big-spitter-nest", "artillery-spitter-nest", "north")
+			swapBuiltNest("big-spitter-nest", "artillery-spitter-nest", "northBiters")
 		else 
 			storage["artilleryResearchedSouth"] = true
-			swapBuiltNest("big-spitter-nest", "artillery-spitter-nest", "south")
+			swapBuiltNest("big-spitter-nest", "artillery-spitter-nest", "southBiters")
 		end
 	end
 	if event.research.name == "rapid-regeneration" then
 		if event.research.force.name == "north" then
 			storage["regenerationResearchedNorth"] = true
-			swapBuiltNest("behemoth-biter-nest", "behemoth-biter-nest-regen", "north")
+			swapBuiltNest("behemoth-biter-nest", "behemoth-biter-nest-regen", "northBiters")
 		else 
 			storage["regenerationResearchedSouth"] = true
-			swapBuiltNest("behemoth-biter-nest", "behemoth-biter-nest-regen", "south")
+			swapBuiltNest("behemoth-biter-nest", "behemoth-biter-nest-regen", "southBiters")
 		end
 	end
 	if event.research.name == "aoe-spitter" then
 		if event.research.force.name == "north" then
 			storage["aoeResearchedNorth"] = true
-			swapBuiltNest("behemoth-spitter-nest", "behemoth-spitter-nest-aoe", "north")
+			swapBuiltNest("behemoth-spitter-nest", "behemoth-spitter-nest-aoe", "northBiters")
 		else 
 			storage["aoeResearchedSouth"] = true
-			swapBuiltNest("behemoth-spitter-nest", "behemoth-spitter-nest-aoe", "south")
+			swapBuiltNest("behemoth-spitter-nest", "behemoth-spitter-nest-aoe", "southBiters")
 		end
 	end
 end

@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.12
+Date: 01. 12. 2024
+  Bugfixes:
+    - Fixed a critical bug resulting in a crash after upgrading biters that already have nests placed.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.11
 Date: 27. 11. 2024
   Features:
