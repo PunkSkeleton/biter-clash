@@ -369,7 +369,7 @@ function replaceInsideSpawningArea(sourceNestName, targetNestName, force, offset
 end
 
 function swapBuiltNest(sourceNestName, targetNestName, force) 
-	if force == "north" then
+	if force == "northBiters" then
 		replaceInsideSpawningArea(sourceNestName, targetNestName, force, 750)
 	else
 		replaceInsideSpawningArea(sourceNestName, targetNestName, force, -750)
