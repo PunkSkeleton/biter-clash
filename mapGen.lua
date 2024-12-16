@@ -142,6 +142,11 @@ function reGenerateMap()
 		player.teleport({0, 0}, "nauvis")
 	end
 	game.delete_surface(storage["surfaceName"])
+	if storage["newSurfaceName"] ~= nil then
+		if game.get_surface(storage["newSurfaceName"]) ~= nil then
+			game.delete_surface(storage["newSurfaceName"])
+		end
+	end
 	storage["surfaceIndex"] = storage["surfaceIndex"] + 2
 	storage["surfaceName"] = "biterWars" .. storage["surfaceIndex"]
 	--helpers.write_file("biter-clash.log", "Regenerate map 2, surface name = '" .. storage["surfaceName"] .. "'\n", true)
@@ -286,6 +291,7 @@ end
 function finishGeneration()
 	game.delete_surface(storage["surfaceName"])
 	storage["surfaceName"] = storage["newSurfaceName"]
+	storage["newSurfaceName"] = nil
 	storage["surfaceIndex"] = storage["newSurfaceIndex"]
 	game.forces["spectators"].chart(storage["surfaceName"],{{-5000, -5000}, {5000, 5000}})
 	game.forces["north"].chart(storage["surfaceName"],{{-550, -1300}, {550, 0}})

@@ -43,6 +43,9 @@ function joinSouth(player)
 end
 
 function spectate(player)
+	if player.ticks_to_respawn ~= nil and storage["gameStarted"] == false then
+		player.ticks_to_respawn = 1
+	end
 	game.print(player.name .. " has left team " .. player.force.name .. "!")
 	player.force="spectators"
 	pos = game.surfaces[storage["surfaceName"]].find_non_colliding_position("character", {0,0}, 5, 0.1)

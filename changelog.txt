@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.14
+Date: 16. 12. 2024
+  Balancing:
+    - After intense testing reverted last cost reduction of small nests. The rush tactics is too easy to execute and too hard to defend in 1v1, 10% less nests should make it more defendable.
+  Bugfixes:
+    - You should no longer remain dead after switching to spectator mode after the game ends.
+    - Game will not leave old surfaces after clicking regenerate map during map generation.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.13
 Date: 02. 12. 2024
   Bugfixes:
