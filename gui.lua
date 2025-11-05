@@ -47,12 +47,21 @@ function createGui(player)
 		type = "frame", name = "team-join", direction = "vertical", style = "biter-clash_frame"}
 	teamJoinFrame.style.width = 150
 	local teamJoinButtoncontainer = teamJoinFrame.add{ type = "flow", name = "teamJoinButtonflow", direction = "vertical"}
+	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-single-player", style = "rounded_button", caption = {"biter-clash.single-player"} }
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-spectate", style = "rounded_button", caption = {"biter-clash.spectate"} }
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-north", style = "rounded_button", caption = {"biter-clash.join-north"} }
 	teamJoinButtoncontainer.add{ type = "button", name = "biter-clash-join-south", style = "rounded_button", caption = {"biter-clash.join-south"} }
 	teamJoinButtoncontainer.add{ type = "checkbox", name = "lock-teams", caption = {"biter-clash.lockTeams"}, state = storage["lockTeams"] }
 	teamJoinButtoncontainer.style.minimal_width = 100
 	teamJoinButtoncontainer.style.horizontally_stretchable = true
+	
+	local singlePlayerDifficultyFrame = player.gui.left.add{
+		type = "frame", name = "single-player-difficulty", direction = "vertical", style = "biter-clash_frame"}
+	singlePlayerDifficultyFrame.style.width = 150
+	local singlePlayerDifficultycontainer = singlePlayerDifficultyFrame.add{ type = "flow", name = "singlePlayerDifficultyflow", direction = "vertical"}
+	singlePlayerDifficultycontainer.add{ type = "label", name = "biter-clash-single-player-difficulty-label", style = "biter-clash_help", caption = {"biter-clash.single-player-difficulty"} }
+	singlePlayerDifficultycontainer.add{ type = "textfield", name = "biter-clash-single-player-difficulty-textfield", style = "short_number_textfield", caption = {"biter-clash.single-player-difficulty"}, text = "20" }
+	player.gui.left["single-player-difficulty"].visible = false
 	
 	local frame2 = player.gui.top.add{
 		type = "frame", name = "ready", caption = {"ready.frame-heading"}, direction = "vertical", style = "biter-clash_frame"}
@@ -82,6 +91,13 @@ function createGui(player)
 	mapRegeneratingTextWindow.style = "biter-clash_help"
 	mapRegeneratingTextWindow.style.width = 500
 	player.gui.center["mapRegenerating"].visible = false
+	
+	singlePlayerGuide = player.gui.center.add{type = "frame", name = "singlePlayerGuide", direction = "vertical"}
+	addTitlebar(singlePlayerGuide, "Single Player Mode", "closeSinglePlayerGuide")
+	singlePlayerGuideTextWindow = singlePlayerGuide.add{type = "label", caption = {"singlePlayerGuide.frame-heading"}}
+	singlePlayerGuideTextWindow.style = "biter-clash_help"
+	singlePlayerGuideTextWindow.style.width = 500
+	player.gui.center["singlePlayerGuide"].visible = false
 	
 	quickGuide = player.gui.center.add{type = "frame", name = "quickGuide", direction = "vertical"}
 	addTitlebar(quickGuide, "Quick Guide", "closeQuickGuide")
@@ -187,6 +203,10 @@ function onGuiClick(event)
 		if event.element.name == "closeQuickGuide" then
 			player = game.players[event.element.player_index]
 		    player.gui.center["quickGuide"].visible = false
+		end
+		if event.element.name == "closeSinglePlayerGuide" then
+			player = game.players[event.element.player_index]
+		    player.gui.center["singlePlayerGuide"].visible = false
 		end
 		if event.element.name == "closeVictory" then
 			player = game.players[event.element.player_index]
@@ -337,6 +357,20 @@ function onGuiClick(event)
             return
         end
         if not storage["mapToBeCloned2"] then
+        	if element.name == "biter-clash-single-player" then
+		        joinNorth(game.players[event.element.player_index])
+		        if storage["singlePlayer"] == false then
+		            storage["singlePlayer"] = true
+					spawnTurret({x=0, y=760})
+					spawnTurret({x=0, y=740})
+					spawnTurret({x=-10, y=750})
+					spawnTurret({x=10, y=750})
+					game.players[event.element.player_index].gui.left["single-player-difficulty"].visible = true
+					game.players[event.element.player_index].gui.center["singlePlayerGuide"].visible = true
+				end
+				game.players[event.element.player_index].gui.top["biter-clash"].visible = true
+	            return
+	        end
 	        if element.name == "biter-clash-join-north" then
 	            joinNorth(game.players[event.element.player_index])
 	            return
@@ -350,7 +384,7 @@ function onGuiClick(event)
 	            return
 	        end
 	        if element.name == "biter-clash-start-game" then
-	        	if settings.global["tournament-mode"].value == false then
+	        	if settings.global["tournament-mode"].value == false or storage["singlePlayer"] then
 		            startGame()
 		        else
 		        	player = game.players[event.element.player_index]

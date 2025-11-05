@@ -1,3 +1,5 @@
+require "singlePlayer"
+
 function onTick()	
 	if game.tick == 100 then
 		initHost()
@@ -132,4 +134,10 @@ function on303thtick(event)
 	--helpers.write_file("biter-clash.log", {"", profiler2}, true)
 	--helpers.write_file("biter-clash.log", game.tick .. ": \n", true)
 	--profiler2.reset()
+end
+
+function every63thTick()	
+	if storage["gameStarted"] and storage["singlePlayer"] then	
+		singlePlayer()
+	end
 end

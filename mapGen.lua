@@ -1,5 +1,6 @@
 require "utils"
 require "ai.ai"
+require "singlePlayer"
 
 function generateStartingArea(size)
 	tiles = {}
@@ -131,6 +132,7 @@ function reGenerateMap()
 	--helpers.write_file("biter-clash.log", "Regenerate map called, surface name = '" .. storage["surfaceName"] .. "'\n", true)
 	storage["northResearchedString"] = "North completed research:\n"
 	storage["southResearchedString"] = "South completed research:\n"
+	storage["singlePlayer"] = false
 	for i, player in pairs(game.connected_players) do
 		player.gui.center["mapRegenerating"].visible = true
 		player.gui.center["victory"].visible = false

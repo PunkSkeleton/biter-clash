@@ -123,6 +123,8 @@ function onEntityDestroyed(event)
 		gameOver("south")
 	elseif event.registration_number == storage["southSiloId"] then
 		gameOver("north")
+	else
+		storage["aiIncome"] = storage["aiIncome"] - 1
 	end
 end
 

@@ -109,6 +109,18 @@ function startGame()
 				end
 			end
 	    end
+	    if storage["singlePlayer"] then
+	    	for i, player in pairs(game.connected_players) do
+		    	storage["difficulty"] = tonumber(player.gui.left["single-player-difficulty"]["singlePlayerDifficultyflow"]["biter-clash-single-player-difficulty-textfield"].text)
+		    	if storage["difficulty"] == nil then
+		    		storage["difficulty"] = 50
+		    		game.print("Not a number entered into difficulty field, setting difficulty to default value of 50!")
+		    	end
+		    	helpers.write_file("biter-clash.log", game.tick .. ": difficulty at game start '" .. storage["difficulty"] .. "'\n", true)
+		    	player.gui.left["single-player-difficulty"].visible = false
+		    	player.gui.center["singlePlayerGuide"].visible = false
+		    end
+	    end
 	    clearAllInventories()
 		clearQuickBars()
 	    for i, player in pairs(game.connected_players) do

@@ -413,6 +413,25 @@ function gameOver(winningForce)
 		game.permissions.get_group("Players").set_allows_action(defines.input_action.open_blueprint_library_gui, true)
 		game.permissions.get_group("Players").set_allows_action(defines.input_action.import_blueprint_string, true)
 		game.permissions.get_group("Players").set_allows_action(defines.input_action.start_walking, false)
+		storage["singlePlayer"] = false
+		storage["difficulty"] = 100
+		storage["aiIncome"] = 0
+		storage["aiMoney"] = 0
+		storage["weaponSpeedResearchPointer"] = 0
+		storage["weaponDamageResearchPointer"] = 0
+		storage["biterResearchPointer"] = 0
+		storage["spitterResearchPointer"] = 0
+		storage["currentBiterNest"] = ""
+		storage["currentSpitterNest"] = ""
+		storage["bitersResearched"] = false
+		storage["spittersResearched"] = false
+		storage["aiSpendingTarget"] = ""
+		storage["aiSpendingCost"] = 0
+		storage["aiMaxRandom"] = 39
+		storage["currentSpitterNest"] = ""
+		storage["currentBiterNest"] = ""
+		storage["researchingBiters"] = false
+		storage["researchingSpitters"] = false
 	end
 end
 

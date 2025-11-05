@@ -186,7 +186,7 @@ redAmmo.ammo_type =
             },
             {
               type = "damage",
-              damage = { amount = 9, type = "physical"}
+              damage = { amount = 7, type = "physical"}
             }
           }
         }

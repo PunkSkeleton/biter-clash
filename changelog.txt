@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 05. 11. 2025
+  Features:
+    - Bot now spawns turrets in packs of 4 instead of each turret individually. Increased spacing between turret nests. This is more like actual PvP turret placement looks like. The total number of turrets spawned on a given difficulty mode is the same but it makes the game a little harder, especially on low difficulties where turrets were often very far from each other.
+  Bugfixes:
+    - Missing physical projetile damage 5 upgrade added to bot upgrade list.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 03. 11. 2025
+  Features:
+    - Single player mode has arrived. This is a mode in which you play against a bot that randomly places turrets around its rocket silo. Those turrets generate income "simulating" factory of opposing team which produces research and biter nests (after they are researched). This mode is not designed to be as immersive as PvP but let's you practice the game alone. The difficulty is highly customizable so both new Factorio players and speedrunners can have a challenging gameplay.
+  Balancing:
+    - Decreased piercing ammo damage to 7 to offset for main game recipe change.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.14
 Date: 16. 12. 2024
   Balancing:
