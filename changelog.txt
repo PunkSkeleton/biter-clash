@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 07. 11. 2025
+  Balancing:
+    - Increased the cost scaling of bot researches. It should prevent the bot from getting very high tech (weapon upgrade level 5 or artillery spitters) too quickly.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 05. 11. 2025
   Features:
