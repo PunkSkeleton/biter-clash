@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 08. 11. 2025
+  Features:
+    - Added some popular mods to incompatibility list. This does not mean Biter Clash can be played with any other modes. It is definitely designed to be played with Factorio base version only.
+  Bugfixes:
+    - Spitters (like Biters) are now correctly using reduced spacing when spawning.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 07. 11. 2025
   Balancing:

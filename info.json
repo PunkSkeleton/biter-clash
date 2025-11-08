@@ -1,9 +1,12 @@
 {
   "name": "biter-clash",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "title": "Biter Clash",
   "author": "PunkSkeleton",
   "factorio_version": "2.0",
-  "dependencies": ["base >= 2.0"],
+  "dependencies": ["base >= 2.0", "! Krastorio2", "! space-age", "! elevated-rails", "! quality", "! alien-biomes", "! boblibrary", "! aai-industry", "! aai-signal-transmission", 
+  					"! combat-mechanics-overhaul", "! angelsindustries", "! angelspetrochem", "! angelsrefining", "! angelssmelting", "! Yuoki", "! IndustrialRevolution",
+  					"! rso-mod", "! SeaBlock", "! Unlimited-Resources", "! TeamCoop", "! sonaxaton-infinite-resources", "! InfiniteOresAndOil", "! far-reach", "! Factorissimo2"],
+  "homepage": "https://discord.gg/fhwUCc8vzG",
   "description": "Biter Clash is an indirect PvP scenario heavily inspired by Biter Battles. Designed with competitive play and enjoyable viewing experience in mind from the ground up. More information and basic game guide available on Discord: https://discord.gg/fhwUCc8vzG\n***IMPORTANT INFORMATION: This mod is designed to work with base version of the game. Running Biter Clash with other mods or Space Age expansion may not work at all or can result in bad experience. ***"
 }

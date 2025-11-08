@@ -34,6 +34,7 @@ smallSpitterNest.healing_per_tick = 1
 smallSpitterNest.max_count_of_owned_units = 99999
 smallSpitterNest.max_friends_around_to_spawn = 99999
 smallSpitterNest.max_richness_for_spawn_shift = 99999
+smallSpitterNest.spawning_spacing = 0.05
 smallSpitterNest.result_units = (function()
                      local res = {}
                      res[1] = {"small-spitter", {{0.0, 1.0}, {1.0, 1.0}}}
