@@ -360,6 +360,25 @@ function onGuiClick(event)
         	if element.name == "biter-clash-single-player" then
 		        joinNorth(game.players[event.element.player_index])
 		        if storage["singlePlayer"] == false then
+		        	storage["aiIncome"] = 0
+					storage["aiMoney"] = 0
+					storage["weaponSpeedResearchPointer"] = 1
+					storage["weaponDamageResearchPointer"] = 1
+					storage["biterResearchPointer"] = 1
+					storage["spitterResearchPointer"] = 1
+					storage["currentBiterNest"] = ""
+					storage["currentSpitterNest"] = ""
+					storage["bitersResearched"] = false
+					storage["spittersResearched"] = false
+					storage["aiSpendingTarget"] = ""
+					storage["aiSpendingCost"] = 0
+					storage["aiMaxRandom"] = 39
+					storage["currentSpitterNest"] = ""
+					storage["currentBiterNest"] = ""
+					storage["researchingBiters"] = false
+					storage["researchingSpitters"] = false
+					storage["stagingAreaNumber"] = ""
+					storage["changeStagingArea"] = true
 		            storage["singlePlayer"] = true
 					spawnTurret({x=0, y=760})
 					spawnTurret({x=0, y=740})

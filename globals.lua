@@ -84,3 +84,5 @@ storage["researchingBiters"] = false
 storage["researchingSpitters"] = false
 storage["biterNestMap"] = {"small-biter-nest", "nest-adrenaline", "medium-biter-nest", "nest-resistant", "big-biter-nest", "big-biter-nest-sharp-teeth", "behemoth-biter-nest", "behemoth-biter-nest-regen"}
 storage["spitterNestMap"] = {"small-spitter-nest", "nest-drunken", "medium-spitter-nest", "medium-spitter-nest-heavy", "big-spitter-nest", "artillery-spitter-nest", "behemoth-spitter-nest", "behemoth-spitter-nest-aoe"}
+storage["stagingAreaNumber"] = ""
+storage["changeStagingArea"] = true

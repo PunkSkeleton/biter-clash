@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 09. 11. 2025
+  Features:
+    - There is now 90% chance that the next nest placed by the bot will be in the same staging area as previous one. This is similar to human behavior and results in much stronger but much less frequent attacks. Bot can finally kill you with strong attacks instead of slowly dwindling you down.
+  Balancing:
+    - Slightly decreased the cost of weapon shooting speed researches for bot. This should make the game difficulty slightly more consistent as high level weapon speed without weapon damage is the worst upgrade path possible.
+  Bugfixes:
+    - Top wall of bot turret nests now spawns in correct position.
+    - Regenerating map during single player game no longer breaks the next game.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 08. 11. 2025
   Features:

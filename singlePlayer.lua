@@ -42,16 +42,18 @@ function spawnTurretNest(pos)
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 1, posy + 2}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 2, posy + 2}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 3, posy + 2}, force =  "south"})
+	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 2, posy - 3}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 2, posy - 2}, force =  "south"})
-	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 1, posy - 2}, force =  "south"})
-	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx, posy - 2}, force =  "south"})
-	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 1, posy - 2}, force =  "south"})
-	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 2, posy - 2}, force =  "south"})
+	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 1, posy - 3}, force =  "south"})
+	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx, posy - 3}, force =  "south"})
+	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 1, posy - 3}, force =  "south"})
+	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 2, posy - 3}, force =  "south"})
+	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 3, posy - 3}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 3, posy - 2}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 2, posy + 1}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 2, posy}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 2, posy - 1}, force =  "south"})
-	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 2, posy - 2}, force =  "south"})
+	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx + 2, posy - 3}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 3, posy + 1}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 3, posy}, force =  "south"})
 	game.surfaces[storage["surfaceName"]].create_entity({name = "stone-wall", position = {posx - 3, posy - 1}, force =  "south"})
@@ -73,13 +75,25 @@ end
 
 function placeNest(nestName)	
 	--helpers.write_file("biter-clash.log", game.tick .. ": trying to place ai nest: '" .. nestName .. "'\n", true)
-	stagingAreaNumber = math.random(1, #biterStagingAreas) 
+	if storage["changeStagingArea"] then
+		stagingAreaNumber = math.random(1, #biterStagingAreas) 
+		storage["stagingAreaNumber"] = stagingAreaNumber
+		storage["changeStagingArea"] = false
+	else
+		stagingAreaNumber = storage["stagingAreaNumber"]
+	end
 	stagingArea = biterStagingAreas[stagingAreaNumber]
 	xpos = stagingArea["middleX"]
 	ypos = stagingArea["middleY"] - 750
 	currentSurface = game.surfaces[storage["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position(nestName, {x = xpos, y = ypos}, 512, 1)
 	currentSurface.create_entity({name = nestName, position = pos, force =  "southBiters"})
+	if storage["changeStagingArea"] == false then
+		local randValue = math.random(1,10)
+		if randValue == 1 then
+			storage["changeStagingArea"] = true
+		end
+	end
 end
 
 function income()
@@ -96,7 +110,7 @@ function setTarget()
 		else 
 			storage["weaponSpeedResearchPointer"] = storage["weaponSpeedResearchPointer"] + 1
 			storage["aiSpendingTarget"] = storage["weaponSpeedResearch"][pointer]
-			storage["aiSpendingCost"] = 625 * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"]
+			storage["aiSpendingCost"] = 500 * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"]
 		end
 	elseif rand < 20 then
 		local pointer = storage["weaponDamageResearchPointer"]
