@@ -108,40 +108,60 @@ function setTarget()
 		if pointer == 8 then
 			setTarget()
 		else 
-			storage["weaponSpeedResearchPointer"] = storage["weaponSpeedResearchPointer"] + 1
-			storage["aiSpendingTarget"] = storage["weaponSpeedResearch"][pointer]
-			storage["aiSpendingCost"] = 500 * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"]
+			local rand2 = math.random(1,storage["weaponSpeedResearchPointer"])
+			if rand2 == 1 then
+				storage["weaponSpeedResearchPointer"] = storage["weaponSpeedResearchPointer"] + 1
+				storage["aiSpendingTarget"] = storage["weaponSpeedResearch"][pointer]
+				storage["aiSpendingCost"] = 500 * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"] * storage["weaponSpeedResearchPointer"]
+			else
+				setTarget()
+			end
 		end
 	elseif rand < 20 then
 		local pointer = storage["weaponDamageResearchPointer"]
 		if pointer == 8 then
 			setTarget()
 		else 
-			storage["weaponDamageResearchPointer"] = storage["weaponDamageResearchPointer"] + 1
-			storage["aiSpendingTarget"] = storage["weaponDamageResearch"][pointer]
-			storage["aiSpendingCost"] = 1000 * storage["weaponDamageResearchPointer"] * storage["weaponDamageResearchPointer"] * storage["weaponDamageResearchPointer"]
+			local rand2 = math.random(1,storage["weaponDamageResearchPointer"])
+			if rand2 == 1 then
+				storage["weaponDamageResearchPointer"] = storage["weaponDamageResearchPointer"] + 1
+				storage["aiSpendingTarget"] = storage["weaponDamageResearch"][pointer]
+				storage["aiSpendingCost"] = 1000 * storage["weaponDamageResearchPointer"] * storage["weaponDamageResearchPointer"] * storage["weaponDamageResearchPointer"]
+			else
+				setTarget()
+			end
 		end
 	elseif rand < 30 then
 		local pointer = storage["biterResearchPointer"]
 		if pointer == 9 then
 			setTarget()
 		else 
-			storage["biterResearchPointer"] = storage["biterResearchPointer"] + 1
-			storage["aiSpendingTarget"] = storage["biterResearch"][pointer]
-			storage["aiSpendingCost"] = 750 * storage["biterResearchPointer"] * storage["biterResearchPointer"] * storage["biterResearchPointer"]
-			storage["researchingBiters"] = true
+			local rand2 = math.random(1,storage["biterResearchPointer"])
+			if rand2 == 1 then
+				storage["biterResearchPointer"] = storage["biterResearchPointer"] + 1
+				storage["aiSpendingTarget"] = storage["biterResearch"][pointer]
+				storage["aiSpendingCost"] = 750 * storage["biterResearchPointer"] * storage["biterResearchPointer"] * storage["biterResearchPointer"]
+				storage["researchingBiters"] = true
+			else
+				setTarget()
+			end
 		end
 	elseif rand < 40 then
 		local pointer = storage["spitterResearchPointer"]
 		if pointer == 9 then
 			setTarget()
 		else 
-			storage["spitterResearchPointer"] = storage["spitterResearchPointer"] + 1
-			storage["aiSpendingTarget"] = storage["spitterResearch"][pointer]
-			storage["aiSpendingCost"] = 750 * storage["spitterResearchPointer"] * storage["spitterResearchPointer"] * storage["spitterResearchPointer"]
-			storage["researchingSpitters"] = true
+			local rand2 = math.random(1,storage["spitterResearchPointer"])
+			if rand2 == 1 then
+				storage["spitterResearchPointer"] = storage["spitterResearchPointer"] + 1
+				storage["aiSpendingTarget"] = storage["spitterResearch"][pointer]
+				storage["aiSpendingCost"] = 750 * storage["spitterResearchPointer"] * storage["spitterResearchPointer"] * storage["spitterResearchPointer"]
+				storage["researchingSpitters"] = true
+			else
+				setTarget()
+			end
 		end
-	elseif rand < 340 then
+	elseif rand < 190 then
 		if storage["bitersResearched"] then
 			storage["aiSpendingTarget"] = "biterNest"
 			storage["aiSpendingCost"] = 350 * storage["biterResearchPointer"]
@@ -149,7 +169,7 @@ function setTarget()
 			storage["aiSpendingTarget"] = "spitterNest"
 			storage["aiSpendingCost"] = 250 * storage["spitterResearchPointer"]
 		end
-	elseif rand < 640 then
+	elseif rand < 340 then
 		storage["aiSpendingTarget"] = "spitterNest"
 		storage["aiSpendingCost"] = 250 * storage["spitterResearchPointer"]
 	end
@@ -168,7 +188,7 @@ function completeAiResearch()
 		storage["currentBiterNest"] = newNestName
 		if storage["bitersResearched"] == false then
 			storage["bitersResearched"] = true
-			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 300
+			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 150
 		end		
 	elseif storage["researchingSpitters"] then
 		storage["researchingSpitters"]  = false
@@ -178,7 +198,7 @@ function completeAiResearch()
 		storage["currentSpitterNest"] = newNestName
 		if storage["spittersResearched"] == false then
 			storage["spittersResearched"] = true
-			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 300
+			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 150
 		end		
 	end 
 end

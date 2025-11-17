@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 17. 11. 2025
+  Features:
+    - Changed the bot spending priorities - it is now more likely to research all the low level technologies and less likely to research high level ones. This should reduce the likehood of odd research choices and increase the bot aggressiveness from mid-game.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 09. 11. 2025
   Features:
