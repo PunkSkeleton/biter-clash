@@ -89,7 +89,7 @@ function placeNest(nestName)
 	pos = currentSurface.find_non_colliding_position(nestName, {x = xpos, y = ypos}, 512, 1)
 	currentSurface.create_entity({name = nestName, position = pos, force =  "southBiters"})
 	if storage["changeStagingArea"] == false then
-		local randValue = math.random(1,10)
+		local randValue = math.random(1,20)
 		if randValue == 1 then
 			storage["changeStagingArea"] = true
 		end
@@ -161,7 +161,7 @@ function setTarget()
 				setTarget()
 			end
 		end
-	elseif rand < 190 then
+	elseif rand < 140 then
 		if storage["bitersResearched"] then
 			storage["aiSpendingTarget"] = "biterNest"
 			storage["aiSpendingCost"] = 350 * storage["biterResearchPointer"]
@@ -169,7 +169,7 @@ function setTarget()
 			storage["aiSpendingTarget"] = "spitterNest"
 			storage["aiSpendingCost"] = 250 * storage["spitterResearchPointer"]
 		end
-	elseif rand < 340 then
+	elseif rand < 240 then
 		storage["aiSpendingTarget"] = "spitterNest"
 		storage["aiSpendingCost"] = 250 * storage["spitterResearchPointer"]
 	end
@@ -188,7 +188,7 @@ function completeAiResearch()
 		storage["currentBiterNest"] = newNestName
 		if storage["bitersResearched"] == false then
 			storage["bitersResearched"] = true
-			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 150
+			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 100
 		end		
 	elseif storage["researchingSpitters"] then
 		storage["researchingSpitters"]  = false
@@ -198,7 +198,7 @@ function completeAiResearch()
 		storage["currentSpitterNest"] = newNestName
 		if storage["spittersResearched"] == false then
 			storage["spittersResearched"] = true
-			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 150
+			storage["aiMaxRandom"] = storage["aiMaxRandom"] + 100
 		end		
 	end 
 end
